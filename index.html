@@ -57,6 +57,18 @@
   .chip b { color:#e8edf7; } .chip.up b { color:#1fd286; } .chip.dn b { color:#ff4d5e; }
   @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
 
+  /* buy/sell deal tickets floating in the background */
+  .deal {
+    position:absolute; display:flex; align-items:stretch; gap:1px; border-radius:7px; overflow:hidden;
+    border:1px solid rgba(91,140,255,.22); background:rgba(8,17,32,.55); backdrop-filter:blur(4px);
+    font-size:10px; letter-spacing:.5px; animation: floaty var(--t) ease-in-out infinite;
+  }
+  .deal .sym { display:flex; align-items:center; padding:6px 8px; color:#aeb9d4; font-weight:600; }
+  .deal .side { display:flex; flex-direction:column; align-items:center; padding:4px 9px; line-height:1.2; }
+  .deal .side small { font-size:8px; letter-spacing:1px; opacity:.8; }
+  .deal .sell { background:rgba(255,77,94,.16); color:#ff8a96; }
+  .deal .buy  { background:rgba(31,210,134,.16); color:#5fe3ad; }
+
   /* ===== content ===== */
   .wrap { position:relative; z-index:2; max-width:760px; width:100%; }
   .logo { font-size:14px; letter-spacing:6px; color:var(--brand); text-transform:uppercase; margin-bottom:18px; }
@@ -69,7 +81,7 @@
   .cube {
     position:relative; width:100%; height:100%; transform-style:preserve-3d;
     animation: assemble 1.6s cubic-bezier(.2,.85,.25,1) both,
-               spinFaces 18s 1.6s cubic-bezier(.7,0,.3,1) infinite;
+               spinFaces 22s 1.6s cubic-bezier(.65,0,.35,1) infinite;
   }
   .face {
     position:absolute; inset:0; display:flex; flex-direction:column;
@@ -101,13 +113,15 @@
     55%  { opacity:1; }
     100% { opacity:1; transform: scale(1)  rotateX(-16deg) rotateY(0deg); }
   }
-  /* snap to each face, pausing so the number is readable: Days→Hours→Minutes→Seconds */
+  /* rotate through EVERY face with a short readable pause on each:
+     Days → Hours → Minutes → Seconds → CubeX brand → loop */
   @keyframes spinFaces {
-    0%,18%   { transform: rotateX(-16deg) rotateY(0deg); }      /* Days  (front) */
-    25%,43%  { transform: rotateX(-16deg) rotateY(-90deg); }    /* Hours (right) */
-    50%,68%  { transform: rotateX(-16deg) rotateY(-180deg); }   /* Mins  (back)  */
-    75%,93%  { transform: rotateX(-16deg) rotateY(-270deg); }   /* Secs  (left)  */
-    100%     { transform: rotateX(-16deg) rotateY(-360deg); }   /* loop to Days  */
+    0%,11%   { transform: rotateX(-14deg) rotateY(0deg); }      /* Days  (front) */
+    16%,27%  { transform: rotateX(-14deg) rotateY(-90deg); }    /* Hours (right) */
+    32%,43%  { transform: rotateX(-14deg) rotateY(-180deg); }   /* Mins  (back)  */
+    48%,59%  { transform: rotateX(-14deg) rotateY(-270deg); }   /* Secs  (left)  */
+    66%,80%  { transform: rotateX(-90deg) rotateY(-270deg); }   /* CubeX (top)   */
+    88%,100% { transform: rotateX(-14deg) rotateY(-360deg); }   /* loop to Days  */
   }
 
   .foot { color:#5d6a85; font-size:13px; }
@@ -116,7 +130,7 @@
   @media (max-width:640px) {
     :root { --cube:150px; }
     body { padding:18px; }
-    .chip { display:none; }                 /* chips overlap the cube on phones */
+    .chip, .deal { display:none; }          /* tickers overlap the cube on phones */
     .candles.back { height:34vh; }
     .candles.front { height:22vh; }
     p.sub { margin-bottom:26px; }
@@ -143,11 +157,24 @@
     </svg>
     <div class="candles back" id="candlesBack"></div>
     <div class="candles front" id="candlesFront"></div>
-    <div class="chip up" style="left:6%;  top:18%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
-    <div class="chip dn" style="left:79%; top:13%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
-    <div class="chip up" style="left:8%;  top:66%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
-    <div class="chip dn" style="left:82%; top:60%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
-    <div class="chip up" style="left:46%; top:6%;  --t:10s">BTC/USD <b>&#9650; 97,240</b></div>
+    <div class="chip up" style="left:5%;  top:14%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
+    <div class="chip dn" style="left:80%; top:11%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
+    <div class="chip up" style="left:7%;  top:70%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
+    <div class="chip dn" style="left:84%; top:64%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
+    <div class="chip up" style="left:47%; top:5%;  --t:10s">BTC/USD <b>&#9650; 97,240</b></div>
+    <div class="chip up" style="left:88%; top:38%; --t:7.5s">ETH/USD <b>&#9650; 3,612</b></div>
+    <div class="chip dn" style="left:3%;  top:42%; --t:9.5s">USD/JPY <b>&#9660; 156.18</b></div>
+
+    <!-- buy / sell deal tickets -->
+    <div class="deal" style="left:13%; top:28%; --t:8.5s">
+      <span class="sym">EUR/USD</span><span class="side sell"><small>SELL</small>1.0840</span><span class="side buy"><small>BUY</small>1.0842</span>
+    </div>
+    <div class="deal" style="left:72%; top:78%; --t:7.2s">
+      <span class="sym">XAU/USD</span><span class="side sell"><small>SELL</small>2381.1</span><span class="side buy"><small>BUY</small>2381.5</span>
+    </div>
+    <div class="deal" style="left:70%; top:30%; --t:9.8s">
+      <span class="sym">BTC/USD</span><span class="side sell"><small>SELL</small>97,235</span><span class="side buy"><small>BUY</small>97,240</span>
+    </div>
   </div>
 
   <div class="wrap">
