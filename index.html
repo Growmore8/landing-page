@@ -1,13 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CubeX Enterprises — Coming Soon</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --cube: 210px; --brand:#5b8cff; }
   body {
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    min-height:100vh; min-height:100dvh; display:flex; align-items:center; justify-content:center;
     background: radial-gradient(ellipse at 30% 20%, #16233f 0%, #0a0f1e 60%, #06080f 100%);
     color:#e8edf7; font-family:'Segoe UI', Arial, sans-serif; text-align:center; padding:24px;
     overflow:hidden;
@@ -26,20 +27,17 @@
   }
   @keyframes gridDrift { from{background-position:0 0} to{background-position:60px 60px} }
 
-  /* candlestick rows at bottom */
   .candles { position:absolute; left:0; right:0; bottom:-8px; display:flex; align-items:flex-end; gap:9px; }
   .candles.back  { height:42vh; opacity:.20; filter:blur(1.5px); }
   .candles.front { height:26vh; opacity:.45; }
   .candle { flex:1; min-width:9px; position:relative; display:flex; justify-content:center; align-items:flex-end; }
   .candle i { display:block; width:100%; border-radius:2px; animation:candleGrow 5.5s ease-in-out infinite; }
   .candle::after { content:""; position:absolute; bottom:0; width:2px; height:calc(100% + 16px); background:currentColor; opacity:.35; }
-  .candle.up { color:#1fd286; }
-  .candle.dn { color:#ff4d5e; }
+  .candle.up { color:#1fd286; } .candle.dn { color:#ff4d5e; }
   .candle.up i { background:linear-gradient(180deg,#1fd286,rgba(31,210,134,.12)); }
   .candle.dn i { background:linear-gradient(180deg,#ff4d5e,rgba(255,77,94,.12)); }
   @keyframes candleGrow { 0%,100%{height:var(--h)} 50%{height:calc(var(--h)*var(--p))} }
 
-  /* glowing price line that draws itself, then pulses */
   .priceline { position:absolute; inset:0; opacity:.7; }
   .priceline path {
     fill:none; stroke:url(#plg); stroke-width:2;
@@ -50,77 +48,130 @@
   @keyframes draw { to{stroke-dashoffset:0} }
   @keyframes glowpulse { 0%,100%{opacity:.95} 50%{opacity:.5} }
 
-  /* floating currency pair chips */
   .chip {
     position:absolute; font-size:11px; letter-spacing:1.5px;
     padding:6px 11px; border:1px solid rgba(91,140,255,.22); border-radius:6px;
     background:rgba(8,17,32,.55); backdrop-filter:blur(4px);
-    color:#7c8aa8; white-space:nowrap;
-    animation: floaty var(--t) ease-in-out infinite;
+    color:#7c8aa8; white-space:nowrap; animation: floaty var(--t) ease-in-out infinite;
   }
-  .chip b { color:#e8edf7; }
-  .chip.up b { color:#1fd286; }
-  .chip.dn b { color:#ff4d5e; }
+  .chip b { color:#e8edf7; } .chip.up b { color:#1fd286; } .chip.dn b { color:#ff4d5e; }
   @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
 
   /* ===== content ===== */
-  .wrap { position:relative; z-index:2; max-width:720px; }
-  .logo { font-size:14px; letter-spacing:6px; color:#5b8cff; text-transform:uppercase; margin-bottom:18px; }
-  h1 { font-size:clamp(34px, 6vw, 64px); font-weight:700; margin-bottom:14px; }
-  h1 span { color:#5b8cff; }
-  p.sub { color:#9aa7c0; font-size:clamp(15px,2.5vw,19px); margin-bottom:48px; }
-  .timer { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
-  .cell {
-    background:rgba(8,15,29,.72); border:1px solid rgba(91,140,255,0.25);
-    border-radius:14px; padding:22px 10px; min-width:108px; backdrop-filter:blur(6px);
+  .wrap { position:relative; z-index:2; max-width:760px; width:100%; }
+  .logo { font-size:14px; letter-spacing:6px; color:var(--brand); text-transform:uppercase; margin-bottom:18px; }
+  h1 { font-size:clamp(32px, 6vw, 64px); font-weight:700; margin-bottom:14px; line-height:1.08; }
+  h1 span { color:var(--brand); }
+  p.sub { color:#9aa7c0; font-size:clamp(15px,2.5vw,19px); margin-bottom:34px; }
+
+  /* ===== 3D countdown cube ===== */
+  .scene { width:var(--cube); height:var(--cube); margin:8px auto 44px; perspective:1100px; }
+  .cube {
+    position:relative; width:100%; height:100%; transform-style:preserve-3d;
+    animation: assemble 1.6s cubic-bezier(.2,.85,.25,1) both,
+               spinFaces 18s 1.6s cubic-bezier(.7,0,.3,1) infinite;
   }
-  .num { font-size:clamp(32px,5vw,52px); font-weight:700; color:#fff; font-variant-numeric:tabular-nums; }
-  .lbl { font-size:12px; letter-spacing:2px; color:#7c8aa8; text-transform:uppercase; margin-top:6px; }
+  .face {
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:8px;
+    background:rgba(8,15,29,.80); border:1px solid rgba(91,140,255,0.35);
+    border-radius:18px; backdrop-filter:blur(6px);
+    box-shadow: inset 0 0 36px rgba(91,140,255,0.10), 0 0 30px rgba(91,140,255,0.06);
+  }
+  .face .num { font-size:clamp(46px,13vw,72px); font-weight:700; color:#fff; font-variant-numeric:tabular-nums; line-height:1; }
+  .face .lbl { font-size:13px; letter-spacing:3px; color:#7c8aa8; text-transform:uppercase; }
+  .face.brand { gap:6px; }
+  .face.brand .mark { width:36px; height:36px; border-radius:8px;
+    background:linear-gradient(135deg,var(--brand),#1fd286); transform:rotate(45deg);
+    box-shadow:0 0 22px rgba(91,140,255,.5); }
+  .face.brand .name { margin-top:14px; font-size:18px; font-weight:700; letter-spacing:2px; }
+  .face.brand .name span { color:var(--brand); }
+  .face.brand .soon { font-size:10px; letter-spacing:3px; color:#7c8aa8; text-transform:uppercase; }
+
+  .f-front  { transform: rotateY(0deg)    translateZ(calc(var(--cube)/2)); }
+  .f-right  { transform: rotateY(90deg)   translateZ(calc(var(--cube)/2)); }
+  .f-back   { transform: rotateY(180deg)  translateZ(calc(var(--cube)/2)); }
+  .f-left   { transform: rotateY(-90deg)  translateZ(calc(var(--cube)/2)); }
+  .f-top    { transform: rotateX(90deg)   translateZ(calc(var(--cube)/2)); }
+  .f-bottom { transform: rotateX(-90deg)  translateZ(calc(var(--cube)/2)); }
+
+  /* form/assemble: spin + scale up from nothing, then settle into a slight tilt */
+  @keyframes assemble {
+    0%   { opacity:0; transform: scale(.15) rotateX(-16deg) rotateY(-260deg); }
+    55%  { opacity:1; }
+    100% { opacity:1; transform: scale(1)  rotateX(-16deg) rotateY(0deg); }
+  }
+  /* snap to each face, pausing so the number is readable: Days→Hours→Minutes→Seconds */
+  @keyframes spinFaces {
+    0%,18%   { transform: rotateX(-16deg) rotateY(0deg); }      /* Days  (front) */
+    25%,43%  { transform: rotateX(-16deg) rotateY(-90deg); }    /* Hours (right) */
+    50%,68%  { transform: rotateX(-16deg) rotateY(-180deg); }   /* Mins  (back)  */
+    75%,93%  { transform: rotateX(-16deg) rotateY(-270deg); }   /* Secs  (left)  */
+    100%     { transform: rotateX(-16deg) rotateY(-360deg); }   /* loop to Days  */
+  }
+
   .foot { color:#5d6a85; font-size:13px; }
+
+  /* ===== mobile ===== */
+  @media (max-width:640px) {
+    :root { --cube:150px; }
+    body { padding:18px; }
+    .chip { display:none; }                 /* chips overlap the cube on phones */
+    .candles.back { height:34vh; }
+    .candles.front { height:22vh; }
+    p.sub { margin-bottom:26px; }
+    .scene { margin:6px auto 34px; }
+    .face .lbl { font-size:11px; letter-spacing:2px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cube { animation: assemble .01s both; }   /* settle, no continuous spin */
+    .grid, .candle i, .priceline path, .chip { animation:none; }
+  }
 </style>
 </head>
 <body>
 
   <div class="bg">
     <div class="grid"></div>
-
     <svg class="priceline" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="plg" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#ff4d5e"/>
-          <stop offset=".5" stop-color="#f3b73c"/>
-          <stop offset="1" stop-color="#1fd286"/>
+          <stop offset="0" stop-color="#ff4d5e"/><stop offset=".5" stop-color="#f3b73c"/><stop offset="1" stop-color="#1fd286"/>
         </linearGradient>
       </defs>
       <path d="M-20,560 L90,540 L150,580 L230,470 L300,510 L380,420 L450,460 L540,350 L620,400 L700,300 L790,360 L870,250 L950,310 L1040,200 L1120,260 L1210,160 L1300,210 L1380,120 L1460,160"/>
     </svg>
-
     <div class="candles back" id="candlesBack"></div>
     <div class="candles front" id="candlesFront"></div>
-
-    <div class="chip up" style="left:6%;  top:20%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
-    <div class="chip dn" style="left:79%; top:15%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
-    <div class="chip up" style="left:10%; top:62%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
-    <div class="chip dn" style="left:83%; top:56%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
-    <div class="chip up" style="left:45%; top:8%;  --t:10s">BTC/USD <b>&#9650; 97,240</b></div>
+    <div class="chip up" style="left:6%;  top:18%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
+    <div class="chip dn" style="left:79%; top:13%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
+    <div class="chip up" style="left:8%;  top:66%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
+    <div class="chip dn" style="left:82%; top:60%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
+    <div class="chip up" style="left:46%; top:6%;  --t:10s">BTC/USD <b>&#9650; 97,240</b></div>
   </div>
 
   <div class="wrap">
     <div class="logo">CubeX Enterprises</div>
     <h1>Something big is <span>coming</span></h1>
     <p class="sub">Our new trading platform is launching soon. Stay tuned.</p>
-    <div class="timer">
-      <div class="cell"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
-      <div class="cell"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
-      <div class="cell"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
-      <div class="cell"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
+
+    <div class="scene">
+      <div class="cube">
+        <div class="face f-front"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
+        <div class="face f-right"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
+        <div class="face f-back"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
+        <div class="face f-left"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
+        <div class="face f-top brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+        <div class="face f-bottom brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+      </div>
     </div>
+
     <div class="foot">&copy; 2026 CubeX Enterprises. All rights reserved.</div>
   </div>
 
 <script>
   // ====== CHANGE YOUR LAUNCH DATE HERE ======
-  const launch = new Date(2026, 6, 1, 0, 0, 0); // = 1 July 2026 (months start at 0: 6 = July)
+  const launch = new Date(2026, 6, 1, 0, 0, 0); // 1 July 2026 (months are 0-based: 6 = July)
   // ==========================================
   function tick() {
     let diff = Math.max(0, launch - new Date());
@@ -135,7 +186,7 @@
   }
   tick(); setInterval(tick, 1000);
 
-  // build randomized animated candlesticks
+  // randomized animated candlesticks — fewer on small screens
   function buildCandles(el, n) {
     let html = "";
     for (let i = 0; i < n; i++) {
@@ -147,8 +198,9 @@
     }
     el.innerHTML = html;
   }
-  buildCandles(document.getElementById("candlesBack"), 44);
-  buildCandles(document.getElementById("candlesFront"), 28);
+  const small = window.matchMedia("(max-width:640px)").matches;
+  buildCandles(document.getElementById("candlesBack"),  small ? 22 : 44);
+  buildCandles(document.getElementById("candlesFront"), small ? 14 : 28);
 </script>
 </body>
 </html>
