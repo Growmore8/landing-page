@@ -6,12 +6,11 @@
 <title>CubeX Enterprises — Coming Soon</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  :root { --cube: 210px; --brand:#5b8cff; }
+  :root { --cube: 200px; --brand:#5b8cff; }
   body {
-    min-height:100vh; min-height:100dvh; display:flex; align-items:center; justify-content:center;
+    min-height:100vh; min-height:100dvh; display:flex; align-items:stretch; justify-content:center;
     background: radial-gradient(ellipse at 30% 20%, #16233f 0%, #0a0f1e 60%, #06080f 100%);
-    color:#e8edf7; font-family:'Segoe UI', Arial, sans-serif; text-align:center; padding:24px;
-    overflow:hidden;
+    color:#e8edf7; font-family:'Segoe UI', Arial, sans-serif; text-align:center; overflow:hidden;
   }
 
   /* ===== animated market background ===== */
@@ -28,8 +27,8 @@
   @keyframes gridDrift { from{background-position:0 0} to{background-position:60px 60px} }
 
   .candles { position:absolute; left:0; right:0; bottom:-8px; display:flex; align-items:flex-end; gap:9px; }
-  .candles.back  { height:42vh; opacity:.20; filter:blur(1.5px); }
-  .candles.front { height:26vh; opacity:.45; }
+  .candles.back  { height:40vh; opacity:.18; filter:blur(1.5px); }
+  .candles.front { height:24vh; opacity:.42; }
   .candle { flex:1; min-width:9px; position:relative; display:flex; justify-content:center; align-items:flex-end; }
   .candle i { display:block; width:100%; border-radius:2px; animation:candleGrow 5.5s ease-in-out infinite; }
   .candle::after { content:""; position:absolute; bottom:0; width:2px; height:calc(100% + 16px); background:currentColor; opacity:.35; }
@@ -38,7 +37,7 @@
   .candle.dn i { background:linear-gradient(180deg,#ff4d5e,rgba(255,77,94,.12)); }
   @keyframes candleGrow { 0%,100%{height:var(--h)} 50%{height:calc(var(--h)*var(--p))} }
 
-  .priceline { position:absolute; inset:0; opacity:.7; }
+  .priceline { position:absolute; inset:0; opacity:.6; }
   .priceline path {
     fill:none; stroke:url(#plg); stroke-width:2;
     stroke-dasharray:2600; stroke-dashoffset:2600;
@@ -57,7 +56,6 @@
   .chip b { color:#e8edf7; } .chip.up b { color:#1fd286; } .chip.dn b { color:#ff4d5e; }
   @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
 
-  /* buy/sell deal tickets floating in the background */
   .deal {
     position:absolute; display:flex; align-items:stretch; gap:1px; border-radius:7px; overflow:hidden;
     border:1px solid rgba(91,140,255,.22); background:rgba(8,17,32,.55); backdrop-filter:blur(4px);
@@ -69,24 +67,30 @@
   .deal .sell { background:rgba(255,77,94,.16); color:#ff8a96; }
   .deal .buy  { background:rgba(31,210,134,.16); color:#5fe3ad; }
 
-  /* ===== content ===== */
-  .wrap { position:relative; z-index:2; max-width:760px; width:100%; }
-  .logo { font-size:14px; letter-spacing:6px; color:var(--brand); text-transform:uppercase; margin-bottom:18px; }
-  h1 { font-size:clamp(32px, 6vw, 64px); font-weight:700; margin-bottom:14px; line-height:1.08; }
+  /* ===== content: brand top · cube middle · footer bottom ===== */
+  .wrap {
+    position:relative; z-index:2; width:100%; max-width:860px; min-height:100dvh;
+    display:flex; flex-direction:column; align-items:center; padding:42px 16px 24px;
+  }
+  .top { width:100%; }
+  .logo { font-size:14px; letter-spacing:6px; color:var(--brand); text-transform:uppercase; margin-bottom:16px; }
+  h1 { font-size:clamp(30px, 6vw, 62px); font-weight:700; margin-bottom:12px; line-height:1.08; }
   h1 span { color:var(--brand); }
-  p.sub { color:#9aa7c0; font-size:clamp(15px,2.5vw,19px); margin-bottom:34px; }
+  p.sub { color:#9aa7c0; font-size:clamp(15px,2.5vw,19px); }
+  .middle { flex:1; min-height:0; display:flex; align-items:center; justify-content:center; width:100%; }
+  .foot { color:#5d6a85; font-size:13px; padding-top:14px; }
 
   /* ===== 3D countdown cube ===== */
-  .scene { width:var(--cube); height:var(--cube); margin:8px auto 44px; perspective:1100px; }
+  .scene { width:var(--cube); height:var(--cube); perspective:1100px; }
   .cube {
     position:relative; width:100%; height:100%; transform-style:preserve-3d;
     animation: assemble 1.6s cubic-bezier(.2,.85,.25,1) both,
-               spinFaces 22s 1.6s cubic-bezier(.65,0,.35,1) infinite;
+               tumble 26s 1.6s linear infinite;
   }
   .face {
     position:absolute; inset:0; display:flex; flex-direction:column;
     align-items:center; justify-content:center; gap:8px;
-    background:rgba(8,15,29,.80); border:1px solid rgba(91,140,255,0.35);
+    background:rgba(8,15,29,.82); border:1px solid rgba(91,140,255,0.35);
     border-radius:18px; backdrop-filter:blur(6px);
     box-shadow: inset 0 0 36px rgba(91,140,255,0.10), 0 0 30px rgba(91,140,255,0.06);
   }
@@ -107,39 +111,36 @@
   .f-top    { transform: rotateX(90deg)   translateZ(calc(var(--cube)/2)); }
   .f-bottom { transform: rotateX(-90deg)  translateZ(calc(var(--cube)/2)); }
 
-  /* form/assemble: spin + scale up from nothing, then settle into a slight tilt */
+  /* form/assemble: spin + scale up from nothing, settle to the tumble's start pose */
   @keyframes assemble {
-    0%   { opacity:0; transform: scale(.15) rotateX(-16deg) rotateY(-260deg); }
+    0%   { opacity:0; transform: scale(.15) rotateX(-18deg) rotateY(-260deg); }
     55%  { opacity:1; }
-    100% { opacity:1; transform: scale(1)  rotateX(-16deg) rotateY(0deg); }
+    100% { opacity:1; transform: scale(1)  rotateX(-18deg) rotateY(0deg); }
   }
-  /* rotate through EVERY face with a short readable pause on each:
-     Days → Hours → Minutes → Seconds → CubeX brand → loop */
-  @keyframes spinFaces {
-    0%,11%   { transform: rotateX(-14deg) rotateY(0deg); }      /* Days  (front) */
-    16%,27%  { transform: rotateX(-14deg) rotateY(-90deg); }    /* Hours (right) */
-    32%,43%  { transform: rotateX(-14deg) rotateY(-180deg); }   /* Mins  (back)  */
-    48%,59%  { transform: rotateX(-14deg) rotateY(-270deg); }   /* Secs  (left)  */
-    66%,80%  { transform: rotateX(-90deg) rotateY(-270deg); }   /* CubeX (top)   */
-    88%,100% { transform: rotateX(-14deg) rotateY(-360deg); }   /* loop to Days  */
+  /* creative free tumble — spins on Y with X tilts so EVERY face (incl. brand) comes around */
+  @keyframes tumble {
+    0%   { transform: rotateX(-18deg) rotateY(0deg); }
+    20%  { transform: rotateX(-18deg) rotateY(144deg); }
+    40%  { transform: rotateX(28deg)  rotateY(288deg); }   /* tilt → bottom brand */
+    60%  { transform: rotateX(-18deg) rotateY(468deg); }
+    80%  { transform: rotateX(-78deg) rotateY(576deg); }   /* tilt → top brand */
+    100% { transform: rotateX(-18deg) rotateY(720deg); }
   }
-
-  .foot { color:#5d6a85; font-size:13px; }
 
   /* ===== mobile ===== */
   @media (max-width:640px) {
-    :root { --cube:150px; }
-    body { padding:18px; }
-    .chip, .deal { display:none; }          /* tickers overlap the cube on phones */
-    .candles.back { height:34vh; }
-    .candles.front { height:22vh; }
-    p.sub { margin-bottom:26px; }
-    .scene { margin:6px auto 34px; }
+    :root { --cube:138px; }
+    .wrap { padding:30px 12px 18px; }
+    .logo { letter-spacing:4px; margin-bottom:12px; }
+    .chip { font-size:9.5px; padding:5px 8px; }     /* smaller, still visible in bg */
+    .deal { font-size:9px; }
+    .candles.back { height:30vh; } .candles.front { height:20vh; }
     .face .lbl { font-size:11px; letter-spacing:2px; }
+    .foot { font-size:11px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cube { animation: assemble .01s both; }   /* settle, no continuous spin */
-    .grid, .candle i, .priceline path, .chip { animation:none; }
+    .cube { animation: assemble .01s both; }
+    .grid, .candle i, .priceline path, .chip, .deal { animation:none; }
   }
 </style>
 </head>
@@ -157,39 +158,42 @@
     </svg>
     <div class="candles back" id="candlesBack"></div>
     <div class="candles front" id="candlesFront"></div>
-    <div class="chip up" style="left:5%;  top:14%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
-    <div class="chip dn" style="left:80%; top:11%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
-    <div class="chip up" style="left:7%;  top:70%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
-    <div class="chip dn" style="left:84%; top:64%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
-    <div class="chip up" style="left:47%; top:5%;  --t:10s">BTC/USD <b>&#9650; 97,240</b></div>
-    <div class="chip up" style="left:88%; top:38%; --t:7.5s">ETH/USD <b>&#9650; 3,612</b></div>
-    <div class="chip dn" style="left:3%;  top:42%; --t:9.5s">USD/JPY <b>&#9660; 156.18</b></div>
 
-    <!-- buy / sell deal tickets -->
-    <div class="deal" style="left:13%; top:28%; --t:8.5s">
+    <div class="chip up" style="left:4%;  top:24%; --t:7s">EUR/USD <b>&#9650; 1.0842</b></div>
+    <div class="chip dn" style="left:82%; top:20%; --t:9s">GBP/JPY <b>&#9660; 188.42</b></div>
+    <div class="chip up" style="left:5%;  top:72%; --t:8s">XAU/USD <b>&#9650; 2,381.5</b></div>
+    <div class="chip dn" style="left:84%; top:70%; --t:6.5s">USD/CHF <b>&#9660; 0.8911</b></div>
+    <div class="chip up" style="left:88%; top:44%; --t:7.5s">ETH/USD <b>&#9650; 3,612</b></div>
+    <div class="chip dn" style="left:3%;  top:48%; --t:9.5s">USD/JPY <b>&#9660; 156.18</b></div>
+
+    <div class="deal" style="left:11%; top:34%; --t:8.5s">
       <span class="sym">EUR/USD</span><span class="side sell"><small>SELL</small>1.0840</span><span class="side buy"><small>BUY</small>1.0842</span>
     </div>
-    <div class="deal" style="left:72%; top:78%; --t:7.2s">
+    <div class="deal" style="left:70%; top:82%; --t:7.2s">
       <span class="sym">XAU/USD</span><span class="side sell"><small>SELL</small>2381.1</span><span class="side buy"><small>BUY</small>2381.5</span>
     </div>
-    <div class="deal" style="left:70%; top:30%; --t:9.8s">
+    <div class="deal" style="left:72%; top:36%; --t:9.8s">
       <span class="sym">BTC/USD</span><span class="side sell"><small>SELL</small>97,235</span><span class="side buy"><small>BUY</small>97,240</span>
     </div>
   </div>
 
   <div class="wrap">
-    <div class="logo">CubeX Enterprises</div>
-    <h1>Something big is <span>coming</span></h1>
-    <p class="sub">Our new trading platform is launching soon. Stay tuned.</p>
+    <div class="top">
+      <div class="logo">CubeX Enterprises</div>
+      <h1>Something big is <span>coming</span></h1>
+      <p class="sub">Our new trading platform is launching soon. Stay tuned.</p>
+    </div>
 
-    <div class="scene">
-      <div class="cube">
-        <div class="face f-front"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
-        <div class="face f-right"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
-        <div class="face f-back"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
-        <div class="face f-left"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
-        <div class="face f-top brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
-        <div class="face f-bottom brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+    <div class="middle">
+      <div class="scene">
+        <div class="cube">
+          <div class="face f-front"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
+          <div class="face f-right"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
+          <div class="face f-back"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
+          <div class="face f-left"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
+          <div class="face f-top brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+          <div class="face f-bottom brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+        </div>
       </div>
     </div>
 
@@ -213,7 +217,6 @@
   }
   tick(); setInterval(tick, 1000);
 
-  // randomized animated candlesticks — fewer on small screens
   function buildCandles(el, n) {
     let html = "";
     for (let i = 0; i < n; i++) {
@@ -226,8 +229,8 @@
     el.innerHTML = html;
   }
   const small = window.matchMedia("(max-width:640px)").matches;
-  buildCandles(document.getElementById("candlesBack"),  small ? 22 : 44);
-  buildCandles(document.getElementById("candlesFront"), small ? 14 : 28);
+  buildCandles(document.getElementById("candlesBack"),  small ? 24 : 44);
+  buildCandles(document.getElementById("candlesFront"), small ? 16 : 28);
 </script>
 </body>
 </html>
