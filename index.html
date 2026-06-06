@@ -81,11 +81,13 @@
   .foot { color:#5d6a85; font-size:13px; padding-top:14px; }
 
   /* ===== 3D countdown cube ===== */
-  .scene { width:var(--cube); height:var(--cube); perspective:1100px; }
+  .scene { width:var(--cube); height:var(--cube); perspective:1100px;
+    touch-action:none; cursor:grab; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+  .scene:active { cursor:grabbing; }
+  .former { width:100%; height:100%; transform-style:preserve-3d; animation: introScale 1.5s cubic-bezier(.2,.85,.25,1) both; }
   .cube {
     position:relative; width:100%; height:100%; transform-style:preserve-3d;
-    animation: assemble 1.6s cubic-bezier(.2,.85,.25,1) both,
-               tumble 26s 1.6s linear infinite;
+    transform: rotateX(-18deg) rotateY(0deg); will-change:transform;
   }
   .face {
     position:absolute; inset:0; display:flex; flex-direction:column;
@@ -111,20 +113,11 @@
   .f-top    { transform: rotateX(90deg)   translateZ(calc(var(--cube)/2)); }
   .f-bottom { transform: rotateX(-90deg)  translateZ(calc(var(--cube)/2)); }
 
-  /* form/assemble: spin + scale up from nothing, settle to the tumble's start pose */
-  @keyframes assemble {
-    0%   { opacity:0; transform: scale(.15) rotateX(-18deg) rotateY(-260deg); }
-    55%  { opacity:1; }
-    100% { opacity:1; transform: scale(1)  rotateX(-18deg) rotateY(0deg); }
-  }
-  /* creative free tumble — spins on Y with X tilts so EVERY face (incl. brand) comes around */
-  @keyframes tumble {
-    0%   { transform: rotateX(-18deg) rotateY(0deg); }
-    20%  { transform: rotateX(-18deg) rotateY(144deg); }
-    40%  { transform: rotateX(28deg)  rotateY(288deg); }   /* tilt → bottom brand */
-    60%  { transform: rotateX(-18deg) rotateY(468deg); }
-    80%  { transform: rotateX(-78deg) rotateY(576deg); }   /* tilt → top brand */
-    100% { transform: rotateX(-18deg) rotateY(720deg); }
+  /* intro: scale + fade in (rotation is JS-driven so you can grab/spin it) */
+  @keyframes introScale {
+    0%   { opacity:0; transform: scale(.12); }
+    60%  { opacity:1; }
+    100% { opacity:1; transform: scale(1); }
   }
 
   /* ===== mobile ===== */
@@ -139,9 +132,11 @@
     .foot { font-size:11px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cube { animation: assemble .01s both; }
+    .former { animation:none; opacity:1; }
     .grid, .candle i, .priceline path, .chip, .deal { animation:none; }
   }
+  .hint { margin-top:14px; font-size:11px; letter-spacing:1px; color:#5d6a85; opacity:.85; }
+  .hint i { margin-right:5px; }
 </style>
 </head>
 <body>
@@ -185,15 +180,20 @@
     </div>
 
     <div class="middle">
-      <div class="scene">
-        <div class="cube">
-          <div class="face f-front"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
-          <div class="face f-right"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
-          <div class="face f-back"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
-          <div class="face f-left"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
-          <div class="face f-top brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
-          <div class="face f-bottom brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <div class="scene" id="scene">
+          <div class="former">
+            <div class="cube" id="cube">
+              <div class="face f-front"><div class="num" id="d">--</div><div class="lbl">Days</div></div>
+              <div class="face f-right"><div class="num" id="h">--</div><div class="lbl">Hours</div></div>
+              <div class="face f-back"><div class="num" id="m">--</div><div class="lbl">Minutes</div></div>
+              <div class="face f-left"><div class="num" id="s">--</div><div class="lbl">Seconds</div></div>
+              <div class="face f-top brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+              <div class="face f-bottom brand"><div class="mark"></div><div class="name">Cube<span>X</span></div><div class="soon">Launching soon</div></div>
+            </div>
+          </div>
         </div>
+        <div class="hint"><i class="fa">&#10021;</i>Drag the cube to spin it</div>
       </div>
     </div>
 
@@ -231,6 +231,50 @@
   const small = window.matchMedia("(max-width:640px)").matches;
   buildCandles(document.getElementById("candlesBack"),  small ? 24 : 44);
   buildCandles(document.getElementById("candlesFront"), small ? 16 : 28);
+
+  // ===== interactive cube: drag / touch to spin, gentle auto-spin when idle =====
+  (function () {
+    const scene = document.getElementById("scene");
+    const cube  = document.getElementById("cube");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let rotX = -18, rotY = 0;
+    let dragging = false, lastX = 0, lastY = 0, idle = 0, vY = 0;
+
+    function render() { cube.style.transform = "rotateX(" + rotX.toFixed(2) + "deg) rotateY(" + rotY.toFixed(2) + "deg)"; }
+
+    function loop() {
+      if (!dragging) {
+        idle++;
+        if (Math.abs(vY) > 0.02) { rotY += vY; vY *= 0.94; }      // momentum fling after release
+        else if (!reduce && idle > 45) { rotY += 0.22; rotX += (-18 - rotX) * 0.015; } // resume gentle spin + ease tilt back
+      }
+      render();
+      requestAnimationFrame(loop);
+    }
+
+    function down(e) {
+      dragging = true; idle = 0; vY = 0;
+      lastX = e.clientX; lastY = e.clientY;
+      try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    function move(e) {
+      if (!dragging) return;
+      const dx = e.clientX - lastX, dy = e.clientY - lastY;
+      rotY += dx * 0.6; rotX -= dy * 0.6;
+      rotX = Math.max(-90, Math.min(90, rotX));
+      vY = dx * 0.6;            // remember last speed for the fling
+      lastX = e.clientX; lastY = e.clientY;
+    }
+    function up() { dragging = false; idle = 0; }
+
+    scene.addEventListener("pointerdown", down);
+    scene.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+    window.addEventListener("pointercancel", up);
+
+    render();
+    requestAnimationFrame(loop);
+  })();
 </script>
 </body>
 </html>
