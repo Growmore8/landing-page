@@ -640,7 +640,7 @@ const STATS = [
   { n: "99.9%", l: "Uptime" },
 ];
 
-export function PainPoints() {
+function PainPoints() {
   const router = useRouter();
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   const featured = POINTS[0];
