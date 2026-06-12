@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!--
+    CubeX favicon: Font Awesome 6 Solid "cube" glyph (M21.4 39.5C...)
+    inlined as an SVG path so it renders in browser tabs without
+    needing the Font Awesome webfont. The gold→green gradient matches
+    login.html's .brand .logo i styling:
+      #fbbf24 0% → #f5b942 40% → #22c55e 100%
+    Background is a transparent dark-rounded badge so the icon stays
+    legible on both light and dark browser themes.
+  -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#fbbf24"/>
+      <stop offset="40%"  stop-color="#f5b942"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <!-- Optional dark rounded background for contrast in light-themed tabs.
+       Comment out the next two lines if you'd prefer a fully transparent
+       icon with just the gradient cube. -->
+  <rect width="512" height="512" rx="96" ry="96" fill="#0a0e17"/>
+  <rect x="6" y="6" width="500" height="500" rx="92" ry="92"
+        fill="none" stroke="#22c55e" stroke-opacity=".25" stroke-width="2"/>
+  <!--
+    Font Awesome 6 Solid "cube" glyph (CC BY 4.0, Fonticons Inc.).
+    Original viewBox 0 0 512 512; path translated so the cube sits
+    centred on the badge. Scale 0.72 keeps generous padding.
+  -->
+  <g transform="translate(72,72) scale(0.72)">
+    <path fill="url(#g)" d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1V194l-160 57.1v183.6z"/>
+  </g>
+</svg>
