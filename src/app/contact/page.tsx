@@ -202,7 +202,7 @@ export default function ContactPage() {
   const faqs = [
     {
       q: "How can I reach CubeX Enterprises for support or inquiries?",
-      a: "Reach us directly via the contact form on this page, by calling +94 11 2 804 924/925, or emailing info@growmoresolutions.lk. We offer 24/7 technical support for active platform clients, and regular business hours for sales, accounting, and HR queries.",
+      a: "Reach us directly via the contact form on this page, by calling +94 11 2 804 924/925, or emailing info@cubexenterprises.com. We offer 24/7 technical support for active platform clients, and regular business hours for sales, accounting, and HR queries.",
     },
     {
       q: "Where is the CubeX Enterprises head office located?",
@@ -379,10 +379,10 @@ export default function ContactPage() {
           </div>
           <div className="flex gap-10 flex-wrap">
             {[
-              { label: "EMAIL", val: "info@growmoresolutions.lk", href: "mailto:info@growmoresolutions.lk" },
+              { label: "EMAIL", val: "info@cubexenterprises.com", href: "mailto:info@cubexenterprises.com" },
               { label: "CALL", val: "+94 11 2 804 924 / 925", href: "tel:+94112804924" },
-              { label: "WEB", val: "www.growmoresolutions.lk", href: "https://www.growmoresolutions.lk" },
-              { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.growmoresolutions.lk" },
+              { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
+              { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
             ].map((c) => (
               <div key={c.label}>
                 <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
@@ -498,8 +498,8 @@ export default function ContactPage() {
                 {[
                   { label: "ADDRESS", val: "3rd Floor, 3A-1/3, 2nd Lane\nMeegha Watta Road, Delkanda\nNugegoda, Sri Lanka" },
                   { label: "PHONE", val: "+94 11 2 804 924\n+94 11 2 804 925" },
-                  { label: "EMAIL", val: "info@growmoresolutions.lk" },
-                  { label: "WEBSITE", val: "www.growmoresolutions.lk" },
+                  { label: "EMAIL", val: "info@cubexenterprises.com" },
+                  { label: "WEBSITE", val: "www.cubexenterprises.com" },
                   { label: "HOURS", val: "Mon–Fri  08:30–18:00 (GMT+5:30)" },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-5">
