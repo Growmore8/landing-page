@@ -364,38 +364,38 @@ export default function ContactPage() {
       <StatBar />
 
       {/* ── AVAILABILITY STRIP ── */}
-      <section className="border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-[1280px] mx-auto px-[5%] py-8 flex items-center justify-between flex-wrap gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_4px_rgba(34,197,94,0.2)]" />
-            <div>
-              <div className="text-[10px] tracking-[2px] text-green-500 font-bold uppercase font-mono">
-                Live Support Active
-              </div>
-              <div className="font-bold text-[28px] tracking-[-0.5px] text-gray-900 dark:text-white leading-tight">
-                24 × 7 Availability
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-10 flex-wrap">
-            {[
-              { label: "EMAIL", val: "info@cubexenterprises.com", href: "mailto:info@cubexenterprises.com" },
-              { label: "CALL", val: "+94 11 2 804 924 / 925", href: "tel:+94112804924" },
-              { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
-              { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
-            ].map((c) => (
-              <div key={c.label}>
-                <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
-                  {c.label}
-                </div>
-                <a href={c.href} className="text-gray-700 dark:text-gray-300 no-underline text-sm font-semibold hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-                  {c.val}
-                </a>
-              </div>
-            ))}
-          </div>
+    <section className="border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+  <div className="max-w-[1280px] mx-auto px-[5%] py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+    <div className="flex items-center gap-4 shrink-0">
+      <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_4px_rgba(34,197,94,0.2)]" />
+      <div className="text-center sm:text-left">
+        <div className="text-[10px] tracking-[2px] text-green-500 font-bold uppercase font-mono">
+          Live Support Active
         </div>
-      </section>
+        <div className="font-bold text-[28px] tracking-[-0.5px] text-gray-900 dark:text-white leading-tight whitespace-nowrap">
+          24 × 7 Availability
+        </div>
+      </div>
+    </div>
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 shrink-0 items-center sm:items-start">
+      {[
+        { label: "EMAIL", val: "info@cubexenterprises.com", href: "mailto:info@cubexenterprises.com" },
+        { label: "CALL", val: "+94 11 2 804 924 / 925", href: "tel:+94112804924" },
+        { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
+        { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
+      ].map((c) => (
+        <div key={c.label} className="text-center sm:text-left whitespace-nowrap">
+          <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
+            {c.label}
+          </div>
+          <a href={c.href} className="text-gray-700 dark:text-gray-300 no-underline text-sm font-semibold hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
+            {c.val}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── PLATFORM FEATURES ── */}
       <section id="features" className="py-22 px-[5%]">

@@ -7,8 +7,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata = {
-  title: "CubeX",
-  description: "This is my local project",
+  title: "CubeX Enterprises",
+  description: "Enterprise-grade trading infrastructure for Forex brokers and prop firms — white-label platforms, risk management, and institutional-grade technology.",
   icons: {
     icon: "/favicon.ico",
   },

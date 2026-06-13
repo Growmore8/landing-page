@@ -274,16 +274,33 @@ export default function Footer() {
               {[
                 {
                   title: "Products",
-                  links: ["Trading Platform", "Risk Management", "Liquidity Bridge", "Analytics Suite", "API Gateway"],
-                  badge: ["New", "Popular"],
+                  links: [
+                    { label: "Trading Platform", href: "#" },
+                    { label: "Risk Management", href: "#" },
+                    { label: "Liquidity Bridge", href: "#" },
+                    { label: "Analytics Suite", href: "#" },
+                    { label: "API Gateway", href: "#" },
+                  ],
                 },
                 {
                   title: "Resources",
-                  links: ["Documentation", "API Reference", "Integration Guides", "Case Studies", "Webinars"],
+                  links: [
+                    { label: "Documentation", href: "#" },
+                    { label: "API Reference", href: "#" },
+                    { label: "Integration Guides", href: "#" },
+                    { label: "Case Studies", href: "#" },
+                    { label: "Webinars", href: "#" },
+                  ],
                 },
                 {
                   title: "Company",
-                  links: ["About Us", "Careers", "Partners", "Blog", "Press Kit"],
+                  links: [
+                    { label: "About Us", href: "/company#about" },
+                    { label: "Our Story", href: "/company#story" },
+                    { label: "Careers", href: "/company#careers" },
+                    { label: "Press & Media", href: "/company#press" },
+                    { label: "Trust Center", href: "/company#trust" },
+                  ],
                 },
               ].map((col, colIndex) => (
                 <div key={col.title} style={{ animationDelay: `${colIndex * 150 + 300}ms` }}>
@@ -292,18 +309,13 @@ export default function Footer() {
                   </h4>
                   <ul className="space-y-3">
                     {col.links.map((link) => (
-                      <li key={link}>
+                      <li key={link.label}>
                         <a
-                          href="#"
+                          href={link.href}
                           className="group flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-all duration-300 text-sm"
                         >
                           <span className="w-0 group-hover:w-2 h-0.5 bg-gray-500 transition-all duration-300" />
-                          {link}
-                          {col.badge?.includes(link) && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-medium">
-                              {link === "Trading Platform" ? "New" : "Popular"}
-                            </span>
-                          )}
+                          {link.label}
                         </a>
                       </li>
                     ))}
@@ -357,7 +369,7 @@ export default function Footer() {
           </div>
         </div>
 
-      </footer>
+      </footer >
     </>
   );
 }

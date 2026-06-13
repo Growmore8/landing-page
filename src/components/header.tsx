@@ -130,7 +130,7 @@ function CompanyMegaMenu({ visible }: { visible: boolean }) {
             <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span className="text-[11px] text-gray-400 dark:text-gray-500">
-                    Growmore Solutions · Est. 2012 · Colombo & Singapore
+                    Cubex Enterprises · Est. 2026 · Colombo, Sri Lanka
                 </span>
             </div>
         </div>
@@ -296,12 +296,12 @@ export default function Navbar() {
                                 {navItems.map((item) =>
                                     item.hasMega ? (
                                         <div
-  key={item.name}
-  className="border-b border-gray-100 dark:border-gray-800"
->
-  <button
-    onClick={() => setMobileCompanyOpen((prev) => !prev)}
-    className="
+                                            key={item.name}
+                                            className="border-b border-gray-100 dark:border-gray-800"
+                                        >
+                                            <button
+                                                onClick={() => setMobileCompanyOpen((prev) => !prev)}
+                                                className="
       w-full
       flex items-center justify-between
       py-4
@@ -309,42 +309,40 @@ export default function Navbar() {
       font-medium
       text-gray-900 dark:text-white
     "
-  >
-    <div className="flex items-center gap-2">
-      <span>{item.name}</span>
-    </div>
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span>{item.name}</span>
+                                                </div>
 
-    <ChevronDown
-      className={`h-4 w-4 transition-transform duration-300 ${
-        mobileCompanyOpen ? "rotate-180" : ""
-      }`}
-    />
-  </button>
+                                                <ChevronDown
+                                                    className={`h-4 w-4 transition-transform duration-300 ${mobileCompanyOpen ? "rotate-180" : ""
+                                                        }`}
+                                                />
+                                            </button>
 
-  <div
-    className={`
+                                            <div
+                                                className={`
       overflow-hidden
       transition-all duration-300
-      ${
-        mobileCompanyOpen
-          ? "max-h-[800px] opacity-100 pb-4"
-          : "max-h-0 opacity-0"
-      }
+      ${mobileCompanyOpen
+                                                        ? "max-h-[800px] opacity-100 pb-4"
+                                                        : "max-h-0 opacity-0"
+                                                    }
     `}
-  >
-    <div className="space-y-1">
-      {companyNav.map((c) => {
-        const Icon = c.icon;
+                                            >
+                                                <div className="space-y-1">
+                                                    {companyNav.map((c) => {
+                                                        const Icon = c.icon;
 
-        return (
-          <Link
-            key={c.label}
-            href={c.href}
-            onClick={() => {
-              setMobileOpen(false);
-              setMobileCompanyOpen(false);
-            }}
-            className="
+                                                        return (
+                                                            <Link
+                                                                key={c.label}
+                                                                href={c.href}
+                                                                onClick={() => {
+                                                                    setMobileOpen(false);
+                                                                    setMobileCompanyOpen(false);
+                                                                }}
+                                                                className="
               flex items-start gap-3
               p-3
               rounded-xl
@@ -352,24 +350,24 @@ export default function Navbar() {
               dark:hover:bg-indigo-950/30
               transition-colors
             "
-          >
-            <Icon className="h-4 w-4 mt-0.5 text-indigo-500 shrink-0" />
+                                                            >
+                                                                <Icon className="h-4 w-4 mt-0.5 text-indigo-500 shrink-0" />
 
-            <div>
-              <div className="text-sm font-medium text-gray-900 dark:text-white">
-                {c.label}
-              </div>
+                                                                <div>
+                                                                    <div className="text-sm font-medium text-gray-900 dark:text-white">
+                                                                        {c.label}
+                                                                    </div>
 
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                {c.sub}
-              </div>
-            </div>
-          </Link>
-        );
-      })}
-    </div>
-  </div>
-</div>
+                                                                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                                                        {c.sub}
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        </div>
                                     ) : (
                                         <Link
                                             key={item.name}

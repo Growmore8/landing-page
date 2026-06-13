@@ -12,14 +12,16 @@ import {
   HeadphonesIcon,
   Activity,
   GitCompare,
-  PlayCircle,
-  GitCommit,
+  Code2,
+  Layers,
+  Video,
   ArrowRight,
   ExternalLink,
   Search,
   TrendingUp,
   Clock,
   Star,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -55,7 +57,7 @@ const articlesNews = [
     tagColor: null,
   },
   {
-    icon: Zap,
+    icon: Megaphone,
     label: "Product Updates",
     sub: "Feature releases",
     href: "https://brokeret.com/updates",
@@ -77,8 +79,22 @@ const helpDocs = [
     icon: BookMarked,
     label: "Documentation",
     sub: "Full platform reference",
-    href: "https://docs.brokeret.com/",
-    external: true,
+    href: "https://cubexenterprises.com/contact#",
+    external: false,
+  },
+  {
+    icon: Code2,
+    label: "API Reference",
+    sub: "Endpoints, auth & payloads",
+    href: "https://cubexenterprises.com/contact#",
+    external: false,
+  },
+  {
+    icon: Layers,
+    label: "Integration Guides",
+    sub: "Connect CubeX to your stack",
+    href: "https://cubexenterprises.com/contact#",
+    external: false,
   },
   {
     icon: HelpCircle,
@@ -116,21 +132,18 @@ const learningTools = [
     label: "Platform Comparison",
     sub: "CubeX vs the alternatives",
     href: "https://brokeret.com/trading-platform-comparison",
-    featured: true,
   },
   {
-    icon: PlayCircle,
-    label: "Watch Demo",
-    sub: "See the platform live",
-    href: "https://brokeret.com/demo",
-    featured: true,
+    icon: FileText,
+    label: "Case Studies",
+    sub: "Real broker setups, real numbers",
+    href: "https://cubexenterprises.com/contact#",
   },
   {
-    icon: GitCommit,
-    label: "Changelog",
-    sub: "Every release, documented",
-    href: "https://brokeret.com/forex-crm/changelog",
-    featured: false,
+    icon: Video,
+    label: "Webinars",
+    sub: "Live sessions & recordings",
+    href: "https://cubexenterprises.com/contact#",
   },
 ];
 
@@ -138,15 +151,15 @@ const featuredArticles = [
   {
     tag: "Guide",
     tagColor: "indigo",
-    title: "How to Launch a White-Label Brokerage in 14 Days",
-    excerpt: "A step-by-step walkthrough of the CubeX onboarding process — from entity setup to go-live.",
+    title: "How to Set Up a White-Label Brokerage on CubeX",
+    excerpt: "A step-by-step walkthrough of the CubeX onboarding flow — from entity setup to your first live account.",
     readTime: "12 min read",
     href: "https://brokeret.com/articles",
   },
   {
     tag: "Industry",
     tagColor: "blue",
-    title: "APAC Retail Brokerage Trends: 2025 Outlook",
+    title: "APAC Retail Brokerage Trends: 2026 Outlook",
     excerpt: "Key regulatory shifts, technology adoption, and client acquisition patterns shaping the year ahead.",
     readTime: "8 min read",
     href: "https://brokeret.com/news",
@@ -154,18 +167,18 @@ const featuredArticles = [
   {
     tag: "Product",
     tagColor: "emerald",
-    title: "AI Risk Engine — What Changed in v2.4",
-    excerpt: "A deep dive into the new anomaly detection layer, margin forecasting, and automated stop-out rules.",
+    title: "Inside the CubeX Risk Engine",
+    excerpt: "A look at how anomaly detection, margin forecasting, and automated stop-out rules work together.",
     readTime: "6 min read",
     href: "https://brokeret.com/updates",
   },
 ];
 
-const recentChangelog = [
-  { version: "v2.4.1", date: "May 2025", note: "AI anomaly detection — reduced false-positive rate by 34%." },
-  { version: "v2.4.0", date: "Apr 2025", note: "Institutional desk launched — multi-account risk view + bulk order management." },
-  { version: "v2.3.8", date: "Mar 2025", note: "Regulatory reporting suite — ASIC, CySEC, FSCA templates added." },
-  { version: "v2.3.5", date: "Feb 2025", note: "KYC flow redesigned — Sumsub v3 integration, 40% faster verification." },
+const recentUpdates = [
+  { version: "June 2026", date: "This month", note: "CubeX trading platform becomes available to new and existing brokers." },
+  { version: "Onboarding", date: "Rolling basis", note: "Guided setup sessions for entity configuration, branding, and account structure." },
+  { version: "Documentation", date: "Live now", note: "Reference docs and integration guides published alongside platform access." },
+  { version: "Webinars", date: "Ongoing", note: "Walkthrough sessions covering the trading terminal, back office, and IB portal." },
 ];
 
 const stats = [
@@ -315,9 +328,18 @@ export default function ResourcesPage() {
               Everything You Need<br />
               <span className="text-indigo-500">to Know CubeX.</span>
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[440px] mb-8">
+            <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[440px] mb-6">
               Guides, documentation, news, glossary, system status, and platform comparisons — all in one place for brokers building on CubeX.
             </p>
+
+            {/* Availability note */}
+            <div className="flex items-center gap-2 mb-6 px-4 py-2.5 border border-indigo-200 dark:border-indigo-900 bg-indigo-50/60 dark:bg-indigo-950/30 max-w-[440px]">
+              <Sparkles className="h-4 w-4 text-indigo-500 flex-shrink-0" />
+              <span className="text-[12px] text-gray-600 dark:text-gray-300 leading-snug">
+                The CubeX trading platform is becoming available this month — documentation and onboarding resources are live now.
+              </span>
+            </div>
+
             {/* Search bar */}
             <div className="flex gap-0 max-w-[420px]">
               <div className="flex-1 flex items-center gap-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2.5">
@@ -337,25 +359,27 @@ export default function ResourcesPage() {
           {/* Right — quick-access stat cards */}
           <div className="grid grid-cols-2 gap-3">
             {stats.map((s) => (
-              <div key={s.l} className="p-5 border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 backdrop-blur-sm">
-                <div className="font-mono font-bold text-[30px] text-gray-900 dark:text-white leading-none tracking-tight">{s.n}</div>
-                <div className="text-[11px] text-gray-400 mt-2 tracking-wide">{s.l}</div>
-              </div>
+              <Card key={s.l} className="rounded-none border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/60 backdrop-blur-sm shadow-none">
+                <CardContent className="p-5">
+                  <div className="font-mono font-bold text-[30px] text-gray-900 dark:text-white leading-none tracking-tight">{s.n}</div>
+                  <div className="text-[11px] text-gray-400 mt-2 tracking-wide">{s.l}</div>
+                </CardContent>
+              </Card>
             ))}
-            <div className="col-span-2 p-4 border border-indigo-200 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-950/30 flex items-center justify-between gap-4">
-              <div>
-                <div className="text-[12px] font-bold text-gray-900 dark:text-white mb-0.5">Platform docs</div>
-                <div className="text-[11px] text-gray-400">Full API and integration reference</div>
-              </div>
-              <Link
-                href="https://docs.brokeret.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex-shrink-0"
-              >
-                Open docs <ExternalLink className="h-3 w-3" />
-              </Link>
-            </div>
+            <Card className="col-span-2 rounded-none border border-indigo-200 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-950/30 shadow-none">
+              <CardContent className="p-4 flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-[12px] font-bold text-gray-900 dark:text-white mb-0.5">Platform documentation</div>
+                  <div className="text-[11px] text-gray-400">Setup guides, API reference & integration docs</div>
+                </div>
+                <Link
+                  href="https://cubexenterprises.com/contact#"
+                  className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex-shrink-0"
+                >
+                  Open docs <ExternalLink className="h-3 w-3" />
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -438,7 +462,7 @@ export default function ResourcesPage() {
               badge="Help & Documentation"
               badgeColor="blue"
               title="Find Answers Fast"
-              sub="Complete reference documentation, frequently asked questions, trading terminology, and live system status."
+              sub="Reference documentation, API details, integration guides, FAQs, terminology, and live system status — everything to get your team up to speed."
             />
             <div className="flex flex-col gap-2">
               {helpDocs.map((item) => (
@@ -450,59 +474,63 @@ export default function ResourcesPage() {
           {/* Right — system status mock + docs callout */}
           <div className="flex flex-col gap-4">
             {/* System status widget */}
-            <div className="border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 dark:border-gray-800">
-                <span className="text-[12px] font-bold text-gray-900 dark:text-white">System Status</span>
-                <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-500">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
-                  All systems operational
-                </span>
-              </div>
-              {[
-                { name: "Trading Terminal",    status: "Operational", color: "bg-emerald-400" },
-                { name: "Client Portal",       status: "Operational", color: "bg-emerald-400" },
-                { name: "Back Office",         status: "Operational", color: "bg-emerald-400" },
-                { name: "Payment Gateway",     status: "Operational", color: "bg-emerald-400" },
-                { name: "Market Data Feeds",   status: "Operational", color: "bg-emerald-400" },
-                { name: "KYC / AML Engine",    status: "Operational", color: "bg-emerald-400" },
-              ].map((s, i, arr) => (
-                <div
-                  key={s.name}
-                  className={`flex items-center justify-between px-5 py-3 ${i < arr.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""}`}
-                >
-                  <span className="text-[13px] text-gray-700 dark:text-gray-300">{s.name}</span>
-                  <span className="flex items-center gap-1.5 text-[11px] text-gray-500 dark:text-gray-400">
-                    <span className={`w-1.5 h-1.5 rounded-full ${s.color}`} />
-                    {s.status}
+            <Card className="rounded-none border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-none">
+              <CardContent className="p-0">
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 dark:border-gray-800">
+                  <span className="text-[12px] font-bold text-gray-900 dark:text-white">System Status</span>
+                  <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-500">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
+                    All systems operational
                   </span>
                 </div>
-              ))}
-              <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
-                <span className="text-[11px] text-gray-400 font-mono">Last checked: just now</span>
-                <Link
-                  href="https://brokeret.com/status"
-                  className="text-[11px] font-bold text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex items-center gap-1"
-                >
-                  Full status page <ExternalLink className="h-3 w-3" />
-                </Link>
-              </div>
-            </div>
+                {[
+                  { name: "Trading Terminal",    status: "Operational", color: "bg-emerald-400" },
+                  { name: "Client Portal",       status: "Operational", color: "bg-emerald-400" },
+                  { name: "Back Office",         status: "Operational", color: "bg-emerald-400" },
+                  { name: "Payment Gateway",     status: "Operational", color: "bg-emerald-400" },
+                  { name: "Market Data Feeds",   status: "Operational", color: "bg-emerald-400" },
+                  { name: "KYC / AML Engine",    status: "Operational", color: "bg-emerald-400" },
+                ].map((s, i, arr) => (
+                  <div
+                    key={s.name}
+                    className={`flex items-center justify-between px-5 py-3 ${i < arr.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""}`}
+                  >
+                    <span className="text-[13px] text-gray-700 dark:text-gray-300">{s.name}</span>
+                    <span className="flex items-center gap-1.5 text-[11px] text-gray-500 dark:text-gray-400">
+                      <span className={`w-1.5 h-1.5 rounded-full ${s.color}`} />
+                      {s.status}
+                    </span>
+                  </div>
+                ))}
+                <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                  <span className="text-[11px] text-gray-400 font-mono">Last checked: just now</span>
+                  <Link
+                    href="https://brokeret.com/status"
+                    className="text-[11px] font-bold text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex items-center gap-1"
+                  >
+                    Full status page <ExternalLink className="h-3 w-3" />
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Quick support CTA */}
-            <div className="border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
-              <div>
-                <div className="text-[13px] font-bold text-gray-900 dark:text-white mb-1">Can't find what you need?</div>
-                <div className="text-[12px] text-gray-400 leading-relaxed">Our support team responds within 48 hours on all plans.</div>
-              </div>
-              <Link
-                href="https://brokeret.com/support-plans"
-                className="flex-shrink-0 no-underline"
-              >
-                <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-[10px] px-5 py-2.5">
-                  View support plans →
-                </Button>
-              </Link>
-            </div>
+            <Card className="rounded-none border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-none">
+              <CardContent className="p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
+                <div>
+                  <div className="text-[13px] font-bold text-gray-900 dark:text-white mb-1">Can't find what you need?</div>
+                  <div className="text-[12px] text-gray-400 leading-relaxed">Our support team responds within 48 hours on all plans.</div>
+                </div>
+                <Link
+                  href="https://brokeret.com/support-plans"
+                  className="flex-shrink-0 no-underline"
+                >
+                  <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-[10px] px-5 py-2.5">
+                    View support plans →
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -516,7 +544,7 @@ export default function ResourcesPage() {
               badge="Learning & Comparisons"
               badgeColor="emerald"
               title="Evaluate & Explore"
-              sub="Compare platforms, watch live demos, and follow every change we ship."
+              sub="Compare platforms, browse real broker case studies, and join webinars covering setup and best practices."
             />
             <div className="flex flex-col gap-2">
               {learningTools.map((item) => (
@@ -526,58 +554,57 @@ export default function ResourcesPage() {
                   label={item.label}
                   sub={item.sub}
                   href={item.href}
-                  external
                 />
               ))}
             </div>
           </div>
 
-          {/* Right — changelog feed */}
+          {/* Right — what's coming this month feed */}
           <div className="lg:col-span-2">
             <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-gray-400 mb-4 font-mono flex items-center gap-2">
               <TrendingUp className="h-3 w-3 text-indigo-400" />
-              Recent changelog
+              What's happening this month
             </div>
-            <div className="border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <div className="flex items-center justify-between px-5 py-3.5 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-                <span className="text-[12px] font-bold text-gray-900 dark:text-white">Changelog</span>
-                <Link
-                  href="https://brokeret.com/forex-crm/changelog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] font-bold text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex items-center gap-1"
-                >
-                  All releases <ExternalLink className="h-3 w-3" />
-                </Link>
-              </div>
-              {recentChangelog.map((entry, i) => (
-                <div
-                  key={entry.version}
-                  className={`flex gap-5 px-5 py-4 ${i < recentChangelog.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""} hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-colors`}
-                >
-                  <div className="flex-shrink-0 text-right">
-                    <div className="font-mono text-[12px] font-bold text-indigo-500">{entry.version}</div>
-                    <div className="font-mono text-[10px] text-gray-400 mt-0.5">{entry.date}</div>
-                  </div>
-                  <div className="flex-1 text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">{entry.note}</div>
+            <Card className="rounded-none border border-gray-200 dark:border-gray-800 overflow-hidden shadow-none">
+              <CardContent className="p-0">
+                <div className="flex items-center justify-between px-5 py-3.5 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+                  <span className="text-[12px] font-bold text-gray-900 dark:text-white">June 2026 Rollout</span>
+                  <Link
+                    href="https://brokeret.com/updates"
+                    className="text-[11px] font-bold text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex items-center gap-1"
+                  >
+                    Product updates <ExternalLink className="h-3 w-3" />
+                  </Link>
                 </div>
-              ))}
-            </div>
+                {recentUpdates.map((entry, i) => (
+                  <div
+                    key={entry.version}
+                    className={`flex gap-5 px-5 py-4 ${i < recentUpdates.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""} hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-colors`}
+                  >
+                    <div className="flex-shrink-0 text-right w-[110px]">
+                      <div className="font-mono text-[12px] font-bold text-indigo-500">{entry.version}</div>
+                      <div className="font-mono text-[10px] text-gray-400 mt-0.5">{entry.date}</div>
+                    </div>
+                    <div className="flex-1 text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">{entry.note}</div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
 
-            {/* Demo CTA card */}
+            {/* Webinar CTA card */}
             <div className="mt-4 border border-indigo-200 dark:border-indigo-900 bg-gradient-to-r from-indigo-50 to-blue-50/50 dark:from-indigo-950/30 dark:to-blue-950/20 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
-                  <PlayCircle className="h-4 w-4 text-indigo-500" />
-                  <span className="text-[13px] font-bold text-gray-900 dark:text-white">Watch the platform in action</span>
+                  <Video className="h-4 w-4 text-indigo-500" />
+                  <span className="text-[13px] font-bold text-gray-900 dark:text-white">Join a setup webinar</span>
                 </div>
                 <div className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed">
-                  See every module live — trading terminal, back office, IB portal, and mobile app.
+                  Walkthroughs of the trading terminal, back office, IB portal, and mobile app for new brokers.
                 </div>
               </div>
-              <Link href="https://brokeret.com/demo" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 no-underline">
+              <Link href="https://cubexenterprises.com/contact#" className="flex-shrink-0 no-underline">
                 <Button className="rounded-none bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-widest text-[10px] px-6 py-2.5">
-                  Watch Demo →
+                  Reserve a Spot →
                 </Button>
               </Link>
             </div>
@@ -662,8 +689,6 @@ export default function ResourcesPage() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center gap-3 px-3 py-2.5
                       border border-gray-200 dark:border-gray-800
                       bg-white dark:bg-gray-900
@@ -673,9 +698,8 @@ export default function ResourcesPage() {
                   >
                     <item.icon className="h-3.5 w-3.5 text-emerald-500 flex-shrink-0" />
                     <div className="flex-1">
-                      <div className="text-[12px] font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                      <div className="text-[12px] font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {item.label}
-                        <ExternalLink className="h-2.5 w-2.5 text-gray-300" />
                       </div>
                       <div className="text-[10px] text-gray-400">{item.sub}</div>
                     </div>
@@ -684,46 +708,26 @@ export default function ResourcesPage() {
                 ))}
               </div>
 
-              {/* Changelog mini */}
-              <div className="mt-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
-                <div className="px-3 py-2.5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[1.5px] text-gray-500">Latest release</span>
-                  <Link href="https://brokeret.com/forex-crm/changelog" target="_blank" rel="noopener noreferrer"
-                    className="text-[10px] text-indigo-500 font-bold no-underline hover:text-indigo-600 transition-colors">
-                    All →
-                  </Link>
-                </div>
-                <div className="px-3 py-3">
-                  <div className="font-mono text-[11px] font-bold text-indigo-500 mb-0.5">{recentChangelog[0].version} · {recentChangelog[0].date}</div>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">{recentChangelog[0].note}</div>
-                </div>
-              </div>
+              {/* Rollout mini */}
+              <Card className="mt-4 rounded-none border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-none">
+                <CardContent className="p-0">
+                  <div className="px-3 py-2.5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-[1.5px] text-gray-500">This month</span>
+                    <Link href="https://brokeret.com/updates"
+                      className="text-[10px] text-indigo-500 font-bold no-underline hover:text-indigo-600 transition-colors">
+                      All →
+                    </Link>
+                  </div>
+                  <div className="px-3 py-3">
+                    <div className="font-mono text-[11px] font-bold text-indigo-500 mb-0.5">{recentUpdates[0].version} · {recentUpdates[0].date}</div>
+                    <div className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">{recentUpdates[0].note}</div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
-
-      {/* ── CTA BAND ─────────────────────────────── */}
-      <div className="bg-gradient-to-br from-[#1e1b4b] to-[#312e81] py-16 px-[5%] text-center">
-        <DiagBadge label="Get Started" color="indigo" />
-        <h2 className="mt-4 font-bold text-[clamp(22px,3.5vw,38px)] text-white tracking-[-0.5px]">
-          Ready to Build Your Brokerage on CubeX?
-        </h2>
-        <p className="mt-3 text-[#a5b4fc] text-[14px] max-w-[480px] mx-auto leading-[1.75]">
-          Full white-label setup in under two weeks. Demo environment available same day.
-        </p>
-        <div className="flex gap-3 justify-center flex-wrap mt-7">
-          <Button className="rounded-none bg-white text-[#1e1b4b] hover:bg-gray-100 font-bold uppercase tracking-widest text-[11px] px-7 py-3">
-            Request a Demo →
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-[#4f46e5] text-[#a5b4fc] hover:bg-white/10 font-bold uppercase tracking-widest text-[11px] px-7 py-3"
-          >
-            View Documentation
-          </Button>
-        </div>
-      </div>
 
     </div>
   );
