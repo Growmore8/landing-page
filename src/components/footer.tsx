@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 // --- Animated candlestick chart data ---
@@ -173,6 +174,7 @@ function DiagBadge({ label }: { label: string }) {
 }
 
 export default function Footer() {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -208,7 +210,9 @@ export default function Footer() {
                 Ready to Maximize Your Brokerage's Potential?
               </h3>
             </div>
-            <button className="px-8 py-3 rounded-lg bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300">
+            <button
+              onClick={() => router.push("/contact")}
+              className="px-6 py-2 rounded-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300">
               Contact Us Now
             </button>
           </div>
@@ -285,11 +289,11 @@ export default function Footer() {
                 {
                   title: "Resources",
                   links: [
-                    { label: "Documentation", href: "#" },
-                    { label: "API Reference", href: "#" },
-                    { label: "Integration Guides", href: "#" },
-                    { label: "Case Studies", href: "#" },
-                    { label: "Webinars", href: "#" },
+                    { label: "News", href: "/resources#news" },
+                    { label: "Documentation", href: "/resources#documentation" },
+                    { label: "Comparisons", href: "/resources#comparisons" },
+                    { label: "Quick Access", href: "/resources#quick" },
+                    { label: "Help", href: "/resources#news" },
                   ],
                 },
                 {

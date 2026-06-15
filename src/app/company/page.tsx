@@ -277,7 +277,7 @@ export default function CompanyPage() {
       ))}
     </div>
 
-    <div className="flex justify-center gap-3 flex-wrap">
+    {/* <div className="flex justify-center gap-3 flex-wrap">
       <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-xs px-7 py-3">
         Our Story →
       </Button>
@@ -288,7 +288,7 @@ export default function CompanyPage() {
       >
         View Careers
       </Button>
-    </div>
+    </div> */}
   </div>
 </section>
 
@@ -464,9 +464,9 @@ export default function CompanyPage() {
                   );
                 })}
               </div>
-              <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-xs px-7 py-3">
+              {/* <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-xs px-7 py-3">
                 View All Roles →
-              </Button>
+              </Button> */}
             </div>
             <div className="lg:col-span-2 flex flex-col gap-3">
               {openRoles.map((r) => (

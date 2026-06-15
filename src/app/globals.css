@@ -6,6 +6,10 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
   :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -639,35 +643,5 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
 
 @keyframes spin-border {
   to { --angle: 360deg; }
-}
-
-/* ── Scroll Reveal ─────────────────────────────────────── */
-@keyframes reveal-left {
-  from { opacity: 0; transform: translateX(-32px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes reveal-right {
-  from { opacity: 0; transform: translateX(32px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes reveal-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-}
-.reveal.revealed {
-  animation-duration: 0.6s;
-  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
-  animation-fill-mode: forwards;
-}
-.reveal.revealed[data-dir="left"]  { animation-name: reveal-left;  }
-.reveal.revealed[data-dir="right"] { animation-name: reveal-right; }
-.reveal.revealed[data-dir="up"]    { animation-name: reveal-up;    }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal.revealed { animation: none !important; opacity: 1 !important; }
 }
 

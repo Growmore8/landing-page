@@ -74,6 +74,7 @@ function DiagBadge({ label }: { label: string }) {
 function Home() {
   const sceneRef = useRef<HTMLDivElement>(null);
   const cubeRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const scene = sceneRef.current;
@@ -179,7 +180,8 @@ function Home() {
             </div>
             <div className="ha ha-5 flex flex-col sm:flex-row gap-3">
               <Button className="rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-gray-200 px-7 py-3 font-bold tracking-widest uppercase text-[10px] font-mono">Request a Demo →</Button>
-              <Button variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 py-3 font-bold tracking-wide text-sm">Explore Platform</Button>
+              <Button onClick={()=>router.push("/platform")}
+              variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 py-3 font-bold tracking-wide text-sm">Explore Platform</Button>
             </div>
           </div>
 
@@ -256,7 +258,7 @@ function AboutUs() {
           <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
             From FIX protocol connectivity and multi-LP aggregation to white-label terminals and risk desk tooling — CubeX gives brokerages everything they need to compete at the institutional level, without the institutional price tag.
           </p>
-          <a href="#" className="inline-flex items-center gap-2 text-indigo-500 dark:text-indigo-400 font-semibold hover:gap-3 transition-all text-sm">
+          <a href="/platform" className="inline-flex items-center gap-2 text-indigo-500 dark:text-indigo-400 font-semibold hover:gap-3 transition-all text-sm">
             Explore Our Platform
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
@@ -329,6 +331,7 @@ function WhyChooseUs() {
 
 // ─── Inside Platform ──────────────────────────────────────────────────────────
 function InsideVertexTrader() {
+  const router = useRouter();
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   const tabs = [
     { label: "Trading Terminal", icon: "solar:chart-2-bold-duotone", image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80", features: ["One-click order execution", "Advanced charting (50+ indicators)", "DOM & depth of market", "Multi-account switching"] },
@@ -391,7 +394,9 @@ function InsideVertexTrader() {
                 {tabs.map((_, i) => (<button key={i} onClick={() => goTo(i)} className={`transition-all duration-300 ${i === activeTab ? "w-6 h-1.5 bg-indigo-500" : i < activeTab ? "w-1.5 h-1.5 bg-gray-400" : "w-1.5 h-1.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-400"}`} />))}
               </div>
               <div className="flex-1" />
-              <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 px-5 py-2 font-bold tracking-widest uppercase text-xs">Learn More</Button>
+              <Button 
+              onClick={()=>router.push("/features")}
+              className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 px-5 py-2 font-bold tracking-widest uppercase text-xs">Learn More</Button>
             </div>
           </div>
           <div className="reveal overflow-hidden border border-gray-200 dark:border-gray-700 aspect-video" data-dir="right" data-delay="260">
@@ -551,6 +556,7 @@ function Onboarding() {
     setTimeout(() => { setActive(index); setAnimating(false); }, 320);
   };
   const current = steps[active];
+  const router = useRouter();
   return (
     <section ref={ref} className="relative py-28 overflow-hidden">
       <div className="relative max-w-6xl mx-auto px-6">
@@ -600,7 +606,9 @@ function Onboarding() {
               <button onClick={() => goTo(active + 1)} disabled={active === steps.length - 1} className="w-10 h-10 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 hover:border-indigo-500/50 hover:text-indigo-500 disabled:opacity-25 disabled:cursor-not-allowed transition-all"><Icon icon="solar:arrow-right-bold" width={16} /></button>
               <span className="text-gray-400 text-xs font-mono ml-1">{active + 1} / {steps.length}</span>
               <div className="flex-1" />
-              <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-5 py-2 font-bold tracking-widest uppercase text-xs">Get Started</Button>
+              <Button 
+              onClick={()=>router.push("/pricing")}
+              className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-5 py-2 font-bold tracking-widest uppercase text-xs">Get Started</Button>
             </div>
           </div>
           <div className="reveal transition-all duration-300" data-dir="right" data-delay="260"
@@ -832,6 +840,7 @@ function FAQSection() {
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 function CTA() {
+  const router= useRouter();
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   return (
     <section ref={ref} className="py-28 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
@@ -848,7 +857,9 @@ function CTA() {
         </p>
 
         <div className="reveal flex flex-wrap gap-3 justify-center mb-7" data-dir="up" data-delay="260">
-          <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-8 py-3 font-bold tracking-widest uppercase text-xs">Request a Demo →</Button>
+          <Button 
+          onClick={() => router.push("/contact")}
+          className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-8 py-3 font-bold tracking-widest uppercase text-xs">Request a Demo →</Button>
           <Button variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-8 py-3 font-bold tracking-wide text-sm">Talk to Sales</Button>
         </div>
         <div className="reveal flex flex-wrap justify-center gap-x-5 gap-y-1" data-dir="up" data-delay="320">

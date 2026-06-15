@@ -385,7 +385,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── ARTICLES & NEWS ──────────────────────── */}
-      <section className="py-20 px-[5%] bg-white dark:bg-gray-950">
+      <section id="news" className="py-20 px-[5%] bg-white dark:bg-gray-950">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-14">
           {/* Left — section list */}
           <div className="lg:col-span-1">
@@ -454,7 +454,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── HELP & DOCUMENTATION ─────────────────── */}
-      <section className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
+      <section id="documentation" className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
           {/* Left */}
           <div>
@@ -536,7 +536,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── LEARNING & COMPARISONS ───────────────── */}
-      <section className="py-20 px-[5%] bg-white dark:bg-gray-950">
+      <section id="comparisons" className="py-20 px-[5%] bg-white dark:bg-gray-950">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-14 items-start">
           {/* Left */}
           <div className="lg:col-span-1">
@@ -613,7 +613,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── ALL RESOURCES GRID ───────────────────── */}
-      <section className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
+      <section id="quick" className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
         <div className="max-w-[1280px] mx-auto">
           <SectionHead
             badge="Quick Access"

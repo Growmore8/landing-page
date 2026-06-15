@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
 
 /* ─────────────────────────────────────────────
    DATA
@@ -74,88 +75,88 @@ const roles = [
 type PermCheck = true | false;
 
 const permMatrix: { feature: string; admin: PermCheck; manager: PermCheck; client: PermCheck; ib: PermCheck }[] = [
-  { feature: "Create Managers",   admin: true,  manager: false, client: false, ib: false },
-  { feature: "Assign Clients",    admin: true,  manager: true,  client: false, ib: false },
-  { feature: "Approve Deposits",  admin: true,  manager: true,  client: false, ib: false },
-  { feature: "Trade Execution",   admin: true,  manager: true,  client: true,  ib: false },
-  { feature: "KYC Review",        admin: true,  manager: true,  client: false, ib: false },
-  { feature: "Platform Config",   admin: true,  manager: false, client: false, ib: false },
-  { feature: "Commission View",   admin: true,  manager: true,  client: false, ib: true  },
-  { feature: "Audit Log",         admin: true,  manager: false, client: false, ib: false },
+  { feature: "Create Managers", admin: true, manager: false, client: false, ib: false },
+  { feature: "Assign Clients", admin: true, manager: true, client: false, ib: false },
+  { feature: "Approve Deposits", admin: true, manager: true, client: false, ib: false },
+  { feature: "Trade Execution", admin: true, manager: true, client: true, ib: false },
+  { feature: "KYC Review", admin: true, manager: true, client: false, ib: false },
+  { feature: "Platform Config", admin: true, manager: false, client: false, ib: false },
+  { feature: "Commission View", admin: true, manager: true, client: false, ib: true },
+  { feature: "Audit Log", admin: true, manager: false, client: false, ib: false },
 ];
 
 const watchlist = [
-  { sym: "EUR/USD",  price: "1.08342", chg: "+0.12%", up: true,  spread: "0.2" },
-  { sym: "GBP/USD",  price: "1.27891", chg: "-0.08%", up: false, spread: "0.3" },
-  { sym: "XAU/USD",  price: "2341.50", chg: "+0.34%", up: true,  spread: "0.5" },
-  { sym: "BTC/USD",  price: "67,420",  chg: "+1.22%", up: true,  spread: "5.0" },
-  { sym: "US30",     price: "39,187",  chg: "-0.21%", up: false, spread: "2.0" },
-  { sym: "NAS100",   price: "17,832",  chg: "+0.55%", up: true,  spread: "1.5" },
+  { sym: "EUR/USD", price: "1.08342", chg: "+0.12%", up: true, spread: "0.2" },
+  { sym: "GBP/USD", price: "1.27891", chg: "-0.08%", up: false, spread: "0.3" },
+  { sym: "XAU/USD", price: "2341.50", chg: "+0.34%", up: true, spread: "0.5" },
+  { sym: "BTC/USD", price: "67,420", chg: "+1.22%", up: true, spread: "5.0" },
+  { sym: "US30", price: "39,187", chg: "-0.21%", up: false, spread: "2.0" },
+  { sym: "NAS100", price: "17,832", chg: "+0.55%", up: true, spread: "1.5" },
 ];
 
 const terminalFeatures = [
-  { icon: CandlestickChart, title: "Live price feeds",    desc: "FX, CFDs, indices, crypto, commodities — sub-100ms tick data via WebSocket." },
-  { icon: Zap,              title: "One-click execution", desc: "Market, limit, stop, and trailing orders from the terminal in one tap." },
-  { icon: LayoutDashboard,  title: "Position tracker",    desc: "Live P&L, margin levels, swap, and floating exposure across all open positions." },
+  { icon: CandlestickChart, title: "Live price feeds", desc: "FX, CFDs, indices, crypto, commodities — sub-100ms tick data via WebSocket." },
+  { icon: Zap, title: "One-click execution", desc: "Market, limit, stop, and trailing orders from the terminal in one tap." },
+  { icon: LayoutDashboard, title: "Position tracker", desc: "Live P&L, margin levels, swap, and floating exposure across all open positions." },
 ];
 
 const backOfficeCards = [
-  { icon: PlusCircle,     iconColor: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-900", title: "Deposit management",   desc: "Multi-PSP support — Stripe, FasaPay, Skrill, crypto bridge, and manual wire. Auto-confirmation with configurable thresholds." },
-  { icon: MinusCircle,    iconColor: "text-rose-600",    bg: "bg-rose-50 border-rose-200 dark:bg-rose-950/30 dark:border-rose-900",           title: "Withdrawal processing", desc: "Client initiates, manager approves or escalates. Compliance hold flags, AML checks via ComplyAdvantage, and automatic payout routing." },
-  { icon: Zap,            iconColor: "text-amber-600",   bg: "bg-amber-50 border-amber-200 dark:bg-amber-950/30 dark:border-amber-900",        title: "Instant credit",        desc: "Admin can issue instant credit or bonus to any account — configurable with expiry, trading volume requirement, and auto-reversal rules." },
-  { icon: ArrowLeftRight, iconColor: "text-indigo-500",  bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900",    title: "Internal transfer",     desc: "Move funds between accounts or sub-wallets instantly. Manager desk can initiate intra-portfolio transfers with full audit trail." },
-  { icon: Receipt,        iconColor: "text-indigo-500",  bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900",    title: "Transaction ledger",    desc: "Every debit, credit, fee, and swap recorded to an immutable ledger. Exportable as CSV, PDF, or MT4/MT5 report format." },
-  { icon: DollarSign,     iconColor: "text-indigo-500",  bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900",    title: "Multi-currency",        desc: "USD, EUR, GBP, SGD and crypto base accounts. Real-time FX conversion at live mid-rate on every transaction." },
+  { icon: PlusCircle, iconColor: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-900", title: "Deposit management", desc: "Multi-PSP support — Stripe, FasaPay, Skrill, crypto bridge, and manual wire. Auto-confirmation with configurable thresholds." },
+  { icon: MinusCircle, iconColor: "text-rose-600", bg: "bg-rose-50 border-rose-200 dark:bg-rose-950/30 dark:border-rose-900", title: "Withdrawal processing", desc: "Client initiates, manager approves or escalates. Compliance hold flags, AML checks via ComplyAdvantage, and automatic payout routing." },
+  { icon: Zap, iconColor: "text-amber-600", bg: "bg-amber-50 border-amber-200 dark:bg-amber-950/30 dark:border-amber-900", title: "Instant credit", desc: "Admin can issue instant credit or bonus to any account — configurable with expiry, trading volume requirement, and auto-reversal rules." },
+  { icon: ArrowLeftRight, iconColor: "text-indigo-500", bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900", title: "Internal transfer", desc: "Move funds between accounts or sub-wallets instantly. Manager desk can initiate intra-portfolio transfers with full audit trail." },
+  { icon: Receipt, iconColor: "text-indigo-500", bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900", title: "Transaction ledger", desc: "Every debit, credit, fee, and swap recorded to an immutable ledger. Exportable as CSV, PDF, or MT4/MT5 report format." },
+  { icon: DollarSign, iconColor: "text-indigo-500", bg: "bg-indigo-50 border-indigo-200 dark:bg-indigo-950/30 dark:border-indigo-900", title: "Multi-currency", desc: "USD, EUR, GBP, SGD and crypto base accounts. Real-time FX conversion at live mid-rate on every transaction." },
 ];
 
 const notifications = [
-  { color: "bg-rose-500",    title: "Withdrawal request — $4,200",  body: "Client #C-4421 requested withdrawal. Awaiting your approval.",            time: "2 min ago · Manager Desk" },
-  { color: "bg-emerald-500", title: "Deposit confirmed — $1,500",   body: "Stripe gateway confirmed deposit for Ahmed Al-Rashid.",                   time: "8 min ago · Back Office" },
-  { color: "bg-amber-500",   title: "New login — Client portal",    body: "Priya Wijeratne logged in from Colombo, LK (Chrome / macOS).",            time: "14 min ago · Security" },
-  { color: "bg-indigo-500",  title: "Trade closed — EUR/USD",       body: "Position #T-88231 closed at 1.08342. P&L: +$342.00",                     time: "22 min ago · Trading" },
-  { color: "bg-indigo-500",  title: "KYC approved — C-4422",        body: "Identity documents verified for Omar Hassan. Account live.",               time: "1 hr ago · Compliance" },
-  { color: "bg-rose-500",    title: "Margin call triggered",        body: "Client #C-3301 margin level at 42%. Stop-out threshold: 30%.",            time: "2 hr ago · Risk" },
+  { color: "bg-rose-500", title: "Withdrawal request — $4,200", body: "Client #C-4421 requested withdrawal. Awaiting your approval.", time: "2 min ago · Manager Desk" },
+  { color: "bg-emerald-500", title: "Deposit confirmed — $1,500", body: "Stripe gateway confirmed deposit for Ahmed Al-Rashid.", time: "8 min ago · Back Office" },
+  { color: "bg-amber-500", title: "New login — Client portal", body: "Priya Wijeratne logged in from Colombo, LK (Chrome / macOS).", time: "14 min ago · Security" },
+  { color: "bg-indigo-500", title: "Trade closed — EUR/USD", body: "Position #T-88231 closed at 1.08342. P&L: +$342.00", time: "22 min ago · Trading" },
+  { color: "bg-indigo-500", title: "KYC approved — C-4422", body: "Identity documents verified for Omar Hassan. Account live.", time: "1 hr ago · Compliance" },
+  { color: "bg-rose-500", title: "Margin call triggered", body: "Client #C-3301 margin level at 42%. Stop-out threshold: 30%.", time: "2 hr ago · Risk" },
 ];
 
 const notifCards = [
-  { icon: LogIn,      title: "Login alerts",   desc: "Every login event — with device, IP, and geolocation — sent to the account owner." },
-  { icon: TrendingUp, title: "Trade events",   desc: "Open, close, stop-out, and margin call events pushed instantly to client and manager." },
-  { icon: Wallet,     title: "Fund events",    desc: "Deposit received, withdrawal approved/rejected, and credit issued — all notified." },
-  { icon: Bell,       title: "System alerts",  desc: "KYC status updates, document approval, account verification and platform announcements." },
+  { icon: LogIn, title: "Login alerts", desc: "Every login event — with device, IP, and geolocation — sent to the account owner." },
+  { icon: TrendingUp, title: "Trade events", desc: "Open, close, stop-out, and margin call events pushed instantly to client and manager." },
+  { icon: Wallet, title: "Fund events", desc: "Deposit received, withdrawal approved/rejected, and credit issued — all notified." },
+  { icon: Bell, title: "System alerts", desc: "KYC status updates, document approval, account verification and platform announcements." },
 ];
 
 const auditLog = [
-  { color: "text-emerald-500", event: "Manager created",    detail: 'Super Admin created Manager "Nimal Perera" — desk #M-22', time: "09:41:03" },
-  { color: "text-indigo-500",  event: "Client login",       detail: "C-4421 · Dinesh Fernando · IP 203.x.x.81 · Chrome",      time: "09:38:17" },
-  { color: "text-emerald-500", event: "Deposit approved",   detail: "Manager M-22 approved $2,000 deposit · TXN-88241",        time: "09:32:55" },
-  { color: "text-amber-500",   event: "Permission updated", detail: "Super Admin updated withdrawal limit for Manager M-19",   time: "09:27:11" },
-  { color: "text-indigo-500",  event: "Trade opened",       detail: "C-4422 opened 1.0 lot BUY XAU/USD @ 2339.80",            time: "09:22:04" },
-  { color: "text-rose-500",    event: "Withdrawal rejected", detail: "Manager M-22 rejected $5,000 withdrawal — AML hold",    time: "09:15:38" },
+  { color: "text-emerald-500", event: "Manager created", detail: 'Super Admin created Manager "Nimal Perera" — desk #M-22', time: "09:41:03" },
+  { color: "text-indigo-500", event: "Client login", detail: "C-4421 · Dinesh Fernando · IP 203.x.x.81 · Chrome", time: "09:38:17" },
+  { color: "text-emerald-500", event: "Deposit approved", detail: "Manager M-22 approved $2,000 deposit · TXN-88241", time: "09:32:55" },
+  { color: "text-amber-500", event: "Permission updated", detail: "Super Admin updated withdrawal limit for Manager M-19", time: "09:27:11" },
+  { color: "text-indigo-500", event: "Trade opened", detail: "C-4422 opened 1.0 lot BUY XAU/USD @ 2339.80", time: "09:22:04" },
+  { color: "text-rose-500", event: "Withdrawal rejected", detail: "Manager M-22 rejected $5,000 withdrawal — AML hold", time: "09:15:38" },
 ];
 
 const auditFeatures = [
-  { icon: Filter,   title: "Smart filters",         desc: "Filter by role, event type, date range, client, or manager. Export filtered results to CSV or PDF." },
-  { icon: Clock,    title: "Trade history",          desc: "Complete record of every open/close, including entry, exit, P&L, swap, and commission per trade." },
-  { icon: Lock,     title: "Immutable records",      desc: "Audit entries cannot be edited or deleted by any user role. Designed for regulatory inspection readiness." },
-  { icon: Download, title: "Exportable statements",  desc: "Generate account statements, trade reports, and tax summaries per client on demand." },
+  { icon: Filter, title: "Smart filters", desc: "Filter by role, event type, date range, client, or manager. Export filtered results to CSV or PDF." },
+  { icon: Clock, title: "Trade history", desc: "Complete record of every open/close, including entry, exit, P&L, swap, and commission per trade." },
+  { icon: Lock, title: "Immutable records", desc: "Audit entries cannot be edited or deleted by any user role. Designed for regulatory inspection readiness." },
+  { icon: Download, title: "Exportable statements", desc: "Generate account statements, trade reports, and tax summaries per client on demand." },
 ];
 
 const widgets = [
-  { icon: LineChart,        title: "Live chart widget",    sub: "Embeddable TradingView chart with symbol switcher" },
-  { icon: Wallet,           title: "Deposit widget",       sub: "Standalone fund your account flow" },
-  { icon: Users,            title: "IB partner portal",    sub: "Referral link, commissions, and payout tracker" },
-  { icon: IdCard,           title: "KYC upload widget",    sub: "Document upload with Sumsub identity check" },
-  { icon: Smartphone,       title: "Mobile app",           sub: "iOS & Android white-label apps included" },
-  { icon: Newspaper,        title: "News feed widget",     sub: "Acuity Trading signals and economic calendar" },
-  { icon: FileText,         title: "Account statement",    sub: "On-demand PDF & CSV statement widget" },
-  { icon: Settings,         title: "Admin back-office",    sub: "Full desk portal for manager operations" },
+  { icon: LineChart, title: "Live chart widget", sub: "Embeddable TradingView chart with symbol switcher" },
+  { icon: Wallet, title: "Deposit widget", sub: "Standalone fund your account flow" },
+  { icon: Users, title: "IB partner portal", sub: "Referral link, commissions, and payout tracker" },
+  { icon: IdCard, title: "KYC upload widget", sub: "Document upload with Sumsub identity check" },
+  { icon: Smartphone, title: "Mobile app", sub: "iOS & Android white-label apps included" },
+  { icon: Newspaper, title: "News feed widget", sub: "Acuity Trading signals and economic calendar" },
+  { icon: FileText, title: "Account statement", sub: "On-demand PDF & CSV statement widget" },
+  { icon: Settings, title: "Admin back-office", sub: "Full desk portal for manager operations" },
 ];
 
 const portalStats = [
-  { n: "50+",    l: "Tradeable symbols" },
-  { n: "8",      l: "PSP integrations"  },
+  { n: "50+", l: "Tradeable symbols" },
+  { n: "8", l: "PSP integrations" },
   { n: "<100ms", l: "Execution latency" },
-  { n: "99.9%",  l: "Uptime SLA"        },
+  { n: "99.9%", l: "Uptime SLA" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -167,11 +168,11 @@ type BadgeColor = "default" | "indigo" | "blue" | "green" | "amber" | "rose";
 function DiagBadge({ label, color = "default" }: { label: string; color?: BadgeColor }) {
   const c: Record<BadgeColor, string> = {
     default: "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700",
-    indigo:  "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800",
-    blue:    "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800",
-    green:   "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
-    amber:   "bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800",
-    rose:    "bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-800",
+    indigo: "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800",
+    blue: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800",
+    green: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
+    amber: "bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800",
+    rose: "bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-800",
   };
   return (
     <span
@@ -220,24 +221,28 @@ export default function FeaturesPage() {
     <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
 
       {/* ── HERO ─────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/40 dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-950 pt-16 pb-20 px-[5%] border-b border-gray-200/60 dark:border-gray-800">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/40 dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-950 border-b border-gray-200/60 dark:border-gray-800 px-[5%] py-16 sm:py-0">
+        {/* Grid pattern (unchanged) */}
         <div
           className="absolute inset-0 pointer-events-none opacity-25 dark:opacity-15"
           style={{
-            backgroundImage: "linear-gradient(rgba(91,140,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(91,140,255,0.1) 1px,transparent 1px)",
+            backgroundImage:
+              "linear-gradient(rgba(91,140,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(91,140,255,0.1) 1px,transparent 1px)",
             backgroundSize: "52px 52px",
           }}
         />
-        <div className="relative z-10 max-w-[1280px] mx-auto">
+        <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <DiagBadge label="Platform Features" color="indigo" />
           <h1 className="mt-5 font-bold text-[clamp(34px,5vw,58px)] leading-[1.07] tracking-[-2px] text-gray-900 dark:text-white mb-4">
             Everything Your Brokerage<br />
             <span className="text-indigo-500">Needs to Operate.</span>
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[480px] mb-7">
-            CubeX delivers a unified suite — multi-role access, live trading, back-office automation, real-time notifications, and full audit history — all white-labelled under your brand.
+          <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[480px] mx-auto mb-7">
+            CubeX delivers a unified suite — multi-role access, live trading, back-office
+            automation, real-time notifications, and full audit history — all white-labelled
+            under your brand.
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
             {heroPills.map((p) => (
               <span
                 key={p}
@@ -302,10 +307,10 @@ export default function FeaturesPage() {
                 {permMatrix.map((row, i) => (
                   <tr key={row.feature} className={i < permMatrix.length - 1 ? "border-b border-gray-100 dark:border-gray-800" : ""}>
                     <td className="px-3 py-2.5 font-bold text-gray-900 dark:text-white text-[12px]">{row.feature}</td>
-                    <td className="px-3 py-2.5 text-center">{row.admin   ? <Check /> : <Cross />}</td>
+                    <td className="px-3 py-2.5 text-center">{row.admin ? <Check /> : <Cross />}</td>
                     <td className="px-3 py-2.5 text-center">{row.manager ? <Check /> : <Cross />}</td>
-                    <td className="px-3 py-2.5 text-center">{row.client  ? <Check /> : <Cross />}</td>
-                    <td className="px-3 py-2.5 text-center">{row.ib      ? <Check /> : <Cross />}</td>
+                    <td className="px-3 py-2.5 text-center">{row.client ? <Check /> : <Cross />}</td>
+                    <td className="px-3 py-2.5 text-center">{row.ib ? <Check /> : <Cross />}</td>
                   </tr>
                 ))}
               </tbody>
@@ -352,11 +357,10 @@ export default function FeaturesPage() {
                 {["Watchlist", "Positions", "History"].map((t, i) => (
                   <span
                     key={t}
-                    className={`text-[10px] px-2 py-1 cursor-pointer font-${i === 0 ? "bold" : "medium"} ${
-                      i === 0
+                    className={`text-[10px] px-2 py-1 cursor-pointer font-${i === 0 ? "bold" : "medium"} ${i === 0
                         ? "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500 border border-indigo-200 dark:border-indigo-900"
                         : "text-gray-400 dark:text-gray-500"
-                    }`}
+                      }`}
                   >
                     {t}
                   </span>
@@ -629,31 +633,6 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-
-      {/* ── CTA BAND ─────────────────────────── */}
-      <div className="bg-gradient-to-br from-[#1e1b4b] to-[#312e81] py-16 px-[5%] text-center">
-        <DiagBadge
-          label="Get Started"
-          color="indigo"
-        />
-        <h2 className="mt-4 font-bold text-[clamp(22px,3.5vw,38px)] text-white tracking-[-0.5px]">
-          Ready to Launch Your Brokerage on CubeX?
-        </h2>
-        <p className="mt-3 text-[#a5b4fc] text-[14px] max-w-[480px] mx-auto leading-[1.75]">
-          Full white-label setup in under two weeks. Demo environment available same day. Talk to our team to get started.
-        </p>
-        <div className="flex gap-3 justify-center flex-wrap mt-7">
-          <Button className="rounded-none bg-white text-[#1e1b4b] hover:bg-gray-100 font-bold uppercase tracking-widest text-[11px] px-7 py-3">
-            Request a Demo →
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-[#4f46e5] text-[#a5b4fc] hover:bg-white/10 font-bold uppercase tracking-widest text-[11px] px-7 py-3"
-          >
-            View Pricing
-          </Button>
-        </div>
-      </div>
 
     </div>
   );
