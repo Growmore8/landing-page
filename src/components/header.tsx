@@ -13,6 +13,7 @@ import {
     Zap,
     LifeBuoy,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const companyNav = [
     { icon: Users, label: "About Us", sub: "Who we are and what we stand for", href: "/company#about" },
@@ -185,6 +186,7 @@ function ResourcesMegaMenu({ visible }: { visible: boolean }) {
 }
 
 export default function Navbar() {
+    const router = useRouter();
     const [mobileOpen, setMobileOpen] = useState(false);
     // ✅ Separate desktop open state per mega type
     const [desktopOpen, setDesktopOpen] = useState<"company" | "resources" | null>(null);
@@ -282,7 +284,7 @@ export default function Navbar() {
                 {/* Right actions */}
                 <div className="hidden md:flex items-center gap-3">
                     <ModeToggle />
-                    <Button variant="cubex">Contact Sale</Button>
+                    <Button variant="cubex" onClick={() => router.push("/contact-sale")} >Contact Sale</Button>
                 </div>
 
                 {/* Mobile hamburger */}
@@ -354,7 +356,8 @@ export default function Navbar() {
                             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
                                 <div className="flex items-center justify-between">
                                     <ModeToggle />
-                                    <Button variant="cubex">Contact Sales</Button>
+                                    <Button
+                                        onClick={() => router.push("/contact-sale")} variant="cubex">Contact Sales</Button>
                                 </div>
                             </div>
                         </div>
