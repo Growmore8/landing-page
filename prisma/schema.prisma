@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ContactSalesRequest {
+  id             String   @id @default(cuid())
+  fullName       String
+  workEmail      String
+  phone          String?
+  plan           String?
+  country        String?
+  companyWebsite String?
+  companyName    String
+  message        String?
+  createdAt      DateTime @default(now())
+
+  @@map("contact_sales_requests")
+}
