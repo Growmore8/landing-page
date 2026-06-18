@@ -109,15 +109,12 @@ function Home() {
   return (
     <>
       <style>{`
-        @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-        .ticker-track{display:flex;width:max-content;animation:ticker-scroll 36s linear infinite}
-        .ticker-track:hover{animation-play-state:paused}
         @keyframes hero-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .ha{animation:hero-in 0.7s cubic-bezier(.22,1,.36,1) both}
         .ha-1{animation-delay:0.08s}.ha-2{animation-delay:0.18s}.ha-3{animation-delay:0.28s}.ha-4{animation-delay:0.38s}.ha-5{animation-delay:0.48s}
         .hero-grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(99,102,241,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.07) 1px,transparent 1px);background-size:40px 40px}
         @keyframes chip-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        .hero-chip{position:absolute;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:0.3px;padding:5px 11px;white-space:nowrap;pointer-events:none;backdrop-filter:blur(8px);border:1px solid rgba(99,102,241,0.15);background:rgba(255,255,255,0.82);font-family:'Space Mono',monospace;animation:chip-float var(--t,7s) ease-in-out infinite}
+        .hero-chip{position:absolute;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:0.3px;padding:5px 11px;white-space:nowrap;pointer-events:none;backdrop-filter:blur(8px);border:1px solid rgba(99,102,241,0.15);background:rgba(255,255,255,0.82);monospace;animation:chip-float var(--t,7s) ease-in-out infinite}
         .dark .hero-chip{background:rgba(15,20,40,0.7);border-color:rgba(99,102,241,0.2)}
         .hero-chip.up b{color:#059669}.hero-chip.dn b{color:#dc2626}
         .dark .hero-chip.up b{color:#34d399}.dark .hero-chip.dn b{color:#f87171}
@@ -179,7 +176,7 @@ function Home() {
               ))}
             </div>
             <div className="ha ha-5 flex flex-col sm:flex-row gap-3">
-              <Button className="rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-gray-200 px-7 py-3 font-bold tracking-widest uppercase text-[10px] font-mono">Request a Demo →</Button>
+              <Button onClick={()=>router.push("/contact-sale")} className="rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-gray-200 px-7 py-3 font-bold tracking-widest uppercase text-[10px] font-mono">Request a Demo →</Button>
               <Button onClick={()=>router.push("/platform")}
               variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 py-3 font-bold tracking-wide text-sm">Explore Platform</Button>
             </div>
@@ -258,10 +255,10 @@ function AboutUs() {
           <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
             From FIX protocol connectivity and multi-LP aggregation to white-label terminals and risk desk tooling — CubeX gives brokerages everything they need to compete at the institutional level, without the institutional price tag.
           </p>
-          <a href="/platform" className="inline-flex items-center gap-2 text-indigo-500 dark:text-indigo-400 font-semibold hover:gap-3 transition-all text-sm">
+          {/* <a href="/platform" className="inline-flex items-center gap-2 text-indigo-500 dark:text-indigo-400 font-semibold hover:gap-3 transition-all text-sm">
             Explore Our Platform
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </a>
+          </a> */}
         </div>
         <div className="grid grid-cols-2 gap-4">
           {stats.map((item, i) => (
@@ -878,12 +875,13 @@ function CTA() {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
-      <Homes />
+      
       <Home />
       <StatBar />
       <AboutUs />
       <WhyChooseUs />
       <InsideVertexTrader />
+      <Homes />
       <Highlights />
       <Testimonials />
       <Onboarding />

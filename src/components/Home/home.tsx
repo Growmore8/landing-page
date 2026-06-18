@@ -377,27 +377,54 @@ export default function Home() {
         <div className="relative z-10 min-h-screen flex flex-col">
 
           {/* Center section — stacked vertically */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-8">
-              {/* Headline */}
-            <h1 className="hero-animate hero-animate-2 text-center font-bold leading-[1.05] tracking-[-2.5px] mb-5"
-              style={{ fontSize: "clamp(42px,7vw,80px)", color: "inherit" }}>
-              <span className="text-gray-900 dark:text-white">Trade Smarter</span><br />
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-[#5b8cff] via-[#818cf8] to-[#a78bfa] bg-clip-text text-transparent">
-                  with CubeX
+          {/* Center section */}
+          <div className="flex-1 flex items-center justify-center px-4 py-16 md:py-24">
+            <div className="relative z-10 text-center max-w-[560px] w-[90%] rounded-[20px] border border-[rgba(91,140,255,0.22)]  backdrop-blur-xl px-8 py-10 md:px-11 shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset,0_32px_80px_rgba(0,0,0,0.35)]">
+
+              {/* Badge */}
+              <div className="hero-animate hero-animate-1 inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-[rgba(91,140,255,0.3)] bg-[rgba(91,140,255,0.15)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5b8cff]" />
+                <span className="font-mono text-[10px] tracking-[1.5px] uppercase text-[rgba(91,140,255,0.9)]">
+                  Live trading infrastructure
                 </span>
-                {/* Underline accent */}
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#5b8cff] to-[#a78bfa] rounded-full opacity-40" />
-              </span>
-            </h1>
+              </div>
 
-            {/* Subhead */}
-            <p className="hero-animate hero-animate-3 text-center text-[15px] sm:text-[16px] leading-[1.75] text-gray-500 dark:text-gray-400 max-w-[440px] mb-8">
-              Real-time execution across 50+ asset classes. Enterprise back-office, white-label portals, and liquidity from 15+ tier-1 banks — all in one platform.
-            </p>
+              {/* Headline */}
+              <h1 className="hero-animate hero-animate-2 font-bold leading-[1.12] tracking-[-1.5px] text-4xl md:text-5xl mb-4">
+                The platform built for{" "}
+                <span className="bg-gradient-to-r from-[#5b8cff] to-[#a78bfa] bg-clip-text text-transparent">
+                  serious brokers
+                </span>
+              </h1>
 
+              {/* Subtext */}
+              <p className="hero-animate hero-animate-3 text-gray-500 dark:text-gray-400 text-[15px] leading-relaxed max-w-[400px] mx-auto mb-8">
+                White-label trading technology trusted by 400+ brokers worldwide.
+                Launch faster, scale further.
+              </p>
 
+              {/* Divider */}
+              <div className="border-t border-[rgba(255,255,255,0.07)] mb-6" />
 
+              {/* Stats */}
+              <div className="hero-animate hero-animate-5 flex justify-center">
+                {stats.map((s, i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 flex flex-col items-center gap-0.5 px-3 ${i < stats.length - 1 ? "border-r border-[rgba(255,255,255,0.07)]" : ""
+                      }`}
+                  >
+                    <strong className="font-mono text-lg font-bold tracking-tight">
+                      {s.n}
+                    </strong>
+                    <span className="text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-500">
+                      {s.l}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
 
         </div>

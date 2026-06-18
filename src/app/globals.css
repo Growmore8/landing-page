@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;700&display=swap');
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @tailwind base;
@@ -111,17 +111,26 @@
     --sidebar-ring: oklch(0.556 0 0);
   }
   .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
+    --font-heading: 'Geist Mono', monospace;
+    --font-sans: 'Geist', sans-serif;
   }
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Geist', sans-serif;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Monospace elements — labels, chips, tickers, letter-spacing text */
+  .logo, .face .lbl, .chip, .deal, .hint {
+    font-family: 'Geist Mono', monospace;
+  }
 }
 
 @layer base {
@@ -135,7 +144,7 @@
 
 .glow-left,
 .glow-right {
-  stroke-dasharray: 120 508; /* 120px visible, 508px gap */
+  stroke-dasharray: 120 508;
   stroke-dashoffset: 0;
   animation: flow 2s linear infinite;
   filter: drop-shadow(0 0 10px #FFA500) drop-shadow(0 0 20px #FFA500);
@@ -147,7 +156,7 @@
 
 @keyframes flow {
   to {
-    stroke-dashoffset: -628; /* total half-ellipse length */
+    stroke-dashoffset: -628;
   }
 }
 
@@ -163,21 +172,18 @@
 .animate-scroll-left {
   display: flex;
   gap: 1rem;
-  /* use CSS variable for duration */
   animation: scroll-left var(--scroll-duration, 20s) linear infinite;
 }
 
-/* Override duration for small screens */
 @media (max-width: 640px) {
   .animate-scroll-left {
     --scroll-duration: 12s;
   }
 }
 
-/* Gradient text animation left to right (slower) */
 .text-gradient-animation {
   position: relative;
-  color: black; /* base text color */
+  color: black;
   background: linear-gradient(
     90deg,
     black 0%,
@@ -189,7 +195,7 @@
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-move 8s linear infinite alternate; /* slower */
+  animation: gradient-move 8s linear infinite alternate;
 }
 
 @keyframes gradient-move {
@@ -312,7 +318,6 @@
 @keyframes draw      { to { stroke-dashoffset: 0; } }
 @keyframes glowpulse { 0%, 100% { opacity: 0.95; } 50% { opacity: 0.5; } }
 
-/* ===== ticker chips ===== */
 .chip {
   position: absolute;
   font-size: 11px;
@@ -323,20 +328,18 @@
   backdrop-filter: blur(4px);
   white-space: nowrap;
   animation: floaty var(--t) ease-in-out infinite;
+  font-family: 'Geist Mono', monospace;
 }
 
 .chip b { color: #e8edf7; }
 .chip.up b { color: #1fd286; }
 .chip.dn b { color: #ff4d5e; }
 
-
-
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-16px); }
 }
 
-/* ===== deal boards ===== */
 .deal {
   position: absolute;
   display: flex;
@@ -350,6 +353,7 @@
   font-size: 10px;
   letter-spacing: 0.5px;
   animation: floaty var(--t) ease-in-out infinite;
+  font-family: 'Geist Mono', monospace;
 }
 
 .deal .sym  { display: flex; align-items: center; padding: 6px 8px; color: #aeb9d4; font-weight: 600; }
@@ -358,7 +362,6 @@
 .deal .sell { background: rgba(255, 77, 94, 0.16);  color: #ff8a96; }
 .deal .buy  { background: rgba(31, 210, 134, 0.16); color: #5fe3ad; }
 
-/* ===== page layout ===== */
 .coming-soon-section {
   position: relative;
   min-height: 100dvh;
@@ -382,17 +385,15 @@
 }
 
 .top  { width: 100%; }
-.logo { font-size: 14px; letter-spacing: 6px; color: var(--brand); text-transform: uppercase; margin-bottom: 16px; }
+.logo { font-size: 14px; letter-spacing: 6px; color: var(--brand); text-transform: uppercase; margin-bottom: 16px; font-family: 'Geist Mono', monospace; }
 
-h1 { font-size: clamp(30px, 6vw, 62px); font-weight: 700; margin-bottom: 12px; line-height: 1.08; }
+h1 { font-size: clamp(30px, 6vw, 62px); font-weight: 700; margin-bottom: 12px; line-height: 1.08; letter-spacing: -0.02em; }
 h1 span { color: var(--brand); }
 
-p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
+p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); font-weight: 400; }
 
 .middle { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; width: 100%; }
 
-
-/* ===== 3D countdown cube ===== */
 .scene {
   width: var(--cube);
   height: var(--cube);
@@ -444,6 +445,8 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   color: #fff;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  font-family: 'Geist Mono', monospace;
+  letter-spacing: -0.02em;
 }
 
 .face .lbl {
@@ -451,6 +454,7 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   letter-spacing: 3px;
   color: #7c8aa8;
   text-transform: uppercase;
+  font-family: 'Geist Mono', monospace;
 }
 
 .face.brand { gap: 6px; }
@@ -464,9 +468,9 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   box-shadow: 0 0 22px rgba(91, 140, 255, 0.5);
 }
 
-.face.brand .name         { margin-top: 14px; font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+.face.brand .name         { margin-top: 14px; font-size: 18px; font-weight: 700; letter-spacing: 1px; font-family: 'Geist', sans-serif; }
 .face.brand .name span    { color: var(--brand); }
-.face.brand .soon         { font-size: 10px; letter-spacing: 3px; color: #7c8aa8; text-transform: uppercase; }
+.face.brand .soon         { font-size: 10px; letter-spacing: 3px; color: #7c8aa8; text-transform: uppercase; font-family: 'Geist Mono', monospace; }
 
 .f-front  { transform: rotateY(0deg)    translateZ(calc(var(--cube) / 2)); }
 .f-right  { transform: rotateY(90deg)   translateZ(calc(var(--cube) / 2)); }
@@ -481,9 +485,8 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   100% { opacity: 1; transform: scale(1); }
 }
 
-.hint { margin-top: 14px; font-size: 11px; letter-spacing: 1px; color: #5d6a85; opacity: 0.85; }
+.hint { margin-top: 14px; font-size: 11px; letter-spacing: 1px; color: #5d6a85; opacity: 0.85; font-family: 'Geist Mono', monospace; }
 
-/* ===== mobile ===== */
 @media (max-width: 640px) {
   :root { --cube: 138px; }
 
@@ -496,8 +499,6 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   .face .lbl { font-size: 11px; letter-spacing: 2px; }
   .foot  { font-size: 11px; }
 
-  /* chips: spread top & bottom, avoid left/right edges */
- /* chips */
 .chip[data-i="0"] { left: 5% !important;  top: 2% !important; }
 .chip[data-i="1"] { left: 52% !important; top: 2% !important; }
 .chip[data-i="2"] { left: 5% !important;  top: 90% !important; }
@@ -505,7 +506,6 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
 .chip[data-i="4"] { left: 28% !important; top: 2% !important; }
 .chip[data-i="5"] { left: 38% !important; top: 96% !important; }
 
-/* deals */
 .deal[data-i="0"] { left: 5% !important;  top: 12% !important; }
 .deal[data-i="1"] { left: 50% !important; top: 12% !important; }
 .deal[data-i="2"] { left: 25% !important; top: 84% !important; }
@@ -515,6 +515,7 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   .former, .grid, .candle i, .priceline path, .chip, .deal { animation: none; }
   .former { opacity: 1; }
 }
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -544,6 +545,7 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
 }
+
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -579,12 +581,12 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
     from var(--angle),
     transparent 0%,
     transparent 20%,
-    #4f46e5 30%,      /* indigo — left side */
+    #4f46e5 30%,
     #6366f1 35%,
     #818cf8 38%,
     transparent 48%,
     transparent 52%,
-    #1e1b4b 62%,      /* dark indigo — right side (dark mode) */
+    #1e1b4b 62%,
     #312e81 65%,
     #1e1b4b 68%,
     transparent 78%,
@@ -592,7 +594,6 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   );
 }
 
-/* Light mode right-side color */
 :root .card-animated::before,
 .light .card-animated::before {
   background: conic-gradient(
@@ -612,7 +613,6 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   );
 }
 
-/* Dark mode right-side color */
 .dark .card-animated::before {
   background: conic-gradient(
     from var(--angle),
@@ -623,10 +623,9 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
     #818cf8 38%,
     transparent 48%,
     transparent 52%,
-    #e0e7ff 62%,      /* soft indigo-white — right side (light mode) */
+    #e0e7ff 62%,
     #ffffff 65%,
     #e0e7ff 68%,
-    
     transparent 78%,
     transparent 100%
   );
@@ -645,3 +644,6 @@ p.sub { color: #9aa7c0; font-size: clamp(15px, 2.5vw, 19px); }
   to { --angle: 360deg; }
 }
 
+@keyframes ticker-scroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.ticker-track { display: flex; width: max-content; animation: ticker-scroll 36s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
