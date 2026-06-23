@@ -204,10 +204,10 @@ export default function ContactPage() {
       q: "How can I reach CubeX Enterprises for support or inquiries?",
       a: "Reach us directly via the contact form on this page, by calling +94 11 2 804 924/925, or emailing info@cubexenterprises.com. We offer 24/7 technical support for active platform clients, and regular business hours for sales, accounting, and HR queries.",
     },
-    {
-      q: "Where is the CubeX Enterprises head office located?",
-      a: "Our head office is at 3rd Floor, 3A-1/3, 2nd Lane, Meegha Watta Road, Delkanda, Nugegoda, Sri Lanka. We serve brokerage clients across the Asia-Pacific region from this location.",
-    },
+    // {
+    //   q: "Where is the CubeX Enterprises head office located?",
+    //   a: "Our head office is at 3rd Floor, 3A-1/3, 2nd Lane, Meegha Watta Road, Delkanda, Nugegoda, Sri Lanka. We serve brokerage clients across the Asia-Pacific region from this location.",
+    // },
     {
       q: "What types of enquiries can I submit through the contact form?",
       a: "You can submit inquiries related to platform demos, pricing, technical support, partnership opportunities, onboarding, compliance questions, and general business enquiries.",
@@ -382,7 +382,7 @@ export default function ContactPage() {
         { label: "EMAIL", val: "info@cubexenterprises.com", href: "mailto:info@cubexenterprises.com" },
         { label: "CALL", val: "+94 11 2 804 924 / 925", href: "tel:+94112804924" },
         { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
-        { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
+        // { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
       ].map((c) => (
         <div key={c.label} className="text-center sm:text-left whitespace-nowrap">
           <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
@@ -478,7 +478,7 @@ export default function ContactPage() {
               Head Office
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-[15px] mt-2 max-w-[540px]">
-              Headquartered in Nugegoda, Sri Lanka — serving brokerage clients across Asia-Pacific.
+              Headquartered in Sri Lanka — serving brokerage clients across Asia-Pacific.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -496,7 +496,7 @@ export default function ContactPage() {
             <div className="border border-gray-200 dark:border-gray-700 border-l-0 bg-white dark:bg-gray-800 p-9 rounded-tr-lg rounded-br-lg lg:rounded-tl-none">
               <div className="flex flex-col gap-5">
                 {[
-                  { label: "ADDRESS", val: "3rd Floor, 3A-1/3, 2nd Lane\nMeegha Watta Road, Delkanda\nNugegoda, Sri Lanka" },
+                  // { label: "ADDRESS", val: "3rd Floor, 3A-1/3, 2nd Lane\nMeegha Watta Road, Delkanda\nNugegoda, Sri Lanka" },
                   { label: "PHONE", val: "+94 11 2 804 924\n+94 11 2 804 925" },
                   { label: "EMAIL", val: "info@cubexenterprises.com" },
                   { label: "WEBSITE", val: "www.cubexenterprises.com" },

@@ -30,88 +30,103 @@ import {
 
 const plans = [
   {
-    id: "startup",
+    id: "starter",
     icon: Zap,
-    name: "Startup Broker",
-    tagline: "Launch your brokerage fast",
+    name: "Starter",
+    tagline: "Launch your trading business with essential tools",
     badge: null,
-    description:
-      "Everything you need to get your brokerage live with professional-grade infrastructure and essential tools.",
-    price: "Custom",
-    priceNote: "Provided by our Trusted Partners • Terms Apply",
-    cta: "Request Quote",
+    description: "Powerful web trading solution for startups and brokers.",
+    price: "$499",
+    priceNote: "/month",
+    cta: "Edit Plan",
     ctaVariant: "outline" as const,
     featured: false,
     color: "indigo",
+    seats: {
+      liveAccounts: 50,
+      managers: 1,
+      tenants: 1,
+    },
     features: [
-      "Branded Client Terminal (Desktop)",
-      "Branded Web Terminal",
-      "Full Backoffice Access",
-      "API & Tool Kit for Seamless Integration",
-      "Mobile App (iOS & Android)",
-      "Technical Support (24/6)",
-      "Liquidity Bridge Setup",
-      "KYC / AML Module",
-      "IB & Affiliate Portal",
-      "Basic Risk Management",
+      "Up to 50 Active Clients",
+      "Custom Domain Support",
+      "Advanced Web Trading Terminal (Web App)",
+      "Android APK & Desktop Trading Applications",
+      "User-Friendly Admin Dashboard",
+      "Real-Time Performance & Financial Reports",
+      "Dedicated Email Support",
+      "Essential Risk Monitoring Tools",
+      "Best suited for: Startups, Introducing Brokers, and New Brokerage Firms looking to launch and scale efficiently.",
+    ],
+  },
+  {
+    id: "pro",
+    icon: Building2,
+    name: "Pro",
+    tagline: "Scale your brokerage with advanced multi-asset capabilities",
+    badge: "Most Popular",
+    description:
+      "Advanced multi-asset trading solution built for scaling brokerages.",
+    price: "$999",
+    priceNote: "/month",
+    cta: "Edit Plan",
+    ctaVariant: "default" as const,
+    featured: true,
+    color: "blue",
+    seats: {
+      liveAccounts: 250,
+      managers: 5,
+      tenants: 0,
+    },
+    features: [
+      "Up to 250 Active Clients",
+      "Multi-Asset Trading Capability",
+      "Custom Domain Integration",
+      "Web Trading Platform (Web App)",
+      "Android APK & Desktop Trading Applications",
+      "Advanced Admin Dashboard",
+      "Integrated KYC Verification System",
+      "IB / Affiliate Management System",
+      "Comprehensive Risk Management Dashboard",
+      "API Access for Integration",
+      "Detailed Trade Reports & Analytics",
+      "Priority Customer Support",
+      "Suitable for: Growing brokerage firms aiming to scale efficiently.",
     ],
   },
   {
     id: "enterprise",
-    icon: Building2,
-    name: "Enterprise Broker",
-    tagline: "The Premier Solution for Growing Brokerages",
-    badge: "Most Popular",
-    description:
-      "Full-featured enterprise suite with AI-enhanced terminals, multi-tier management, and dedicated account support.",
-    price: "Custom",
-    priceNote: "White-label & custom pricing available",
-    cta: "Request Quote",
-    ctaVariant: "default" as const,
-    featured: true,
-    color: "blue",
-    features: [
-      "Branded Desktop Terminals (Built-in AI)",
-      "Branded Web Terminals (Client & Manager)",
-      "Full Backoffice Access + Advanced Reports",
-      "Branded Mobile App (iOS & Android)",
-      "Built-in Risk Management Tool",
-      "API & Tool Kit for Seamless Integration",
-      "Technical Support (24/7 Priority)",
-      "Dedicated Account Manager",
-      "Multi-tier IB & Affiliate System",
-      "Advanced Liquidity Aggregation (15+ Banks)",
-      "Regulatory Reporting (MiFID II / ASIC)",
-      "Custom Branding & White-Label UI",
-    ],
-  },
-  {
-    id: "institutional",
     icon: Crown,
-    name: "Institutional",
-    tagline: "For prime brokers & institutions",
+    name: "Enterprise",
+    tagline: "Power your institution with enterprise-grade infrastructure",
     badge: "Enterprise",
     description:
-      "Maximum performance, custom infrastructure, and exclusive SLA guarantees for high-volume institutional operations.",
-    price: "Custom",
-    priceNote: "Bespoke pricing on request",
-    cta: "Talk to Sales",
+      "Enterprise-grade trading solution for high-scale broker operations.",
+    price: "$1499",
+    priceNote: "/month",
+    cta: "Edit Plan",
     ctaVariant: "outline" as const,
     featured: false,
-    color: "slate",
+    color: "amber",
+    seats: {
+      liveAccounts: 500,
+      managers: 10,
+      tenants: 3,
+    },
     features: [
-      "Everything in Enterprise, plus:",
-      "Dedicated Server Infrastructure",
-      "Co-location & FIX 4.4/5.0 Direct Access",
-      "Custom Liquidity Pools & Credit Lines",
-      "Prime-of-Prime Brokerage Access",
-      "White-Glove Onboarding & Migration",
-      "99.99% Uptime SLA Guarantee",
-      "24/7 Priority Technical Support",
-      "Custom Compliance & Reporting Suite",
-      "Multi-Jurisdiction Legal Structuring",
-      "Quarterly Business Reviews",
-      "Executive Escalation Path",
+      "Unlimited Active Clients",
+      "Custom Domain Integration",
+      "Web Trading Platform (Web App)",
+      "Android APK & Desktop Trading Applications",
+      "Liquidity Bridge Integration",
+      "Advanced Risk Management Engine",
+      "Multi-Level IB / Affiliate System",
+      "Dedicated Account Manager",
+      "Full White Label Branding",
+      "Advanced Reporting & Analytics Suite",
+      "API Access for Integrations",
+      "24/7 Technical Support",
+      "Suitable for: Established brokers, prop firms, and institutional clients.",
     ],
   },
 ];
@@ -247,7 +262,7 @@ export default function PricingPage() {
             Our pricing plans are structured with real broker challenges in mind. Get access to enterprise-grade technology and expert support, in the format that suits you best.
           </p>
           {/* Tab toggle */}
-          <div className="mt-8 inline-flex items-center gap-1 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-1 rounded-none">
+          {/* <div className="mt-8 inline-flex items-center gap-1 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-1 rounded-none">
             {(["brokers", "institutional"] as const).map((tab) => (
               <button
                 key={tab}
@@ -261,7 +276,7 @@ export default function PricingPage() {
                 {tab === "brokers" ? "Retail Brokers" : "Institutional"}
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -306,11 +321,11 @@ export default function PricingPage() {
                       }`}>
                         {plan.name}
                       </h2>
-                      <p className={`text-[12px] font-medium mb-4 ${
+                      {/* <p className={`text-[12px] font-medium mb-4 ${
                         isFeatured ? "text-blue-200" : "text-gray-400 dark:text-gray-500"
                       }`}>
                         {plan.tagline}
-                      </p>
+                      </p> */}
                       <p className={`text-[13px] leading-relaxed mb-6 ${
                         isFeatured ? "text-blue-100/80" : "text-gray-500 dark:text-gray-400"
                       }`}>
@@ -318,7 +333,7 @@ export default function PricingPage() {
                       </p>
 
                       {/* Price */}
-                      <div className={`mb-2 pb-6 border-b ${
+                      <div className={`mb-2 pb-6 border-b flex ${
                         isFeatured ? "border-blue-600/40" : "border-gray-100 dark:border-gray-800"
                       }`}>
                         <div className={`text-3xl font-bold font-mono tracking-tight ${
@@ -326,7 +341,7 @@ export default function PricingPage() {
                         }`}>
                           {plan.price}
                         </div>
-                        <div className={`mt-1 text-[11px] ${
+                        <div className={`mt-4 text-[11px] ${
                           isFeatured ? "text-blue-300" : "text-gray-400 dark:text-gray-500"
                         }`}>
                           {plan.priceNote}
@@ -334,7 +349,7 @@ export default function PricingPage() {
                       </div>
 
                       {/* CTA */}
-                      <Button
+                      {/* <Button
                         className={`w-full rounded-none mb-6 font-bold uppercase tracking-widest text-xs py-3 ${
                           isFeatured
                             ? "bg-white text-blue-900 hover:bg-blue-50"
@@ -342,7 +357,7 @@ export default function PricingPage() {
                         }`}
                       >
                         {plan.cta} →
-                      </Button>
+                      </Button> */}
 
                       {/* Features */}
                       <ul className="flex flex-col gap-3 flex-1">

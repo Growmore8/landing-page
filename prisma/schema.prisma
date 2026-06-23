@@ -21,3 +21,22 @@ model ContactSalesRequest {
 
   @@map("contact_sales_requests")
 }
+
+model ChatLead {
+  id        Int           @id @default(autoincrement())
+  name      String
+  contact   String
+  createdAt DateTime      @default(now())
+  messages  ChatMessage[]
+  @@map("chat_leads")
+}
+
+model ChatMessage {
+  id        Int      @id @default(autoincrement())
+  leadId    Int
+  lead      ChatLead @relation(fields: [leadId], references: [id])
+  role      String  
+  content   String
+  createdAt DateTime @default(now())
+  @@map("chat_messages")
+}

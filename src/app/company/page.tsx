@@ -339,7 +339,7 @@ export default function CompanyPage() {
                   <span className="text-2xl leading-none mt-0.5">{o.flag}</span>
                   <div>
                     <div className="text-[13px] font-bold text-gray-900 dark:text-white">{o.city}, {o.country}</div>
-                    <div className="text-[12px] text-gray-500 dark:text-gray-400 mt-0.5">{o.detail}</div>
+                    {/* <div className="text-[12px] text-gray-500 dark:text-gray-400 mt-0.5">{o.detail}</div> */}
                   </div>
                 </div>
               ))}

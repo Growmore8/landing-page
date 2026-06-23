@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/themeProvider";
 import { Toaster } from "sonner";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { SupportChat } from "@/components/SupportChat";
 
 export const metadata = {
   title: "CubeX Enterprises",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <SupportChat /> 
           <Toaster position="bottom-center" />
         </ThemeProvider>
       </body>

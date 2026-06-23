@@ -37,7 +37,7 @@ const TRUST_ITEMS = [
 const OFFICES = [
   {
     country: "Sri Lanka",
-    address: "Delkanda, Nugegoda",
+    // address: "Delkanda, Nugegoda",
     reg: "Registration Number: 0000000",
     icon: "solar:buildings-bold-duotone",
   },
@@ -655,7 +655,7 @@ export default function ContactSalesPage() {
                     <Icon icon={o.icon} className="text-indigo-500" width={20} />
                   </div>
                   <h3 className="text-[14px] font-black text-gray-900 dark:text-white mb-2">{o.country}</h3>
-                  <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line mb-2">{o.address}</p>
+                  {/* <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line mb-2">{o.address}</p> */}
                   <p className="text-[10px] font-mono text-gray-400">{o.reg}</p>
                 </div>
               ))}
