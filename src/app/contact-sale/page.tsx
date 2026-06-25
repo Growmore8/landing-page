@@ -36,8 +36,8 @@ const TRUST_ITEMS = [
 
 const OFFICES = [
   {
-    country: "Sri Lanka",
-    // address: "Delkanda, Nugegoda",
+    country: "United Arab Emirates",
+    address: "International Business Tower\nAl A'amal Street, Business Bay\nDubai, UAE",
     reg: "Registration Number: 0000000",
     icon: "solar:buildings-bold-duotone",
   },
@@ -46,7 +46,7 @@ const OFFICES = [
 const CONTACT_METHODS = [
   { icon: "solar:phone-bold-duotone", label: "Sales", value: "+44-2-071-936-008" },
   { icon: "solar:phone-bold-duotone", label: "MENA", value: "+962-6-5520822" },
-  { icon: "solar:letter-bold-duotone", label: "Email", value: "info@cubexenterprises.com" },
+  { icon: "solar:letter-bold-duotone", label: "Email", value: "support@orbitfxsolution.com" },
   { icon: "solar:chat-round-dots-bold-duotone", label: "Live Chat", value: "Available 24/7" },
 ];
 
@@ -97,7 +97,6 @@ function InputField({
   );
 }
 
-// Replace the existing SelectField function with this:
 function SelectField({
   label, required, options, placeholder, value, onChange,
 }: {
@@ -201,7 +200,6 @@ export default function ContactSalesPage() {
   const [countryOpen, setCountryOpen] = useState(false);
   const countryRef = useRef<HTMLDivElement>(null);
 
-  // Cloudflare Turnstile state: idle | verifying | verified
   const [cfStatus, setCfStatus] = useState<"idle" | "verifying" | "verified">("idle");
 
   const [form, setForm] = useState<FormData>({
@@ -216,7 +214,6 @@ export default function ContactSalesPage() {
   const set = (k: keyof FormData) => (v: string | boolean) =>
     setForm((f) => ({ ...f, [k]: v }));
 
-  /* Close country dropdown on outside click */
   useEffect(() => {
     if (!countryOpen) return;
     const handler = (e: MouseEvent) => {
@@ -228,18 +225,17 @@ export default function ContactSalesPage() {
     return () => document.removeEventListener("mousedown", handler);
   }, [countryOpen]);
 
-  /* Trigger Turnstile verification when country is selected */
   const handleCountrySelect = (c: typeof COUNTRIES[0]) => {
     set("country")(c.name);
     setDialCode({ code: c.code, dialCode: c.dialCode });
     setCountryOpen(false);
 
-    // Auto-trigger Turnstile verification
     if (cfStatus === "idle") {
       setCfStatus("verifying");
-      setTimeout(() => setCfStatus("verified"), 1800); // simulates real Turnstile (~1-2s)
+      setTimeout(() => setCfStatus("verified"), 1800);
     }
   };
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const validate = () => {
     const e: Partial<Record<keyof FormData, string>> = {};
@@ -275,7 +271,6 @@ export default function ContactSalesPage() {
 
       if (!res.ok) throw new Error("Submit failed");
 
-      // Reset form, show toast
       setForm({
         fullName: "", workEmail: "", phone: "", plan: "",
         country: "", companyWebsite: "", companyName: "",
@@ -321,7 +316,6 @@ export default function ContactSalesPage() {
         .cf-spin { animation: cf-spin 0.9s linear infinite; }
       `}</style>
 
-      {/* ── TOAST ── */}
       <Toast show={showToast} onClose={() => setShowToast(false)} />
 
       <div ref={ref} className="bg-white dark:bg-gray-950 min-h-screen">
@@ -655,7 +649,7 @@ export default function ContactSalesPage() {
                     <Icon icon={o.icon} className="text-indigo-500" width={20} />
                   </div>
                   <h3 className="text-[14px] font-black text-gray-900 dark:text-white mb-2">{o.country}</h3>
-                  {/* <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line mb-2">{o.address}</p> */}
+                  <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line mb-2">{o.address}</p>
                   <p className="text-[10px] font-mono text-gray-400">{o.reg}</p>
                 </div>
               ))}

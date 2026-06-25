@@ -201,13 +201,9 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "How can I reach CubeX Enterprises for support or inquiries?",
-      a: "Reach us directly via the contact form on this page, by calling +94 11 2 804 924/925, or emailing info@cubexenterprises.com. We offer 24/7 technical support for active platform clients, and regular business hours for sales, accounting, and HR queries.",
+      q: "Where is the CubeX Enterprises head office located?",
+      a: "Our head office is at International Business Tower, Al A'amal Street, Business Bay, Dubai, United Arab Emirates. We serve brokerage clients across the Middle East and Asia-Pacific region from this location.",
     },
-    // {
-    //   q: "Where is the CubeX Enterprises head office located?",
-    //   a: "Our head office is at 3rd Floor, 3A-1/3, 2nd Lane, Meegha Watta Road, Delkanda, Nugegoda, Sri Lanka. We serve brokerage clients across the Asia-Pacific region from this location.",
-    // },
     {
       q: "What types of enquiries can I submit through the contact form?",
       a: "You can submit inquiries related to platform demos, pricing, technical support, partnership opportunities, onboarding, compliance questions, and general business enquiries.",
@@ -228,7 +224,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300">
-      
+
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-white dark:bg-gray-950">
         {/* grid background */}
@@ -262,7 +258,7 @@ export default function ContactPage() {
               Brokerages.
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-base leading-relaxed max-w-[420px] mb-9">
-              CubeX Enterprises powers institutional trading desks across Asia-Pacific.
+              CubeX Enterprises powers institutional trading desks across the Middle East and Asia-Pacific.
               Tell us your goal — we'll engineer the solution.
             </p>
             <div className="flex gap-3 flex-wrap items-center mb-11">
@@ -301,10 +297,9 @@ export default function ContactPage() {
 
               <div className="grid grid-cols-2 gap-3.5">
                 {[
-                  { id: "name", label: "Full Name", ph: "Amal Perera", type: "text" },
-                  { id: "email", label: "Email Address", ph: "amal@example.com", type: "email" },
-                  { id: "phone", label: "Phone Number", ph: "+94 77 000 0000", type: "tel" },
-                  { id: "country", label: "Country", ph: "Sri Lanka", type: "text" },
+                  { id: "name", label: "Full Name", ph: "Full Name", type: "text" },
+                  { id: "email", label: "Email Address", ph: "your@example.com", type: "email" },
+                  { id: "country", label: "Country", ph: "United Arab Emirates", type: "text" },
                 ].map((f) => (
                   <div key={f.id}>
                     <InputLabel>{f.label}</InputLabel>
@@ -364,38 +359,45 @@ export default function ContactPage() {
       <StatBar />
 
       {/* ── AVAILABILITY STRIP ── */}
-    <section className="border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
-  <div className="max-w-[1280px] mx-auto px-[5%] py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
-    <div className="flex items-center gap-4 shrink-0">
-      <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_4px_rgba(34,197,94,0.2)]" />
-      <div className="text-center sm:text-left">
-        <div className="text-[10px] tracking-[2px] text-green-500 font-bold uppercase font-mono">
-          Live Support Active
-        </div>
-        <div className="font-bold text-[28px] tracking-[-0.5px] text-gray-900 dark:text-white leading-tight whitespace-nowrap">
-          24 × 7 Availability
-        </div>
-      </div>
-    </div>
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 shrink-0 items-center sm:items-start">
-      {[
-        { label: "EMAIL", val: "info@cubexenterprises.com", href: "mailto:info@cubexenterprises.com" },
-        { label: "CALL", val: "+94 11 2 804 924 / 925", href: "tel:+94112804924" },
-        { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
-        // { label: "ADDRESS", val: "Delkanda, Nugegoda, Sri Lanka", href: "https://www.cubexenterprises.com" },
-      ].map((c) => (
-        <div key={c.label} className="text-center sm:text-left whitespace-nowrap">
-          <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
-            {c.label}
+      <section className="border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-[1280px] mx-auto px-[5%] py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_0_4px_rgba(34,197,94,0.2)]" />
+            <div className="text-center sm:text-left">
+              <div className="text-[10px] tracking-[2px] text-green-500 font-bold uppercase font-mono">
+                Live Support Active
+              </div>
+              <div className="font-bold text-[28px] tracking-[-0.5px] text-gray-900 dark:text-white leading-tight whitespace-nowrap">
+                24 × 7 Availability
+              </div>
+            </div>
           </div>
-          <a href={c.href} className="text-gray-700 dark:text-gray-300 no-underline text-sm font-semibold hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-            {c.val}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 shrink-0 items-center sm:items-start">
+            {[
+              { label: "EMAIL", val: "support@orbitfxsolution.com", href: "mailto:support@orbitfxsolution.com" },
+              { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
+              { label: "ADDRESS", val: "International Business Tower, Al A'amal Street, Business Bay, Dubai, United Arab Emirates", href: "https://maps.google.com/?q=International+Business+Tower,+Business+Bay,+Dubai" },
+            ].map((c) => (
+              <div
+                key={c.label}
+                className={`text-center sm:text-left ${
+                  c.label === "ADDRESS" ? "max-w-[260px]" : "whitespace-nowrap"
+                }`}
+              >
+                <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
+                  {c.label}
+                </div>
+                <a
+                  href={c.href}
+                  className="text-gray-700 dark:text-gray-300 no-underline text-sm font-semibold hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors break-words"
+                >
+                  {c.val}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ── PLATFORM FEATURES ── */}
       <section id="features" className="py-22 px-[5%]">
@@ -478,29 +480,27 @@ export default function ContactPage() {
               Head Office
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-[15px] mt-2 max-w-[540px]">
-              Headquartered in Sri Lanka — serving brokerage clients across Asia-Pacific.
+              Headquartered in Dubai, UAE — serving brokerage clients across the Middle East and Asia-Pacific.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="border border-gray-200 dark:border-gray-700 overflow-hidden rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-bl-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.5!2d79.8950!3d6.8640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bd4d8e2a1eb%3A0x0!2zNsKwNTEnNTMuNyJOIDc5wrA1Myc0Mi4xIkU!5e0!3m2!1sen!2slk!4v1"
+                src="https://www.google.com/maps?q=International%20Business%20Tower%2C%20Al%20A'amal%20Street%2C%20Business%20Bay%2C%20Dubai%2C%20United%20Arab%20Emirates&output=embed"
                 width="100%"
                 height="340"
                 style={{ border: 0, display: "block" }}
                 allowFullScreen
                 loading="lazy"
-                title="CubeX Head Office"
+                title="CubeX Head Office — Business Bay, Dubai"
               />
             </div>
             <div className="border border-gray-200 dark:border-gray-700 border-l-0 bg-white dark:bg-gray-800 p-9 rounded-tr-lg rounded-br-lg lg:rounded-tl-none">
               <div className="flex flex-col gap-5">
                 {[
-                  // { label: "ADDRESS", val: "3rd Floor, 3A-1/3, 2nd Lane\nMeegha Watta Road, Delkanda\nNugegoda, Sri Lanka" },
-                  { label: "PHONE", val: "+94 11 2 804 924\n+94 11 2 804 925" },
-                  { label: "EMAIL", val: "info@cubexenterprises.com" },
+                  { label: "ADDRESS", val: "International Business Tower\nAl A'amal Street, Business Bay\nDubai, United Arab Emirates" },
+                  { label: "EMAIL", val: "support@orbitfxsolution.com" },
                   { label: "WEBSITE", val: "www.cubexenterprises.com" },
-                  { label: "HOURS", val: "Mon–Fri  08:30–18:00 (GMT+5:30)" },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-5">
                     <span className="font-mono text-[9px] font-bold tracking-[1.5px] text-gray-400 dark:text-gray-500 min-w-[60px] pt-0.5">
@@ -532,7 +532,6 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {departments.map((d, i) => {
               const Icon = d.icon;
-
               return (
                 <Card
                   key={d.name}
@@ -542,23 +541,15 @@ export default function ContactPage() {
                     <div className="mb-4 flex h-12 w-12 items-center justify-center border border-indigo-500/20 bg-indigo-500/10">
                       <Icon className="h-6 w-6 text-indigo-400" />
                     </div>
-
                     <div className="mb-1.5 font-mono text-[9px] font-bold uppercase tracking-[2px] text-gray-400 dark:text-gray-500">
                       Dept {String(i + 1).padStart(2, "0")}
                     </div>
-
                     <h3 className="mb-1 text-sm font-bold text-gray-900 dark:text-white">
                       {d.name}
                     </h3>
-
                     <div className="mb-2.5 text-[12px] text-gray-500 dark:text-gray-400">
                       {d.desc}
                     </div>
-
-                    <div className="mb-2.5 font-mono text-[11px] leading-relaxed text-gray-400 dark:text-gray-500">
-                      {d.hours} (GMT+5:30)
-                    </div>
-
                     <span className="inline-block rounded border border-indigo-200 bg-indigo-50 px-2.5 py-1 font-mono text-[10px] font-bold tracking-wide text-indigo-500 dark:border-indigo-900 dark:bg-indigo-950/50 dark:text-indigo-400">
                       {d.ext}
                     </span>

@@ -118,7 +118,7 @@ function CompanyMegaMenu({ visible }: { visible: boolean }) {
             <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span className="text-[11px] text-gray-400 dark:text-gray-500">
-                    Cubex Enterprises · Est. 2026 · Colombo, Sri Lanka
+                    Cubex Enterprises · Est. 2026 · Dubai, United Arab Emirates
                 </span>
             </div>
         </div>

@@ -41,11 +41,11 @@ const values = [
 ];
 
 const milestones = [
-  { year: "Jan 2026", label: "Founded", desc: "CubeX Enterprises established in Colombo, Sri Lanka, as a financial technology company focused on brokerage infrastructure." },
+  { year: "Jan 2026", label: "Founded", desc: "CubeX Enterprises established in Dubai, United Arab Emirates, as a financial technology company focused on brokerage infrastructure." },
   { year: "Feb 2026", label: "Platform Build", desc: "Core development begins on our proprietary broker back-office infrastructure, trading terminals, and client portal." },
   { year: "Mar 2026", label: "Liquidity Partnerships", desc: "Secured liquidity relationships with tier-1 banks and ECN providers to power the CubeX trading engine." },
   { year: "Apr 2026", label: "Beta Launch", desc: "CubeX Platform enters closed beta — unified trading terminals, admin portal, and IB suite tested with select partners." },
-  { year: "May 2026", label: "First Clients", desc: "Onboarded our first brokerage clients across the Asia-Pacific region, delivering fully white-labelled deployments." },
+  { year: "May 2026", label: "First Clients", desc: "Onboarded our first brokerage clients across the Middle East and Asia-Pacific region, delivering fully white-labelled deployments." },
   { year: "Jun 2026", label: "Full Release", desc: "CubeX Platform v1 officially released — AI-enhanced terminals, institutional desk, and regulatory reporting suite." },
 ];
 
@@ -82,18 +82,18 @@ const teamMembers = [
 ];
 
 const openRoles = [
-  { title: "Senior Backend Engineer (Go/Rust)", dept: "Engineering", location: "Colombo / Remote", type: "Full-time" },
-  { title: "Product Manager — Trading Terminals", dept: "Product", location: "Colombo / Remote", type: "Full-time" },
+  { title: "Senior Backend Engineer (Go/Rust)", dept: "Engineering", location: "Dubai / Remote", type: "Full-time" },
+  { title: "Product Manager — Trading Terminals", dept: "Product", location: "Dubai / Remote", type: "Full-time" },
   { title: "FX Sales Executive — Middle East", dept: "Sales", location: "Dubai", type: "Full-time" },
   { title: "Compliance Analyst (ASIC/CySEC)", dept: "Compliance", location: "Remote", type: "Contract" },
-  { title: "DevOps Engineer — Cloud Infrastructure", dept: "Engineering", location: "Colombo", type: "Full-time" },
+  { title: "DevOps Engineer — Cloud Infrastructure", dept: "Engineering", location: "Dubai", type: "Full-time" },
   { title: "UX Designer — Platform UI", dept: "Design", location: "Remote", type: "Full-time" },
 ];
 
 const pressItems = [
   { outlet: "FinanceFeeds", date: "Jun 2026", headline: "CubeX Enterprises launches full platform release with AI-enhanced terminals and institutional desk.", tag: "Launch" },
   { outlet: "Finance Magnates", date: "May 2026", headline: "New entrant CubeX Enterprises makes waves in APAC brokerage technology with white-label platform.", tag: "Expansion" },
-  { outlet: "The Island", date: "Apr 2026", headline: "Sri Lankan fintech startup CubeX Enterprises enters closed beta with fully integrated brokerage platform.", tag: "Product" },
+  { outlet: "Gulf News", date: "Apr 2026", headline: "Dubai-based fintech startup CubeX Enterprises enters closed beta with fully integrated brokerage platform.", tag: "Product" },
   { outlet: "FXStreet", date: "Mar 2026", headline: "CubeX Enterprises secures tier-1 liquidity partnerships ahead of platform launch later this year.", tag: "Partnerships" },
 ];
 
@@ -113,7 +113,7 @@ const testimonials = [
   {
     quote: "Our IB network grew 40% in three months after we launched the CubeX partner portal. Commission tracking is transparent and the payout engine is flawless.",
     author: "Partnership Manager",
-    company: "Retail Broker — Colombo",
+    company: "Retail Broker — Abu Dhabi",
     rating: 5,
   },
 ];
@@ -239,9 +239,9 @@ export default function CompanyPage() {
       <span className="font-semibold text-gray-700 dark:text-gray-300">
         {" "}CubeX Enterprises
       </span>
-      — a Sri Lanka-based financial technology company founded in 2026,
+      — a Dubai-based financial technology company founded in 2026,
       building institutional-grade trading infrastructure for brokers
-      across Asia-Pacific and beyond.
+      across the Middle East, Asia-Pacific and beyond.
     </p>
 
     {/* Company Cards */}
@@ -250,7 +250,7 @@ export default function CompanyPage() {
         {
           label: "COMPANY",
           value: "CubeX Enterprises",
-          note: "Est. 2026 · Colombo, Sri Lanka",
+          note: "Est. 2026 · Dubai, United Arab Emirates",
         },
         {
           label: "FLAGSHIP PRODUCT",
@@ -276,19 +276,6 @@ export default function CompanyPage() {
         </div>
       ))}
     </div>
-
-    {/* <div className="flex justify-center gap-3 flex-wrap">
-      <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-xs px-7 py-3">
-        Our Story →
-      </Button>
-
-      <Button
-        variant="outline"
-        className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-bold tracking-wide text-sm px-6 py-3"
-      >
-        View Careers
-      </Button>
-    </div> */}
   </div>
 </section>
 
@@ -299,7 +286,7 @@ export default function CompanyPage() {
             <SectionHead
               badge="About Us"
               title="Who We Are and What We Stand For"
-              sub="CubeX Enterprises is the technology company behind CubeX — a full-stack brokerage platform serving retail brokers, institutions, and white-label operators across Asia-Pacific."
+              sub="CubeX Enterprises is the technology company behind CubeX — a full-stack brokerage platform serving retail brokers, institutions, and white-label operators across the Middle East and Asia-Pacific."
             />
             <div className="flex flex-col gap-4 text-[14px] text-gray-600 dark:text-gray-400 leading-[1.85]">
               <p>
@@ -309,7 +296,7 @@ export default function CompanyPage() {
                 Today, CubeX is a unified platform covering client portals, manager back-office, risk management, KYC/AML, liquidity access, and mobile apps. Everything is white-labelled, cloud-hosted, and built to scale from day one.
               </p>
               <p>
-                We operate from Colombo, Sri Lanka, with a team of engineers, compliance specialists, and market professionals dedicated to one thing: making brokerages work better.
+                We operate from the International Business Tower in Business Bay, Dubai, with a team of engineers, compliance specialists, and market professionals dedicated to one thing: making brokerages work better.
               </p>
             </div>
           </div>
@@ -333,13 +320,13 @@ export default function CompanyPage() {
             {/* Office */}
             <div className="flex flex-col gap-3">
               {[
-                { flag: "🇱🇰", city: "Colombo", country: "Sri Lanka", detail: "3rd Floor, Meegha Watta Road, Delkanda, Nugegoda" },
+                { flag: "🇦🇪", city: "Dubai", country: "United Arab Emirates", detail: "International Business Tower, Al A'amal Street, Business Bay" },
               ].map((o) => (
                 <div key={o.city} className="flex gap-3 items-start p-4 border border-gray-200 dark:border-gray-800">
                   <span className="text-2xl leading-none mt-0.5">{o.flag}</span>
                   <div>
                     <div className="text-[13px] font-bold text-gray-900 dark:text-white">{o.city}, {o.country}</div>
-                    {/* <div className="text-[12px] text-gray-500 dark:text-gray-400 mt-0.5">{o.detail}</div> */}
+                    <div className="text-[12px] text-gray-500 dark:text-gray-400 mt-0.5">{o.detail}</div>
                   </div>
                 </div>
               ))}
@@ -451,7 +438,7 @@ export default function CompanyPage() {
               />
               <div className="flex flex-col gap-4 mb-6">
                 {[
-                  { icon: Globe, label: "Remote-first culture with our headquarters in Colombo, Sri Lanka" },
+                  { icon: Globe, label: "Remote-first culture with our headquarters in Business Bay, Dubai" },
                   { icon: Award, label: "Competitive packages + performance equity for senior roles" },
                   { icon: Users, label: "Cross-functional teams shipping real financial infrastructure" },
                 ].map((b) => {
@@ -464,9 +451,6 @@ export default function CompanyPage() {
                   );
                 })}
               </div>
-              {/* <Button className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 font-bold uppercase tracking-widest text-xs px-7 py-3">
-                View All Roles →
-              </Button> */}
             </div>
             <div className="lg:col-span-2 flex flex-col gap-3">
               {openRoles.map((r) => (

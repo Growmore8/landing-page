@@ -18,7 +18,6 @@ export function useLocalChat() {
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const embedderRef = useRef<any>(null);
-  const generatorRef = useRef<any>(null);
   const chunksRef = useRef<Chunk[]>([]);
 
   const init = useCallback(async () => {
@@ -27,9 +26,14 @@ export function useLocalChat() {
       const { pipeline, env } = await import("@xenova/transformers");
       env.allowLocalModels = false;
       env.useBrowserCache = true;
+      env.backends.onnx.wasm.proxy = false;
 
-      embedderRef.current = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
-      generatorRef.current = await pipeline("text2text-generation", "Xenova/LaMini-Flan-T5-248M");
+      // Smallest possible embedder ~23MB only, no generator
+      embedderRef.current = await pipeline(
+        "feature-extraction",
+        "Xenova/all-MiniLM-L6-v2",
+        { quantized: true }
+      );
 
       const res = await fetch("/data/embeddings.json");
       if (!res.ok) throw new Error(`Failed to load embeddings.json (${res.status})`);
@@ -56,8 +60,29 @@ export function useLocalChat() {
       const context = scored.map((c) => c.content).join("\n");
       const prompt = `Context: ${context}\n\nQuestion: ${question}\nAnswer based only on the context above:`;
 
-      const output = await generatorRef.current(prompt, { max_new_tokens: 150 });
-      return output[0].generated_text;
+      // Use simple keyword matching as fallback generator (no model download)
+      const contextLower = context.toLowerCase();
+      const questionLower = question.toLowerCase();
+      
+      // Find the most relevant sentence from context
+      const sentences = context.split(/[.!?]+/).filter(s => s.trim().length > 20);
+      const keywords = questionLower.split(" ").filter(w => w.length > 3);
+      
+      const bestSentence = sentences
+        .map(s => ({
+          text: s.trim(),
+          score: keywords.filter(k => s.toLowerCase().includes(k)).length
+        }))
+        .sort((a, b) => b.score - a.score)[0];
+
+      if (bestSentence && bestSentence.score > 0) {
+        return bestSentence.text + ".";
+      }
+
+      return scored.length > 0
+        ? scored[0].content.split(".")[0] + "."
+        : "I couldn't find relevant information about that in our docs.";
+
     } catch (err: any) {
       console.error("Ask failed:", err);
       return "Sorry, something went wrong answering that.";
