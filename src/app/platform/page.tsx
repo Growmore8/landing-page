@@ -210,7 +210,7 @@ const audiences = [
 
 const testimonials = [
   {
-    quote: "CubeX gave us a fully operational brokerage in under two weeks. The backoffice deposit, withdrawal, and credit tools are exactly what our team needed.",
+    quote: "OrbitFX gave us a fully operational brokerage in under two weeks. The backoffice deposit, withdrawal, and credit tools are exactly what our team needed.",
     author: "Operations Director",
     company: "FX Brokerage, Singapore",
     rating: 5,
@@ -222,7 +222,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "Our IB network grew 40% in three months after switching to CubeX's partner portal. The commission tracking is transparent and real-time.",
+    quote: "Our IB network grew 40% in three months after switching to OrbitFX's partner portal. The commission tracking is transparent and real-time.",
     author: "Partnership Manager",
     company: "Retail Broker, Colombo",
     rating: 5,
@@ -231,31 +231,31 @@ const testimonials = [
 
 const faqs = [
   {
-    q: "What is the CubeX Platform and who is it for?",
-    a: "CubeX is an end-to-end brokerage technology platform built for retail brokers, white-label operators, institutions, and prop trading firms. It covers client and admin portals, live trading, full back-office management, risk engines, and compliance tooling.",
+    q: "What is the OrbitFX Platform and who is it for?",
+    a: "OrbitFX is an end-to-end brokerage technology platform built for retail brokers, white-label operators, institutions, and prop trading firms. It covers client and admin portals, live trading, full back-office management, risk engines, and compliance tooling.",
   },
   {
     q: "How does the platform work without software installation?",
-    a: "The CubeX platform is fully cloud-hosted. Client portals, admin panels, and the mobile app are all accessible via browser or app download — no on-premise installation required. Your team can manage everything from anywhere with role-based access controls.",
+    a: "The OrbitFX platform is fully cloud-hosted. Client portals, admin panels, and the mobile app are all accessible via browser or app download — no on-premise installation required. Your team can manage everything from anywhere with role-based access controls.",
   },
   {
     q: "What tools and features does the Manager Admin Portal include?",
     a: "The Manager Admin Portal is your full back-office command centre. It covers client lifecycle management, KYC/AML review, deposit and withdrawal approvals, credit in/out and bonus allocation, IB commission calculation, real-time risk desk monitoring, and full audit-log history exports.",
   },
   {
-    q: "Can I run CubeX on mobile and other devices?",
-    a: "Yes. CubeX includes a fully white-labelled native mobile app for iOS and Android. The client portal and admin panel are also fully responsive and accessible on tablets and desktops. All portals support light and dark themes.",
+    q: "Can I run OrbitFX on mobile and other devices?",
+    a: "Yes. OrbitFX includes a fully white-labelled native mobile app for iOS and Android. The client portal and admin panel are also fully responsive and accessible on tablets and desktops. All portals support light and dark themes.",
   },
   {
     q: "How are deposits, withdrawals, and fund management handled?",
     a: "The platform integrates with all major payment gateways (Stripe, PayPal, Fasapay, Skrill, Neteller, wire transfer, and crypto PSPs). Brokers can configure automated approval flows or manual override workflows. Every deposit, withdrawal, and credit adjustment is logged with full audit-trail history.",
   },
   {
-    q: "What outsourced services does CubeX offer alongside the platform?",
-    a: "Beyond the technology, CubeX offers fully managed outsourced services: 24/7 white-labelled client support, outsourced KYC operations, IB relationship management, trading education content, performance marketing, and regulatory consulting. These services let you run a lean internal team.",
+    q: "What outsourced services does OrbitFX offer alongside the platform?",
+    a: "Beyond the technology, OrbitFX offers fully managed outsourced services: 24/7 white-labelled client support, outsourced KYC operations, IB relationship management, trading education content, performance marketing, and regulatory consulting. These services let you run a lean internal team.",
   },
   {
-    q: "Is CubeX suitable for growing brokerages looking to scale?",
+    q: "Is OrbitFX suitable for growing brokerages looking to scale?",
     a: "Absolutely. The platform is built to scale from a single-jurisdiction startup to a multi-asset, multi-jurisdiction institutional operation. Features like multi-tier IB management, liquidity aggregation from 15+ banks, and jurisdiction-specific compliance reporting ensure you never outgrow the platform.",
   },
 ];
@@ -341,7 +341,7 @@ export default function PlatformPage() {
         <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
           {/* Left */}
           <div className="pb-16 reveal" data-dir="left">
-            <DiagBadge label="CubeX Platform" color="indigo" />
+            <DiagBadge label="OrbitFX Platform" color="indigo" />
             <h1 className="mt-5 font-bold text-[clamp(32px,4.8vw,56px)] leading-[1.07] tracking-[-2px] text-gray-900 dark:text-white">
               Real-Time Trading<br />
               <span className="text-indigo-500">Platform</span> for Brokers<br />
@@ -377,7 +377,7 @@ export default function PlatformPage() {
                 <span className="w-3 h-3 rounded-full bg-amber-400" />
                 <span className="w-3 h-3 rounded-full bg-green-400" />
                 <div className="ml-3 flex-1 bg-white dark:bg-gray-700 rounded px-3 py-1 text-[11px] text-gray-400 font-mono">
-                  portal.cubex.io
+                  portal.OrbitFX.io
                 </div>
               </div>
               {/* Platform UI mockup */}
@@ -386,7 +386,7 @@ export default function PlatformPage() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <div className="w-6 h-6 bg-indigo-500 rounded-sm" />
-                    <span className="text-white text-[12px] font-bold font-mono">CubeX Terminal</span>
+                    <span className="text-white text-[12px] font-bold font-mono">OrbitFX Terminal</span>
                   </div>
                   <div className="flex gap-2">
                     {["EUR/USD", "GBP/USD", "BTC/USD"].map(p => (
@@ -636,7 +636,7 @@ export default function PlatformPage() {
               <div className="mb-6 reveal" data-dir="right">
                 <DiagBadge label="Broker-Focused" color="blue" />
                 <h3 className="mt-4 font-bold text-[22px] tracking-tight text-gray-900 dark:text-white">
-                  CubeX Brings a Range of<br />Broker-Focused Features
+                  OrbitFX Brings a Range of<br />Broker-Focused Features
                 </h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed">
                   Every feature is designed with the broker operator in mind — not just the trader. We solve the compliance, operations, and revenue challenges that matter to your business.
@@ -681,7 +681,7 @@ export default function PlatformPage() {
               <SectionHead
                 badge="Integrations & Compatibility"
                 title={<>Connect Everything<br />You Already Use</>}
-                sub="CubeX plugs into your existing payment providers, liquidity, market data, and audit tooling — no rip-and-replace required."
+                sub="OrbitFX plugs into your existing payment providers, liquidity, market data, and audit tooling — no rip-and-replace required."
               />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {integrations.map((int, idx) => {
@@ -719,7 +719,7 @@ export default function PlatformPage() {
                   <span className="text-white text-xs font-bold">CX</span>
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-gray-900 dark:text-white">CubeX Integration Hub</div>
+                  <div className="text-sm font-bold text-gray-900 dark:text-white">OrbitFX Integration Hub</div>
                   <div className="text-[11px] text-gray-400">All connections active</div>
                 </div>
               </div>
@@ -756,7 +756,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Target Audience & Use Cases"
             title="Built for Every Type of Brokerage"
-            sub="Whether you're launching your first broker or scaling an institutional desk — CubeX adapts to your operation."
+            sub="Whether you're launching your first broker or scaling an institutional desk — OrbitFX adapts to your operation."
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -796,7 +796,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Outsourced Services"
             title={<>Beyond Technology —<br />A Full Brokerage Team</>}
-            sub="CubeX connects you to trusted outsourced service partners so you can run lean and focus on growth while experts handle operations."
+            sub="OrbitFX connects you to trusted outsourced service partners so you can run lean and focus on growth while experts handle operations."
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -832,7 +832,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Testimonials & Case Studies"
             title="Trusted by Brokers Across Asia-Pacific"
-            sub="Real feedback from operators using CubeX to power their brokerages every day."
+            sub="Real feedback from operators using OrbitFX to power their brokerages every day."
             center
           />
           {/* Logo strip */}
@@ -873,7 +873,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Security & Infrastructure"
             title="Enterprise-Grade Security You Can Trust"
-            sub="CubeX operates on ISO 27001-compliant cloud infrastructure with multi-region redundancy and 99.9%+ uptime SLA."
+            sub="OrbitFX operates on ISO 27001-compliant cloud infrastructure with multi-region redundancy and 99.9%+ uptime SLA."
             center
           />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -910,7 +910,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Explore in Action"
             title="One Platform, Every Screen"
-            sub="CubeX works seamlessly across desktop, web browser, and native mobile. Your clients get a consistent experience wherever they trade."
+            sub="OrbitFX works seamlessly across desktop, web browser, and native mobile. Your clients get a consistent experience wherever they trade."
             center
           />
           {/* Device cards */}
@@ -941,7 +941,7 @@ export default function PlatformPage() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                <span className="ml-2 text-[10px] text-gray-500 font-mono flex-1 text-center">CubeX Desktop Terminal</span>
+                <span className="ml-2 text-[10px] text-gray-500 font-mono flex-1 text-center">OrbitFX Desktop Terminal</span>
               </div>
               <div className="bg-gray-900 p-3 h-[120px] flex flex-col gap-2">
                 <div className="flex gap-2">
@@ -992,7 +992,7 @@ export default function PlatformPage() {
       {/* ── FAQs ──────────────────────────────── */}
       <section className="py-20 px-[5%] bg-slate-50/80 dark:bg-gray-900/60">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="FAQs" title="Frequently Asked Questions" sub="Everything you need to know about the CubeX Platform." center />
+          <SectionHead badge="FAQs" title="Frequently Asked Questions" sub="Everything you need to know about the OrbitFX Platform." center />
           <div className="max-w-[860px] mx-auto flex flex-col gap-2">
             {faqs.map((f, i) => (
               <Card

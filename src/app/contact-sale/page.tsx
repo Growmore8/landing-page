@@ -350,7 +350,7 @@ export default function ContactSalesPage() {
               to know about our platforms built for financial institutions and brokers.
             </p>
             <p className="ha ha-4 text-[12px] text-gray-400 dark:text-gray-500 max-w-[560px] mx-auto leading-relaxed">
-              Note that CubeX is not a broker. Our platform is crafted exclusively for business clients. We stay out
+              Note that OrbitFX is not a broker. Our platform is crafted exclusively for business clients. We stay out
               of financial roles and trading activities — leaving those decisions to you.
             </p>
             <div className="ha ha-5 flex flex-wrap justify-center gap-2 mt-8">
@@ -601,7 +601,7 @@ export default function ContactSalesPage() {
                   {[
                     { n: "01", t: "We review your request", s: "Usually within 2–4 hours during business hours." },
                     { n: "02", t: "Sales team reaches out", s: "A dedicated rep contacts you within 24 hours." },
-                    { n: "03", t: "Platform demo call", s: "We show you CubeX live and answer all questions." },
+                    { n: "03", t: "Platform demo call", s: "We show you OrbitFX live and answer all questions." },
                     { n: "04", t: "Custom proposal", s: "Tailored quote and onboarding timeline for your brokerage." },
                   ].map((step) => (
                     <div key={step.n} className="flex gap-3 mb-3 last:mb-0">
@@ -619,7 +619,7 @@ export default function ContactSalesPage() {
                     {[...Array(5)].map((_, i) => <Icon key={i} icon="solar:star-bold" className="text-indigo-400" width={13} />)}
                   </div>
                   <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed italic mb-4">
-                    "CubeX had our white-label terminal live in under 2 weeks. Execution speed is exceptional."
+                    "OrbitFX had our white-label terminal live in under 2 weeks. Execution speed is exceptional."
                   </p>
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center text-sm flex-shrink-0">🇬🇧</div>

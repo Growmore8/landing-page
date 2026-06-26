@@ -5,11 +5,11 @@ services:
     networks: [web]
     labels:
       - traefik.enable=true
-      - traefik.http.routers.landing.rule=Host(`cubexenterprises.com`) || Host(`www.cubexenterprises.com`)
+      - traefik.http.routers.landing.rule=Host(`OrbitFXSolution.com`) || Host(`www.OrbitFXSolution.com`)
       - traefik.http.routers.landing.entrypoints=websecure
       - traefik.http.routers.landing.tls.certresolver=le
       - traefik.http.services.landing.loadbalancer.server.port=3000
 networks:
   web:
     external: true
-    name: cubex-v2_web
+    name: OrbitFX-v2_web

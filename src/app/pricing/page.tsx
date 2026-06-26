@@ -167,7 +167,7 @@ const faqs = [
   },
   {
     q: "How does pricing work — is there a monthly fee?",
-    a: "All CubeX plans are custom-priced based on your volume, asset classes, jurisdiction, and required modules. We do not publish fixed monthly prices because every brokerage has unique needs. Contact our sales team for a tailored proposal with transparent, itemised licensing.",
+    a: "All OrbitFX plans are custom-priced based on your volume, asset classes, jurisdiction, and required modules. We do not publish fixed monthly prices because every brokerage has unique needs. Contact our sales team for a tailored proposal with transparent, itemised licensing.",
   },
   {
     q: "Can I add features like Copy Trading or CRM to my package?",
@@ -182,7 +182,7 @@ const faqs = [
     a: "Yes. Logos, colour schemes, domain names, email senders, mobile app store listings, and all client-facing surfaces are fully white-labelled. Enterprise and Institutional clients receive custom UI development. Startup clients get a streamlined branding toolkit they can self-configure.",
   },
   {
-    q: "What regulatory jurisdictions does CubeX support?",
+    q: "What regulatory jurisdictions does OrbitFX support?",
     a: "We support structuring and technical compliance tooling for FSA (Seychelles), ASIC (Australia), CySEC (Cyprus), FSCA (South Africa), FCA (UK), MiFID II (EU), VFSC (Vanuatu), and others. Our compliance team works with your legal counsel to configure reporting modules for your specific jurisdiction.",
   },
   {
@@ -256,7 +256,7 @@ export default function PricingPage() {
         <div className="relative z-10 max-w-[1280px] mx-auto text-center">
           <DiagBadge label="Pricing" color="indigo" />
           <h1 className="mt-5 font-bold text-[clamp(32px,5vw,58px)] leading-[1.08] tracking-[-1.5px] text-gray-900 dark:text-white">
-            CubeX Platform Packages
+            OrbitFX Platform Packages
           </h1>
           <p className="mt-5 text-gray-500 dark:text-gray-400 text-[16px] leading-relaxed max-w-[680px] mx-auto">
             Our pricing plans are structured with real broker challenges in mind. Get access to enterprise-grade technology and expert support, in the format that suits you best.
@@ -501,7 +501,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── WHY CUBEX SUMMARY STRIP ───────────── */}
+      {/* ── WHY OrbitFX SUMMARY STRIP ───────────── */}
       <section className="py-14 px-[5%] bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-[1280px] mx-auto">
           <p className="text-center text-gray-600 dark:text-gray-400 text-[14px] leading-[1.9] max-w-[860px] mx-auto mb-10">
@@ -540,7 +540,7 @@ export default function PricingPage() {
               Frequently Asked Questions
             </h2>
             <p className="mt-2 text-gray-500 dark:text-gray-400 text-[15px]">
-              Everything you need to know about CubeX pricing and packages.
+              Everything you need to know about OrbitFX pricing and packages.
             </p>
           </div>
           <div className="max-w-[860px] mx-auto flex flex-col gap-2">

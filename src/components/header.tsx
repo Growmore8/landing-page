@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 
 const companyNav = [
     { icon: Users, label: "About Us", sub: "Who we are and what we stand for", href: "/company#about" },
-    { icon: BookOpen, label: "Our Story", sub: "How CubeX came to be", href: "/company#story" },
+    { icon: BookOpen, label: "Our Story", sub: "How OrbitFX came to be", href: "/company#story" },
     { icon: Heart, label: "Our Manifesto", sub: "Our principles and values", href: "/company#manifesto" },
     { icon: Briefcase, label: "Careers", sub: "Join our growing team", href: "/company#careers" },
     { icon: Star, label: "Testimonials", sub: "What our clients say", href: "/company#testimonials" },
@@ -29,7 +29,7 @@ const companyNav = [
 const resourcesNav = [
     { icon: Newspaper, label: "News & Insights", sub: "Latest updates and market analysis", href: "/resources#news" },
     { icon: BookOpen, label: "Documentation", sub: "Guides, API refs and platform docs", href: "/resources#documentation" },
-    { icon: BarChart2, label: "Comparisons", sub: "See how CubeX stacks up", href: "/resources#comparisons" },
+    { icon: BarChart2, label: "Comparisons", sub: "See how OrbitFX stacks up", href: "/resources#comparisons" },
     { icon: Zap, label: "Quick Access", sub: "Tools and shortcuts at a glance", href: "/resources#quick" },
 
 ];
@@ -118,7 +118,7 @@ function CompanyMegaMenu({ visible }: { visible: boolean }) {
             <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span className="text-[11px] text-gray-400 dark:text-gray-500">
-                    Cubex Enterprises · Est. 2026 · Dubai, United Arab Emirates
+                    Orbitfx Solution · Est. 2026 · Dubai, United Arab Emirates
                 </span>
             </div>
         </div>
@@ -226,14 +226,14 @@ export default function Navbar() {
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-                        <Image src="/icon.png" alt="CubeX Logo" width={32} height={32} className="object-cover" priority />
+                        <Image src="/icon.png" alt="OrbitFX Logo" width={32} height={32} className="object-cover" priority />
                     </div>
                     <div>
                         <div className="font-['Space_Grotesk',sans-serif] font-bold text-[17px] leading-none tracking-[-0.3px] text-indigo-950 dark:text-indigo-100">
-                            CUBE<span style={{ color: "#6366f1" }}>X</span>
+                            Orbit<span style={{ color: "#6366f1" }}>FX</span>
                         </div>
                         <div className="text-[8px] tracking-[3px] font-semibold leading-none text-indigo-400 dark:text-indigo-500">
-                            ENTERPRISES
+                            Solution
                         </div>
                     </div>
                 </div>
@@ -284,11 +284,11 @@ export default function Navbar() {
                 {/* Right actions */}
                 <div className="hidden md:flex items-center gap-3">
                     <ModeToggle />
-                    <Button variant="cubex" onClick={() => router.push("/contact-sale")} >Contact Sale</Button>
+                    <Button variant="OrbitFX" onClick={() => router.push("/contact-sale")} >Contact Sale</Button>
                 </div>
 
                 {/* Mobile hamburger */}
-                <Button size="icon" variant="cubex" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
+                <Button size="icon" variant="OrbitFX" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {mobileOpen
                             ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -357,7 +357,7 @@ export default function Navbar() {
                                 <div className="flex items-center justify-between">
                                     <ModeToggle />
                                     <Button
-                                        onClick={() => router.push("/contact-sale")} variant="cubex">Contact Sales</Button>
+                                        onClick={() => router.push("/contact-sale")} variant="OrbitFX">Contact Sales</Button>
                                 </div>
                             </div>
                         </div>

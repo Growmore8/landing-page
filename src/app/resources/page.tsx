@@ -79,21 +79,21 @@ const helpDocs = [
     icon: BookMarked,
     label: "Documentation",
     sub: "Full platform reference",
-    href: "https://cubexenterprises.com/contact#",
+    href: "https://OrbitFXSolution.com/contact#",
     external: false,
   },
   {
     icon: Code2,
     label: "API Reference",
     sub: "Endpoints, auth & payloads",
-    href: "https://cubexenterprises.com/contact#",
+    href: "https://OrbitFXSolution.com/contact#",
     external: false,
   },
   {
     icon: Layers,
     label: "Integration Guides",
-    sub: "Connect CubeX to your stack",
-    href: "https://cubexenterprises.com/contact#",
+    sub: "Connect OrbitFX to your stack",
+    href: "https://OrbitFXSolution.com/contact#",
     external: false,
   },
   {
@@ -130,20 +130,20 @@ const learningTools = [
   {
     icon: GitCompare,
     label: "Platform Comparison",
-    sub: "CubeX vs the alternatives",
+    sub: "OrbitFX vs the alternatives",
     href: "https://brokeret.com/trading-platform-comparison",
   },
   {
     icon: FileText,
     label: "Case Studies",
     sub: "Real broker setups, real numbers",
-    href: "https://cubexenterprises.com/contact#",
+    href: "https://OrbitFXSolution.com/contact#",
   },
   {
     icon: Video,
     label: "Webinars",
     sub: "Live sessions & recordings",
-    href: "https://cubexenterprises.com/contact#",
+    href: "https://OrbitFXSolution.com/contact#",
   },
 ];
 
@@ -151,8 +151,8 @@ const featuredArticles = [
   {
     tag: "Guide",
     tagColor: "indigo",
-    title: "How to Set Up a White-Label Brokerage on CubeX",
-    excerpt: "A step-by-step walkthrough of the CubeX onboarding flow — from entity setup to your first live account.",
+    title: "How to Set Up a White-Label Brokerage on OrbitFX",
+    excerpt: "A step-by-step walkthrough of the OrbitFX onboarding flow — from entity setup to your first live account.",
     readTime: "12 min read",
     href: "https://brokeret.com/articles",
   },
@@ -167,7 +167,7 @@ const featuredArticles = [
   {
     tag: "Product",
     tagColor: "emerald",
-    title: "Inside the CubeX Risk Engine",
+    title: "Inside the OrbitFX Risk Engine",
     excerpt: "A look at how anomaly detection, margin forecasting, and automated stop-out rules work together.",
     readTime: "6 min read",
     href: "https://brokeret.com/updates",
@@ -175,7 +175,7 @@ const featuredArticles = [
 ];
 
 const recentUpdates = [
-  { version: "June 2026", date: "This month", note: "CubeX trading platform becomes available to new and existing brokers." },
+  { version: "June 2026", date: "This month", note: "OrbitFX trading platform becomes available to new and existing brokers." },
   { version: "Onboarding", date: "Rolling basis", note: "Guided setup sessions for entity configuration, branding, and account structure." },
   { version: "Documentation", date: "Live now", note: "Reference docs and integration guides published alongside platform access." },
   { version: "Webinars", date: "Ongoing", note: "Walkthrough sessions covering the trading terminal, back office, and IB portal." },
@@ -326,17 +326,17 @@ export default function ResourcesPage() {
             <DiagBadge label="Resources" color="indigo" />
             <h1 className="mt-5 font-bold text-[clamp(34px,5vw,58px)] leading-[1.07] tracking-[-2px] text-gray-900 dark:text-white mb-5">
               Everything You Need<br />
-              <span className="text-indigo-500">to Know CubeX.</span>
+              <span className="text-indigo-500">to Know OrbitFX.</span>
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[440px] mb-6">
-              Guides, documentation, news, glossary, system status, and platform comparisons — all in one place for brokers building on CubeX.
+              Guides, documentation, news, glossary, system status, and platform comparisons — all in one place for brokers building on OrbitFX.
             </p>
 
             {/* Availability note */}
             <div className="flex items-center gap-2 mb-6 px-4 py-2.5 border border-indigo-200 dark:border-indigo-900 bg-indigo-50/60 dark:bg-indigo-950/30 max-w-[440px]">
               <Sparkles className="h-4 w-4 text-indigo-500 flex-shrink-0" />
               <span className="text-[12px] text-gray-600 dark:text-gray-300 leading-snug">
-                The CubeX trading platform is becoming available this month — documentation and onboarding resources are live now.
+                The OrbitFX trading platform is becoming available this month — documentation and onboarding resources are live now.
               </span>
             </div>
 
@@ -373,7 +373,7 @@ export default function ResourcesPage() {
                   <div className="text-[11px] text-gray-400">Setup guides, API reference & integration docs</div>
                 </div>
                 <Link
-                  href="https://cubexenterprises.com/contact#"
+                  href="https://OrbitFXSolution.com/contact#"
                   className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-500 hover:text-indigo-600 transition-colors no-underline flex-shrink-0"
                 >
                   Open docs <ExternalLink className="h-3 w-3" />
@@ -393,7 +393,7 @@ export default function ResourcesPage() {
               badge="Articles & News"
               badgeColor="indigo"
               title="Stay Informed"
-              sub="From short blog posts to in-depth industry analysis — everything published by the CubeX team."
+              sub="From short blog posts to in-depth industry analysis — everything published by the OrbitFX team."
             />
             <div className="flex flex-col gap-2">
               {articlesNews.map((item) => (
@@ -602,7 +602,7 @@ export default function ResourcesPage() {
                   Walkthroughs of the trading terminal, back office, IB portal, and mobile app for new brokers.
                 </div>
               </div>
-              <Link href="https://cubexenterprises.com/contact#" className="flex-shrink-0 no-underline">
+              <Link href="https://OrbitFXSolution.com/contact#" className="flex-shrink-0 no-underline">
                 <Button className="rounded-none bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-widest text-[10px] px-6 py-2.5">
                   Reserve a Spot →
                 </Button>

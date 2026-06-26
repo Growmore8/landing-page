@@ -238,7 +238,7 @@ export default function FeaturesPage() {
             <span className="text-indigo-500">Needs to Operate.</span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[480px] mx-auto mb-7">
-            CubeX delivers a unified suite — multi-role access, live trading, back-office
+            OrbitFX delivers a unified suite — multi-role access, live trading, back-office
             automation, real-time notifications, and full audit history — all white-labelled
             under your brand.
           </p>
@@ -351,7 +351,7 @@ export default function FeaturesPage() {
             {/* Mock header */}
             <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
               <span className="text-[13px] font-bold text-gray-900 dark:text-white">
-                Cube<span className="text-indigo-500">X</span> Terminal
+                Orbit<span className="text-indigo-500">FX</span> Terminal
               </span>
               <div className="flex gap-1">
                 {["Watchlist", "Positions", "History"].map((t, i) => (
@@ -606,7 +606,7 @@ export default function FeaturesPage() {
             badge="Widgets & Portal"
             badgeColor="blue"
             title="Embeddable Widgets and Client Portal — All White-Labelled"
-            sub="Drop individual widgets into any page or deploy the full client portal under your own domain. Everything carries your brand — CubeX stays invisible."
+            sub="Drop individual widgets into any page or deploy the full client portal under your own domain. Everything carries your brand — OrbitFX stays invisible."
           />
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
             {widgets.map((w) => {

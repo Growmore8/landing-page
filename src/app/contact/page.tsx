@@ -201,7 +201,7 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "Where is the CubeX Enterprises head office located?",
+      q: "Where is the Orbitfx Solution head office located?",
       a: "Our head office is at International Business Tower, Al A'amal Street, Business Bay, Dubai, United Arab Emirates. We serve brokerage clients across the Middle East and Asia-Pacific region from this location.",
     },
     {
@@ -213,11 +213,11 @@ export default function ContactPage() {
       a: "Our sales and support teams respond to all form submissions within 1 business day. For urgent technical issues, please call our direct support line for immediate assistance.",
     },
     {
-      q: "Does CubeX Enterprises offer white-label trading solutions?",
+      q: "Does Orbitfx Solution offer white-label trading solutions?",
       a: "Yes. We offer fully white-labeled brokerage technology that can be tailored to your brand identity, including custom UI, multi-asset liquidity access, and back-office integrations. Contact our partnership team for a demo.",
     },
     {
-      q: "What asset classes does the CubeX platform support?",
+      q: "What asset classes does the OrbitFX platform support?",
       a: "Our platform supports 50+ asset classes including Forex, CFDs, Cryptocurrencies, Equities, Indices, Commodities, and Fixed Income products — all accessible from a single integrated trading environment.",
     },
   ];
@@ -258,7 +258,7 @@ export default function ContactPage() {
               Brokerages.
             </h1>
             <p className="text-gray-500 dark:text-gray-400 text-base leading-relaxed max-w-[420px] mb-9">
-              CubeX Enterprises powers institutional trading desks across the Middle East and Asia-Pacific.
+              Orbitfx Solution powers institutional trading desks across the Middle East and Asia-Pacific.
               Tell us your goal — we'll engineer the solution.
             </p>
             <div className="flex gap-3 flex-wrap items-center mb-11">
@@ -375,7 +375,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 shrink-0 items-center sm:items-start">
             {[
               { label: "EMAIL", val: "support@orbitfxsolution.com", href: "mailto:support@orbitfxsolution.com" },
-              { label: "WEB", val: "www.cubexenterprises.com", href: "https://www.cubexenterprises.com" },
+              { label: "WEB", val: "www.OrbitFXSolution.com", href: "https://www.OrbitFXSolution.com" },
               { label: "ADDRESS", val: "International Business Tower, Al A'amal Street, Business Bay, Dubai, United Arab Emirates", href: "https://maps.google.com/?q=International+Business+Tower,+Business+Bay,+Dubai" },
             ].map((c) => (
               <div
@@ -405,7 +405,7 @@ export default function ContactPage() {
           <div className="py-12">
             <DiagBadge label="Platform" />
             <h2 className="font-bold text-[clamp(24px,4vw,40px)] tracking-[-0.8px] text-gray-900 dark:text-white mt-3.5">
-              Why Brokers Choose CubeX
+              Why Brokers Choose OrbitFX
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-[15px] mt-2 max-w-[540px]">
               Institutional-grade technology built for scale, compliance, and peak performance across all market conditions.
@@ -492,7 +492,7 @@ export default function ContactPage() {
                 style={{ border: 0, display: "block" }}
                 allowFullScreen
                 loading="lazy"
-                title="CubeX Head Office — Business Bay, Dubai"
+                title="OrbitFX Head Office — Business Bay, Dubai"
               />
             </div>
             <div className="border border-gray-200 dark:border-gray-700 border-l-0 bg-white dark:bg-gray-800 p-9 rounded-tr-lg rounded-br-lg lg:rounded-tl-none">
@@ -500,7 +500,7 @@ export default function ContactPage() {
                 {[
                   { label: "ADDRESS", val: "International Business Tower\nAl A'amal Street, Business Bay\nDubai, United Arab Emirates" },
                   { label: "EMAIL", val: "support@orbitfxsolution.com" },
-                  { label: "WEBSITE", val: "www.cubexenterprises.com" },
+                  { label: "WEBSITE", val: "www.OrbitFXSolution.com" },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-5">
                     <span className="font-mono text-[9px] font-bold tracking-[1.5px] text-gray-400 dark:text-gray-500 min-w-[60px] pt-0.5">
@@ -570,7 +570,7 @@ export default function ContactPage() {
               Common Questions
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-[15px] mt-2 max-w-[540px]">
-              Everything you need to know about reaching us and working with CubeX Enterprises.
+              Everything you need to know about reaching us and working with Orbitfx Solution.
             </p>
           </div>
           <div className="max-w-full flex flex-col gap-2">

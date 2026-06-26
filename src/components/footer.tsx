@@ -238,7 +238,7 @@ export default function Footer() {
                   <div className="w-full h-full rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
                     <Image
                       src="/icon.png"
-                      alt="Cubex Enterprises"
+                      alt="Orbitfx Solution"
                       width={28}
                       height={28}
                       className="object-contain"
@@ -248,9 +248,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="font-bold text-xl bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-400 dark:to-gray-200 bg-clip-text text-transparent">
-                    Cubex
+                    OrbitFX
                   </span>
-                  <span className="font-bold text-xl text-gray-500 dark:text-gray-400">Enterprises</span>
+                  <span className="font-bold text-xl text-gray-500 dark:text-gray-400">Solution</span>
                 </div>
               </div>
 
@@ -356,7 +356,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-gray-200 dark:border-gray-800">
             <p className="text-gray-400 dark:text-gray-500 text-sm">
-              © {new Date().getFullYear()} Cubex Enterprises. All rights reserved.
+              © {new Date().getFullYear()} Orbitfx Solution. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR", "SLA"].map((item) => (

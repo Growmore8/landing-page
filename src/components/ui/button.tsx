@@ -19,9 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cubex:
+        OrbitFX:
            "text-white font-semibold bg-gradient-to-r from-indigo-800 to-indigo-700 dark:bg-gradient-to-r dark:from-indigo-700 dark:to-indigo-600 hover:opacity-90 transition",
-        cubexsecondary:
+        OrbitFXsecondary:
          "border border-gray-300 dark:border-gray-600 text-transparent font-semibold bg-clip-text bg-gradient-to-r from-amber-500 to-green-500 dark:from-amber-400 dark:to-green-600 transition",
        expired:
           "text-white font-semibold bg-red-500 dark:bg-red-800 hover:opacity-90 transition",
