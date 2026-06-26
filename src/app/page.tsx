@@ -13,12 +13,12 @@ interface NewsItem { category: string; title: string; img: string; }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const faqs: FAQItem[] = [
-  { q: "What is CubeX Trading Platform?", a: "CubeX is a white-label trading platform built by CubeX Enterprises for Forex brokers and Prop Firms. It delivers execution infrastructure, trading terminals, liquidity connectivity, and risk management in one unified system." },
-  { q: "Can I fully brand the platform as my own?", a: "Yes. CubeX is fully white-label — your logo, domain, color scheme, and mobile app identity are yours. Your traders will never see the CubeX name." },
-  { q: "What asset classes does CubeX support?", a: "CubeX supports 50+ asset classes including Forex pairs, commodities, indices, metals, energies, and crypto CFDs — all configurable per broker." },
-  { q: "How does CubeX connect to liquidity providers?", a: "CubeX integrates via FIX 4.4/5.0 protocol with tier-1 banks and ECN providers. Brokers can connect multiple LPs with full aggregation and smart order routing for best-bid execution." },
-  { q: "Does CubeX offer a mobile trading app?", a: "Yes. The CubeX Trader mobile app is available for iOS and Android with full order execution, live charting, real-time prices, and push notifications — fully white-labelled under your brand." },
-  { q: "How quickly can I go live?", a: "Most brokerages go live within 14 days. CubeX Enterprises' implementation team handles all setup, liquidity connections, and platform configuration end-to-end." },
+  { q: "What is OrbitFX Trading Platform?", a: "OrbitFX is a white-label trading platform built by Orbitfx Solution for Forex brokers and Prop Firms. It delivers execution infrastructure, trading terminals, liquidity connectivity, and risk management in one unified system." },
+  { q: "Can I fully brand the platform as my own?", a: "Yes. OrbitFX is fully white-label — your logo, domain, color scheme, and mobile app identity are yours. Your traders will never see the OrbitFX name." },
+  { q: "What asset classes does OrbitFX support?", a: "OrbitFX supports 50+ asset classes including Forex pairs, commodities, indices, metals, energies, and crypto CFDs — all configurable per broker." },
+  { q: "How does OrbitFX connect to liquidity providers?", a: "OrbitFX integrates via FIX 4.4/5.0 protocol with tier-1 banks and ECN providers. Brokers can connect multiple LPs with full aggregation and smart order routing for best-bid execution." },
+  { q: "Does OrbitFX offer a mobile trading app?", a: "Yes. The OrbitFX Trader mobile app is available for iOS and Android with full order execution, live charting, real-time prices, and push notifications — fully white-labelled under your brand." },
+  { q: "How quickly can I go live?", a: "Most brokerages go live within 14 days. Orbitfx Solution' implementation team handles all setup, liquidity connections, and platform configuration end-to-end." },
 ];
 
 const news: NewsItem[] = [
@@ -191,9 +191,9 @@ function Home() {
                 {c.pair} <b>{c.value}</b>
               </div>
             ))}
-            <div ref={sceneRef} className="hero-scene" aria-label="Interactive 3D CubeX logo — drag to rotate">
+            <div ref={sceneRef} className="hero-scene" aria-label="Interactive 3D OrbitFX logo — drag to rotate">
               <div ref={cubeRef} className="hero-cube">
-                <div className="cube-face face-front"><div className="cube-logo">Cube<span className="cx">X</span><span className="cube-sub">PLATFORM</span></div></div>
+                <div className="cube-face face-front"><div className="cube-logo">Orbit<span className="cx">FX</span><span className="cube-sub">PLATFORM</span></div></div>
                 <div className="cube-face face-back"><div className="face-mini"><span>50+</span>ASSETS</div></div>
                 <div className="cube-face face-left"><div className="face-mini"><span>400+</span>BROKERS</div></div>
                 <div className="cube-face face-right"><div className="face-mini"><span>24/7</span>SUPPORT</div></div>
@@ -245,15 +245,15 @@ function AboutUs() {
     <section ref={ref} id="about" className="py-24 px-5">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="reveal" data-dir="left" data-delay="0">
-          <DiagBadge label="About CubeX" />
+          <DiagBadge label="About OrbitFX" />
           <h2 className="text-4xl md:text-5xl font-black mt-4 mb-6 leading-tight tracking-tight text-gray-900 dark:text-white">
             Institutional-Grade Trading Infrastructure
           </h2>
           <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 text-[15px]">
-            CubeX Enterprises builds and maintains trading infrastructure for brokerages worldwide. Our platform is purpose-built for execution speed, liquidity depth, and real-time market data — running continuously in live market conditions.
+            Orbitfx Solution builds and maintains trading infrastructure for brokerages worldwide. Our platform is purpose-built for execution speed, liquidity depth, and real-time market data — running continuously in live market conditions.
           </p>
           <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
-            From FIX protocol connectivity and multi-LP aggregation to white-label terminals and risk desk tooling — CubeX gives brokerages everything they need to compete at the institutional level, without the institutional price tag.
+            From FIX protocol connectivity and multi-LP aggregation to white-label terminals and risk desk tooling — OrbitFX gives brokerages everything they need to compete at the institutional level, without the institutional price tag.
           </p>
           {/* <a href="/platform" className="inline-flex items-center gap-2 text-indigo-500 dark:text-indigo-400 font-semibold hover:gap-3 transition-all text-sm">
             Explore Our Platform
@@ -281,8 +281,8 @@ function WhyChooseUs() {
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   const features = [
     { title: "Multi-Asset Trading Terminal", desc: "A fully branded web and desktop trading terminal supporting Forex, metals, indices, commodities, and crypto CFDs — with real-time charts, one-click execution, and depth of market." },
-    { title: "White-Label Platform", desc: "Launch under your brand instantly. CubeX handles the terminal, mobile app, and all trading infrastructure — your clients see only your identity." },
-    { title: "FIX Protocol Liquidity Connectivity", desc: "Connect to tier-1 banks and ECN providers via FIX 4.4/5.0. CubeX aggregates multiple liquidity sources with smart order routing and best-bid/offer execution." },
+    { title: "White-Label Platform", desc: "Launch under your brand instantly. OrbitFX handles the terminal, mobile app, and all trading infrastructure — your clients see only your identity." },
+    { title: "FIX Protocol Liquidity Connectivity", desc: "Connect to tier-1 banks and ECN providers via FIX 4.4/5.0. OrbitFX aggregates multiple liquidity sources with smart order routing and best-bid/offer execution." },
     { title: "Risk Desk & Exposure Management", desc: "Real-time position monitoring, margin controls, threshold alerts, and A-book/B-book routing — all configurable per account group and instrument." },
     { title: "Mobile Trading App (iOS & Android)", desc: "Full-featured native apps with biometric login, push alerts, live prices, charting, and one-tap order execution — fully white-labelled under your brand." },
   ];
@@ -291,7 +291,7 @@ function WhyChooseUs() {
     <section ref={ref} className="py-24 px-5 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="reveal" data-dir="up" data-delay="0"><DiagBadge label="Why CubeX" /></div>
+          <div className="reveal" data-dir="up" data-delay="0"><DiagBadge label="Why OrbitFX" /></div>
           <h2 className="reveal text-4xl md:text-5xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">Everything Your Brokerage Needs</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -311,7 +311,7 @@ function WhyChooseUs() {
               <div className="inline-flex items-center justify-center w-14 h-14 border border-indigo-500/20 bg-indigo-500/10 mb-4">
                 <span className="font-black text-xl text-indigo-500 font-mono">CX</span>
               </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">CubeX Trading Suite</h3>
+              <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">OrbitFX Trading Suite</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">Web terminal, mobile app, and risk desk — all white-labelled under your brand.</p>
               <div className="grid grid-cols-2 gap-3">
                 {["Web Terminal", "Mobile App", "Risk Desk", "Live Prices", "Multi-LP Feed", "Order Execution"].map((item) => (
@@ -352,7 +352,7 @@ function InsideVertexTrader() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <div className="reveal" data-dir="up" data-delay="0"><DiagBadge label="A Look Inside" /></div>
-          <h2 className="reveal text-4xl md:text-5xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">The CubeX Platform</h2>
+          <h2 className="reveal text-4xl md:text-5xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">The OrbitFX Platform</h2>
         </div>
         <div className="reveal flex flex-wrap gap-2 justify-center mb-10" data-dir="up" data-delay="140">
           {tabs.map((tab, i) => (
@@ -372,7 +372,7 @@ function InsideVertexTrader() {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{t.label}</h3>
             </div>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 text-sm">
-              CubeX's {t.label.toLowerCase()} is engineered for live trading environments — built for speed, reliability, and full white-label customisation. Every component is production-tested across hundreds of brokerages globally.
+              OrbitFX's {t.label.toLowerCase()} is engineered for live trading environments — built for speed, reliability, and full white-label customisation. Every component is production-tested across hundreds of brokerages globally.
             </p>
             <ul className="space-y-3 mb-8">
               {t.features.map((item) => (
@@ -428,7 +428,7 @@ function Highlights() {
         <div className="text-center mb-16">
           <div className="reveal" data-dir="up" data-delay="0"><DiagBadge label="Platform Features" /></div>
           <h2 className="reveal text-4xl md:text-5xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">
-            CubeX Platform <span className="text-indigo-500 dark:text-indigo-400">Highlights</span>
+            OrbitFX Platform <span className="text-indigo-500 dark:text-indigo-400">Highlights</span>
           </h2>
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-start">
@@ -488,9 +488,9 @@ function Highlights() {
 function Testimonials() {
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   const testimonials = [
-    { quote: "CubeX had our white-label terminal live in under 2 weeks. Execution speed is exceptional and our traders noticed the difference immediately.", name: "James K.", role: "CEO, AlphaFX Brokerage", flag: "🇬🇧", stat: "2-week go-live" },
+    { quote: "OrbitFX had our white-label terminal live in under 2 weeks. Execution speed is exceptional and our traders noticed the difference immediately.", name: "James K.", role: "CEO, AlphaFX Brokerage", flag: "🇬🇧", stat: "2-week go-live" },
     { quote: "The liquidity bridge setup was seamless. We connected three LPs in days — the FIX integration is rock solid and order routing is exactly what we needed.", name: "Maria S.", role: "CTO, TradeMax Group", flag: "🇩🇪", stat: "3 LPs connected" },
-    { quote: "Our traders love the mobile app and the risk desk gave us visibility we never had before. CubeX is the infrastructure backbone of our entire operation.", name: "Yusuf A.", role: "Director, PrimeTrade FX", flag: "🇦🇪", stat: "Full platform" },
+    { quote: "Our traders love the mobile app and the risk desk gave us visibility we never had before. OrbitFX is the infrastructure backbone of our entire operation.", name: "Yusuf A.", role: "Director, PrimeTrade FX", flag: "🇦🇪", stat: "Full platform" },
   ];
   return (
     <section ref={ref} className="relative py-28 overflow-hidden bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-700">
@@ -501,7 +501,7 @@ function Testimonials() {
             Trusted by <span className="text-indigo-500 dark:text-indigo-400">Brokers Worldwide</span>
           </h2>
           <p className="reveal text-gray-400 text-sm mt-4 max-w-md mx-auto" data-dir="up" data-delay="140">
-            Hundreds of brokerages run on CubeX — here's what they say about the platform.
+            Hundreds of brokerages run on OrbitFX — here's what they say about the platform.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
@@ -539,12 +539,12 @@ function Onboarding() {
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("left");
   const steps = [
-    { number: "01", title: "Choose Your Plan", short: "Pick the right fit", desc: "Browse CubeX's flexible plans — from startup brokerages to enterprise-grade operations. Every plan includes core trading infrastructure, white-label branding, and dedicated onboarding support.", icon: "solar:document-add-bold-duotone", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80", badge: "Step 1", highlights: ["Compare Starter, Growth & Enterprise tiers", "Transparent pricing — no hidden fees", "Flexible monthly or annual billing"] },
-    { number: "02", title: "Request a Quote", short: "Get your custom quote", desc: "Submit a quick quote request. Our team prepares a tailored CubeX package based on your trading volume, asset classes, and regional requirements — usually within 24 hours.", icon: "solar:bill-list-bold-duotone", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80", badge: "Step 2", highlights: ["Custom quote within 24 hours", "Volume-based pricing available", "No commitment required"] },
-    { number: "03", title: "Provide Your Details", short: "Share your requirements", desc: "Fill in your brokerage details — entity type, jurisdiction, preferred instruments, and branding assets. CubeX pre-configures your platform before technical setup begins.", icon: "solar:user-id-bold-duotone", image: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=80", badge: "Step 3", highlights: ["Entity & jurisdiction details", "Upload logo and brand assets", "Select instruments & account types"] },
-    { number: "04", title: "Connect with Our Team", short: "Meet your launch team", desc: "You'll be introduced to a dedicated CubeX implementation manager. Together you'll finalise the integration scope, timelines, and any custom configuration requirements.", icon: "solar:users-group-two-rounded-bold-duotone", image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", badge: "Step 4", highlights: ["Dedicated implementation manager", "Kickoff call & project timeline", "Custom configuration scoping"] },
-    { number: "05", title: "Set Up & Integrate", short: "We build your platform", desc: "CubeX engineers deploy your white-label trading environment, connect your liquidity providers, configure the risk desk, and complete all integrations — fully managed end-to-end.", icon: "solar:code-bold-duotone", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", badge: "Step 5", highlights: ["Liquidity & FIX bridge setup", "Risk desk configuration", "UAT sandbox for your team"] },
-    { number: "06", title: "Go Live with CubeX", short: "Launch with confidence", desc: "Your CubeX trading platform goes live with a dedicated launch engineer on standby. Traders can access web, mobile, and desktop terminals from day one — fully branded, fully yours.", icon: "solar:rocket-bold-duotone", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", badge: "Day 14", highlights: ["Live environment deployment", "24/7 launch support coverage", "Full handover & training session"] },
+    { number: "01", title: "Choose Your Plan", short: "Pick the right fit", desc: "Browse OrbitFX's flexible plans — from startup brokerages to enterprise-grade operations. Every plan includes core trading infrastructure, white-label branding, and dedicated onboarding support.", icon: "solar:document-add-bold-duotone", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80", badge: "Step 1", highlights: ["Compare Starter, Growth & Enterprise tiers", "Transparent pricing — no hidden fees", "Flexible monthly or annual billing"] },
+    { number: "02", title: "Request a Quote", short: "Get your custom quote", desc: "Submit a quick quote request. Our team prepares a tailored OrbitFX package based on your trading volume, asset classes, and regional requirements — usually within 24 hours.", icon: "solar:bill-list-bold-duotone", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80", badge: "Step 2", highlights: ["Custom quote within 24 hours", "Volume-based pricing available", "No commitment required"] },
+    { number: "03", title: "Provide Your Details", short: "Share your requirements", desc: "Fill in your brokerage details — entity type, jurisdiction, preferred instruments, and branding assets. OrbitFX pre-configures your platform before technical setup begins.", icon: "solar:user-id-bold-duotone", image: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=80", badge: "Step 3", highlights: ["Entity & jurisdiction details", "Upload logo and brand assets", "Select instruments & account types"] },
+    { number: "04", title: "Connect with Our Team", short: "Meet your launch team", desc: "You'll be introduced to a dedicated OrbitFX implementation manager. Together you'll finalise the integration scope, timelines, and any custom configuration requirements.", icon: "solar:users-group-two-rounded-bold-duotone", image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", badge: "Step 4", highlights: ["Dedicated implementation manager", "Kickoff call & project timeline", "Custom configuration scoping"] },
+    { number: "05", title: "Set Up & Integrate", short: "We build your platform", desc: "OrbitFX engineers deploy your white-label trading environment, connect your liquidity providers, configure the risk desk, and complete all integrations — fully managed end-to-end.", icon: "solar:code-bold-duotone", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", badge: "Step 5", highlights: ["Liquidity & FIX bridge setup", "Risk desk configuration", "UAT sandbox for your team"] },
+    { number: "06", title: "Go Live with OrbitFX", short: "Launch with confidence", desc: "Your OrbitFX trading platform goes live with a dedicated launch engineer on standby. Traders can access web, mobile, and desktop terminals from day one — fully branded, fully yours.", icon: "solar:rocket-bold-duotone", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", badge: "Day 14", highlights: ["Live environment deployment", "24/7 launch support coverage", "Full handover & training session"] },
   ];
   const goTo = (index: number) => {
     if (index === active || animating) return;
@@ -560,7 +560,7 @@ function Onboarding() {
         <div className="text-center mb-16">
           <div className="reveal" data-dir="up" data-delay="0"><DiagBadge label="Simple Process" /></div>
           <h2 className="reveal text-4xl md:text-5xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">
-            Get Started with <span className="text-indigo-500 dark:text-indigo-400">CubeX Trading Platform</span>
+            Get Started with <span className="text-indigo-500 dark:text-indigo-400">OrbitFX Trading Platform</span>
           </h2>
           <p className="reveal text-gray-400 text-sm mt-4 max-w-md mx-auto" data-dir="up" data-delay="140">
             Six simple steps from choosing your plan to going live with a fully branded brokerage.
@@ -630,12 +630,12 @@ function Onboarding() {
 
 
 const POINTS = [
-  { icon: "solar:cpu-bolt-bold-duotone", pain: "Outdated Execution", painDetail: "Legacy platforms miss market moves and deliver poor fill rates that frustrate active traders.", solution: "CubeX delivers sub-millisecond order execution via FIX connectivity with zero-downtime cloud infrastructure.", stat: "< 1ms fills" },
-  { icon: "solar:plug-circle-bold-duotone", pain: "Limited Liquidity Access", painDetail: "Single-LP setups mean wide spreads, requotes, and poor execution during news events.", solution: "CubeX connects to multiple tier-1 banks and ECN providers with smart order routing for best available price.", stat: "Multi-LP" },
-  { icon: "solar:chart-bold-duotone", pain: "Poor Mobile Experience", painDetail: "Traders churn when the mobile trading experience is slow, buggy, or missing key features.", solution: "CubeX delivers fully native iOS and Android apps — biometric login, real-time charts, one-tap execution.", stat: "iOS & Android" },
-  { icon: "solar:shield-warning-bold-duotone", pain: "No Risk Visibility", painDetail: "Brokers operating blind — no live exposure data, margin alerts, or routing controls.", solution: "CubeX Risk Desk gives real-time position monitoring, per-group margin controls, and A/B-book routing rules.", stat: "Real-time" },
-  { icon: "solar:graph-up-bold-duotone", pain: "Slow Time to Market", painDetail: "Custom platform builds take 6–12 months and still require ongoing dev resources to maintain.", solution: "CubeX deploys a fully white-labelled, production-ready trading platform in under 14 days.", stat: "14-day live" },
-  { icon: "solar:wallet-money-bold-duotone", pain: "High Infrastructure Costs", painDetail: "Running your own execution servers, feed handlers, and data infrastructure is expensive.", solution: "CubeX is cloud-hosted, multi-region, and fully managed — no infrastructure team needed.", stat: "Zero infra" },
+  { icon: "solar:cpu-bolt-bold-duotone", pain: "Outdated Execution", painDetail: "Legacy platforms miss market moves and deliver poor fill rates that frustrate active traders.", solution: "OrbitFX delivers sub-millisecond order execution via FIX connectivity with zero-downtime cloud infrastructure.", stat: "< 1ms fills" },
+  { icon: "solar:plug-circle-bold-duotone", pain: "Limited Liquidity Access", painDetail: "Single-LP setups mean wide spreads, requotes, and poor execution during news events.", solution: "OrbitFX connects to multiple tier-1 banks and ECN providers with smart order routing for best available price.", stat: "Multi-LP" },
+  { icon: "solar:chart-bold-duotone", pain: "Poor Mobile Experience", painDetail: "Traders churn when the mobile trading experience is slow, buggy, or missing key features.", solution: "OrbitFX delivers fully native iOS and Android apps — biometric login, real-time charts, one-tap execution.", stat: "iOS & Android" },
+  { icon: "solar:shield-warning-bold-duotone", pain: "No Risk Visibility", painDetail: "Brokers operating blind — no live exposure data, margin alerts, or routing controls.", solution: "OrbitFX Risk Desk gives real-time position monitoring, per-group margin controls, and A/B-book routing rules.", stat: "Real-time" },
+  { icon: "solar:graph-up-bold-duotone", pain: "Slow Time to Market", painDetail: "Custom platform builds take 6–12 months and still require ongoing dev resources to maintain.", solution: "OrbitFX deploys a fully white-labelled, production-ready trading platform in under 14 days.", stat: "14-day live" },
+  { icon: "solar:wallet-money-bold-duotone", pain: "High Infrastructure Costs", painDetail: "Running your own execution servers, feed handlers, and data infrastructure is expensive.", solution: "OrbitFX is cloud-hosted, multi-region, and fully managed — no infrastructure team needed.", stat: "Zero infra" },
 ];
 
 const STATS = [
@@ -718,7 +718,7 @@ function PainPoints() {
                 <div className="flex items-center gap-2 mb-1">
                   <Icon icon="solar:check-circle-bold" className="text-indigo-500 dark:text-indigo-400 flex-shrink-0" width={13} />
                   <span className="text-indigo-500 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-widest font-mono">
-                    CubeX Solution
+                    OrbitFX Solution
                   </span>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed pl-5">{featured.solution}</p>
@@ -850,7 +850,7 @@ function CTA() {
           The trading platform your brokerage <span className="text-indigo-500 dark:text-indigo-400">deserves</span>
         </h2>
         <p className="reveal text-gray-500 dark:text-gray-400 text-base leading-[1.75] max-w-[500px] mx-auto mb-9" data-dir="up" data-delay="200">
-          400+ brokers trust CubeX for execution speed, liquidity depth, and a white-label trading experience that keeps traders coming back. Go live in under 14 days.
+          400+ brokers trust OrbitFX for execution speed, liquidity depth, and a white-label trading experience that keeps traders coming back. Go live in under 14 days.
         </p>
 
         <div className="reveal flex flex-wrap gap-3 justify-center mb-7" data-dir="up" data-delay="260">

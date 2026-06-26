@@ -41,12 +41,12 @@ const values = [
 ];
 
 const milestones = [
-  { year: "Jan 2026", label: "Founded", desc: "CubeX Enterprises established in Dubai, United Arab Emirates, as a financial technology company focused on brokerage infrastructure." },
+  { year: "Jan 2026", label: "Founded", desc: "Orbitfx Solution established in Dubai, United Arab Emirates, as a financial technology company focused on brokerage infrastructure." },
   { year: "Feb 2026", label: "Platform Build", desc: "Core development begins on our proprietary broker back-office infrastructure, trading terminals, and client portal." },
-  { year: "Mar 2026", label: "Liquidity Partnerships", desc: "Secured liquidity relationships with tier-1 banks and ECN providers to power the CubeX trading engine." },
-  { year: "Apr 2026", label: "Beta Launch", desc: "CubeX Platform enters closed beta — unified trading terminals, admin portal, and IB suite tested with select partners." },
+  { year: "Mar 2026", label: "Liquidity Partnerships", desc: "Secured liquidity relationships with tier-1 banks and ECN providers to power the OrbitFX trading engine." },
+  { year: "Apr 2026", label: "Beta Launch", desc: "OrbitFX Platform enters closed beta — unified trading terminals, admin portal, and IB suite tested with select partners." },
   { year: "May 2026", label: "First Clients", desc: "Onboarded our first brokerage clients across the Middle East and Asia-Pacific region, delivering fully white-labelled deployments." },
-  { year: "Jun 2026", label: "Full Release", desc: "CubeX Platform v1 officially released — AI-enhanced terminals, institutional desk, and regulatory reporting suite." },
+  { year: "Jun 2026", label: "Full Release", desc: "OrbitFX Platform v1 officially released — AI-enhanced terminals, institutional desk, and regulatory reporting suite." },
 ];
 
 const manifesto = [
@@ -63,12 +63,12 @@ const manifesto = [
   {
     n: "03",
     title: "White-label means genuinely yours.",
-    desc: "Your clients should never know CubeX exists. The platform carries your identity — your logo, your domain, your mobile app, your support voice. We stay invisible so you can shine.",
+    desc: "Your clients should never know OrbitFX exists. The platform carries your identity — your logo, your domain, your mobile app, your support voice. We stay invisible so you can shine.",
   },
   {
     n: "04",
     title: "Partnership is a two-way commitment.",
-    desc: "When you sign with CubeX, you get a team invested in your growth. Your success metrics are our success metrics. We don't disappear after go-live.",
+    desc: "When you sign with OrbitFX, you get a team invested in your growth. Your success metrics are our success metrics. We don't disappear after go-live.",
   },
 ];
 
@@ -91,27 +91,27 @@ const openRoles = [
 ];
 
 const pressItems = [
-  { outlet: "FinanceFeeds", date: "Jun 2026", headline: "CubeX Enterprises launches full platform release with AI-enhanced terminals and institutional desk.", tag: "Launch" },
-  { outlet: "Finance Magnates", date: "May 2026", headline: "New entrant CubeX Enterprises makes waves in APAC brokerage technology with white-label platform.", tag: "Expansion" },
-  { outlet: "Gulf News", date: "Apr 2026", headline: "Dubai-based fintech startup CubeX Enterprises enters closed beta with fully integrated brokerage platform.", tag: "Product" },
-  { outlet: "FXStreet", date: "Mar 2026", headline: "CubeX Enterprises secures tier-1 liquidity partnerships ahead of platform launch later this year.", tag: "Partnerships" },
+  { outlet: "FinanceFeeds", date: "Jun 2026", headline: "Orbitfx Solution launches full platform release with AI-enhanced terminals and institutional desk.", tag: "Launch" },
+  { outlet: "Finance Magnates", date: "May 2026", headline: "New entrant Orbitfx Solution makes waves in APAC brokerage technology with white-label platform.", tag: "Expansion" },
+  { outlet: "Gulf News", date: "Apr 2026", headline: "Dubai-based fintech startup Orbitfx Solution enters closed beta with fully integrated brokerage platform.", tag: "Product" },
+  { outlet: "FXStreet", date: "Mar 2026", headline: "Orbitfx Solution secures tier-1 liquidity partnerships ahead of platform launch later this year.", tag: "Partnerships" },
 ];
 
 const testimonials = [
   {
-    quote: "CubeX gave us a fully operational brokerage in under two weeks. The back-office is exactly what our compliance team needed — intuitive, auditable, and fast.",
+    quote: "OrbitFX gave us a fully operational brokerage in under two weeks. The back-office is exactly what our compliance team needed — intuitive, auditable, and fast.",
     author: "Operations Director",
     company: "FX Brokerage — Singapore",
     rating: 5,
   },
   {
-    quote: "Switching to CubeX cut our manual processing time by 60%. The deposit/withdrawal automation alone paid for the platform in the first quarter.",
+    quote: "Switching to OrbitFX cut our manual processing time by 60%. The deposit/withdrawal automation alone paid for the platform in the first quarter.",
     author: "Head of Technology",
     company: "Prime Broker — Dubai",
     rating: 5,
   },
   {
-    quote: "Our IB network grew 40% in three months after we launched the CubeX partner portal. Commission tracking is transparent and the payout engine is flawless.",
+    quote: "Our IB network grew 40% in three months after we launched the OrbitFX partner portal. Commission tracking is transparent and the payout engine is flawless.",
     author: "Partnership Manager",
     company: "Retail Broker — Abu Dhabi",
     rating: 5,
@@ -231,13 +231,13 @@ export default function CompanyPage() {
     <h1 className="mt-5 font-bold text-[clamp(34px,5vw,58px)] leading-[1.07] tracking-[-2px] text-gray-900 dark:text-white mb-6">
       The Team Behind
       <br />
-      <span className="text-indigo-500">CubeX Platform.</span>
+      <span className="text-indigo-500">OrbitFX Platform.</span>
     </h1>
 
     <p className="mx-auto text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[650px] mb-10">
-      CubeX is built and operated by
+      OrbitFX is built and operated by
       <span className="font-semibold text-gray-700 dark:text-gray-300">
-        {" "}CubeX Enterprises
+        {" "}Orbitfx Solution
       </span>
       — a Dubai-based financial technology company founded in 2026,
       building institutional-grade trading infrastructure for brokers
@@ -249,12 +249,12 @@ export default function CompanyPage() {
       {[
         {
           label: "COMPANY",
-          value: "CubeX Enterprises",
+          value: "Orbitfx Solution",
           note: "Est. 2026 · Dubai, United Arab Emirates",
         },
         {
           label: "FLAGSHIP PRODUCT",
-          value: "CubeX Platform",
+          value: "OrbitFX Platform",
           note: "Trading technology division",
         },
       ].map((r) => (
@@ -286,14 +286,14 @@ export default function CompanyPage() {
             <SectionHead
               badge="About Us"
               title="Who We Are and What We Stand For"
-              sub="CubeX Enterprises is the technology company behind CubeX — a full-stack brokerage platform serving retail brokers, institutions, and white-label operators across the Middle East and Asia-Pacific."
+              sub="Orbitfx Solution is the technology company behind OrbitFX — a full-stack brokerage platform serving retail brokers, institutions, and white-label operators across the Middle East and Asia-Pacific."
             />
             <div className="flex flex-col gap-4 text-[14px] text-gray-600 dark:text-gray-400 leading-[1.85]">
               <p>
-                Founded in 2026, CubeX Enterprises was built to solve a clear problem: the brokerage technology market was fragmented, outdated, and inaccessible to operators who needed a modern, reliable foundation to launch and scale.
+                Founded in 2026, Orbitfx Solution was built to solve a clear problem: the brokerage technology market was fragmented, outdated, and inaccessible to operators who needed a modern, reliable foundation to launch and scale.
               </p>
               <p>
-                Today, CubeX is a unified platform covering client portals, manager back-office, risk management, KYC/AML, liquidity access, and mobile apps. Everything is white-labelled, cloud-hosted, and built to scale from day one.
+                Today, OrbitFX is a unified platform covering client portals, manager back-office, risk management, KYC/AML, liquidity access, and mobile apps. Everything is white-labelled, cloud-hosted, and built to scale from day one.
               </p>
               <p>
                 We operate from the International Business Tower in Business Bay, Dubai, with a team of engineers, compliance specialists, and market professionals dedicated to one thing: making brokerages work better.
@@ -338,7 +338,7 @@ export default function CompanyPage() {
       {/* ── OUR STORY ─────────────────────────────── */}
       <section id="story" className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="Our Story" title="How CubeX Came to Be" sub="From an idea to a fully operational brokerage platform — built and launched in 2026." center />
+          <SectionHead badge="Our Story" title="How OrbitFX Came to Be" sub="From an idea to a fully operational brokerage platform — built and launched in 2026." center />
           <div className="relative max-w-[860px] mx-auto">
             {/* Timeline spine */}
             <div className="absolute left-[78px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-indigo-200 dark:via-indigo-900 to-transparent hidden sm:block" />
@@ -408,7 +408,7 @@ export default function CompanyPage() {
       {/* ── LEADERSHIP TEAM ───────────────────────── */}
       <section className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="Leadership" title="The People Running CubeX" sub="Our leadership team spans trading technology, financial markets, compliance, and enterprise sales." center />
+          <SectionHead badge="Leadership" title="The People Running OrbitFX" sub="Our leadership team spans trading technology, financial markets, compliance, and enterprise sales." center />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {teamMembers.map((p) => (
               <div key={p.name} className="flex flex-col items-center text-center p-5 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors">
@@ -482,7 +482,7 @@ export default function CompanyPage() {
       {/* ── PRESS & MEDIA ─────────────────────────── */}
       <section id="press" className="py-20 px-[5%] bg-slate-50/70 dark:bg-gray-900/50">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="Press & Media" title="News and Media Coverage" sub="Recent coverage of CubeX and CubeX Enterprises in financial media." />
+          <SectionHead badge="Press & Media" title="News and Media Coverage" sub="Recent coverage of OrbitFX and Orbitfx Solution in financial media." />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {pressItems.map((p, i) => (
               <Card key={i} className="rounded-none border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors cursor-pointer group">
@@ -507,8 +507,8 @@ export default function CompanyPage() {
           <div className="flex gap-4 flex-wrap items-center">
             <div>
               <div className="text-[11px] font-mono text-gray-400 mb-1 uppercase tracking-wide">Press enquiries</div>
-              <a href="mailto:press@cubexenterprises.com" className="text-[14px] font-semibold text-indigo-500 hover:text-indigo-600 flex items-center gap-1.5">
-                <Mail className="h-4 w-4" />press@cubexenterprises.com
+              <a href="mailto:press@OrbitFXSolution.com" className="text-[14px] font-semibold text-indigo-500 hover:text-indigo-600 flex items-center gap-1.5">
+                <Mail className="h-4 w-4" />press@OrbitFXSolution.com
               </a>
             </div>
           </div>
@@ -518,7 +518,7 @@ export default function CompanyPage() {
       {/* ── TESTIMONIALS ──────────────────────────── */}
       <section id="testimonials" className="py-20 px-[5%] bg-white dark:bg-gray-950">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="Testimonials" title="What Our Clients Say" sub="Real feedback from operators using CubeX to power their brokerages every day." center />
+          <SectionHead badge="Testimonials" title="What Our Clients Say" sub="Real feedback from operators using OrbitFX to power their brokerages every day." center />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
               <Card key={i} className="rounded-none border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
@@ -544,7 +544,7 @@ export default function CompanyPage() {
           <SectionHead
             badge="Tech Stack"
             title="Enterprise Infrastructure"
-            sub="CubeX is built on a cloud-native, distributed stack engineered for sub-millisecond execution and multi-region fault tolerance."
+            sub="OrbitFX is built on a cloud-native, distributed stack engineered for sub-millisecond execution and multi-region fault tolerance."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {techStack.map((t) => (
@@ -575,7 +575,7 @@ export default function CompanyPage() {
           <SectionHead
             badge="Trust Center"
             title="Security and Compliance"
-            sub="CubeX operates on ISO 27001-compliant infrastructure with full audit trails, penetration testing, and contractual uptime guarantees."
+            sub="OrbitFX operates on ISO 27001-compliant infrastructure with full audit trails, penetration testing, and contractual uptime guarantees."
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
@@ -599,10 +599,10 @@ export default function CompanyPage() {
               <div className="text-[13px] text-gray-500 dark:text-gray-400">Found a security issue? Report it responsibly and we'll respond within 48 hours.</div>
             </div>
             <a
-              href="mailto:security@cubexenterprises.com"
+              href="mailto:security@OrbitFXSolution.com"
               className="flex-shrink-0 inline-flex items-center gap-2 rounded-none border border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 font-bold uppercase tracking-widest text-xs px-5 py-2.5 transition-colors no-underline"
             >
-              <Mail className="h-4 w-4" /> security@cubexenterprises.com
+              <Mail className="h-4 w-4" /> security@OrbitFXSolution.com
             </a>
           </div>
         </div>
@@ -614,7 +614,7 @@ export default function CompanyPage() {
           <SectionHead
             badge="Brand Assets"
             title="Logos, Colors and Guidelines"
-            sub="Official CubeX and CubeX Enterprises brand assets. Use these assets only in accordance with our brand guidelines."
+            sub="Official OrbitFX and Orbitfx Solution brand assets. Use these assets only in accordance with our brand guidelines."
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Logo tiles */}
@@ -622,17 +622,17 @@ export default function CompanyPage() {
               <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-gray-400 mb-4 font-mono">Logo Variants</div>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { name: "CubeX — Light", bg: "bg-white border border-gray-200", text: "text-gray-900" },
-                  { name: "CubeX — Dark", bg: "bg-gray-900 border border-gray-800", text: "text-white" },
-                  { name: "CubeX Enterprises — Light", bg: "bg-white border border-gray-200", text: "text-gray-900" },
-                  { name: "CubeX Enterprises — Dark", bg: "bg-gray-900 border border-gray-800", text: "text-white" },
+                  { name: "OrbitFX — Light", bg: "bg-white border border-gray-200", text: "text-gray-900" },
+                  { name: "OrbitFX — Dark", bg: "bg-gray-900 border border-gray-800", text: "text-white" },
+                  { name: "Orbitfx Solution — Light", bg: "bg-white border border-gray-200", text: "text-gray-900" },
+                  { name: "Orbitfx Solution — Dark", bg: "bg-gray-900 border border-gray-800", text: "text-white" },
                 ].map((l) => (
                   <div key={l.name} className={`${l.bg} p-6 flex flex-col items-center justify-center gap-3 min-h-[100px]`}>
                     <div className={`font-bold text-[18px] tracking-tight ${l.text}`}>
-                      {l.name.startsWith("CubeX Enterprises") ? (
-                        <span>CubeX <span className="text-indigo-500">Enterprises</span></span>
+                      {l.name.startsWith("Orbitfx Solution") ? (
+                        <span>OrbitFX <span className="text-indigo-500">Solution</span></span>
                       ) : (
-                        <span>Cube<span className="text-indigo-500">X</span></span>
+                        <span>Orbit<span className="text-indigo-500">Fx</span></span>
                       )}
                     </div>
                     <div className={`text-[9px] font-mono tracking-[2px] uppercase opacity-40 ${l.text}`}>{l.name}</div>

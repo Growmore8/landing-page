@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <!--
-    CubeX favicon: Font Awesome 6 Solid "cube" glyph (M21.4 39.5C...)
+    OrbitFX favicon: Font Awesome 6 Solid "cube" glyph (M21.4 39.5C...)
     inlined as an SVG path so it renders in browser tabs without
     needing the Font Awesome webfont. The gold→green gradient matches
     login.html's .brand .logo i styling:

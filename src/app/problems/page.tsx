@@ -33,7 +33,7 @@ const PROBLEMS: Problem[] = [
       "Legacy platforms built on decade-old architecture can't keep pace with modern market microstructure. Slow order routing, missed fills, and unpredictable latency erode trader trust and retention — directly hitting your bottom line.",
     solution: "Sub-Millisecond Order Execution",
     solutionDetail:
-      "CubeX delivers FIX-native order routing via co-located infrastructure with end-to-end latency under 1ms. Smart order matching, configurable execution modes, and real-time fill reporting — built for live market conditions from day one.",
+      "OrbitFX delivers FIX-native order routing via co-located infrastructure with end-to-end latency under 1ms. Smart order matching, configurable execution modes, and real-time fill reporting — built for live market conditions from day one.",
     stat: "< 1ms",
     statLabel: "Order Fills",
     tag: "Execution",
@@ -56,7 +56,7 @@ const PROBLEMS: Problem[] = [
       "Relying on a single liquidity provider means you're exposed to their outages, re-quotes, and pricing gaps. During high-impact news events — exactly when your traders are most active — your execution degrades exactly when it matters most.",
     solution: "Multi-LP Aggregation & Smart Routing",
     solutionDetail:
-      "CubeX connects to multiple tier-1 banks and ECN providers simultaneously. Our aggregation engine selects the best bid/offer across all connected LPs in real time, with automatic failover if any provider goes dark.",
+      "OrbitFX connects to multiple tier-1 banks and ECN providers simultaneously. Our aggregation engine selects the best bid/offer across all connected LPs in real time, with automatic failover if any provider goes dark.",
     stat: "10+",
     statLabel: "LP Connections",
     tag: "Liquidity",
@@ -79,7 +79,7 @@ const PROBLEMS: Problem[] = [
       "Traders don't stay on platforms with laggy, feature-stripped mobile apps. If the mobile experience is slow, crashes on chart load, or missing basic order types — they churn to a competitor within weeks.",
     solution: "Native iOS & Android Trading Apps",
     solutionDetail:
-      "CubeX ships fully native iOS and Android apps — not wrapped web views. Biometric authentication, real-time push alerts, full charting with 50+ indicators, and one-tap execution. Fully white-labelled under your brand with your App Store listing.",
+      "OrbitFX ships fully native iOS and Android apps — not wrapped web views. Biometric authentication, real-time push alerts, full charting with 50+ indicators, and one-tap execution. Fully white-labelled under your brand with your App Store listing.",
     stat: "iOS & Android",
     statLabel: "Native Apps",
     tag: "Mobile",
@@ -102,7 +102,7 @@ const PROBLEMS: Problem[] = [
       "Operating a brokerage without live exposure data is flying blind. Without real-time margin monitoring, per-group controls, and configurable routing rules, a single adverse move can create outsized liability before your team even notices.",
     solution: "Live Risk Desk & Exposure Controls",
     solutionDetail:
-      "CubeX Risk Desk gives compliance teams a live view of all open positions, margin utilisation, and net exposure across every account group. Set threshold alerts, configure A-book / B-book routing per instrument, and control leverage per segment — all in one interface.",
+      "OrbitFX Risk Desk gives compliance teams a live view of all open positions, margin utilisation, and net exposure across every account group. Set threshold alerts, configure A-book / B-book routing per instrument, and control leverage per segment — all in one interface.",
     stat: "Real-time",
     statLabel: "Risk Monitoring",
     tag: "Risk",
@@ -122,10 +122,10 @@ const PROBLEMS: Problem[] = [
     icon: "solar:graph-up-bold-duotone",
     pain: "6–12 Month Platform Build Times",
     painDetail:
-      "Custom platform builds eat capital and delay revenue. By the time you go live, the market has moved, your team has churned, and you've spent 12 months solving problems CubeX already solved for 400+ brokerages.",
+      "Custom platform builds eat capital and delay revenue. By the time you go live, the market has moved, your team has churned, and you've spent 12 months solving problems OrbitFX already solved for 400+ brokerages.",
     solution: "Production-Ready in 14 Days",
     solutionDetail:
-      "CubeX deploys a fully configured, white-labelled trading environment in under 14 days. Our implementation team handles liquidity connections, risk desk setup, terminal configuration, and full UAT — so your team just needs to launch.",
+      "OrbitFX deploys a fully configured, white-labelled trading environment in under 14 days. Our implementation team handles liquidity connections, risk desk setup, terminal configuration, and full UAT — so your team just needs to launch.",
     stat: "14 Days",
     statLabel: "Time to Live",
     tag: "Deployment",
@@ -148,7 +148,7 @@ const PROBLEMS: Problem[] = [
       "Self-hosted execution servers, co-location fees, feed handler maintenance, DR infrastructure — these compound fast. A mid-size brokerage can spend $500K+ annually on infrastructure that still doesn't match a managed platform's reliability.",
     solution: "Fully Managed Cloud Infrastructure",
     solutionDetail:
-      "CubeX is multi-region, cloud-hosted, and fully managed. No servers to rack, no patches to apply, no infrastructure team to hire. 99.9% uptime SLA with active-active failover — you pay for outcomes, not overhead.",
+      "OrbitFX is multi-region, cloud-hosted, and fully managed. No servers to rack, no patches to apply, no infrastructure team to hire. 99.9% uptime SLA with active-active failover — you pay for outcomes, not overhead.",
     stat: "Zero",
     statLabel: "Infra Overhead",
     tag: "Infrastructure",
@@ -168,7 +168,7 @@ const PROBLEMS: Problem[] = [
 const IMPACT_STATS = [
   { val: "< 1ms", label: "Order execution latency" },
   { val: "14 days", label: "Average go-live timeline" },
-  { val: "400+", label: "Brokerages running on CubeX" },
+  { val: "400+", label: "Brokerages running on OrbitFX" },
   { val: "99.9%", label: "Platform uptime SLA" },
   { val: "Zero", label: "Infrastructure team needed" },
   { val: "50+", label: "Asset classes supported" },
@@ -304,7 +304,7 @@ function ProblemsHero() {
             </h1>
 
             <p className="ph ph-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400 max-w-[500px] mb-8">
-              Every brokerage faces the same six infrastructure failures. CubeX was built specifically to eliminate each one — before they cost you traders, capital, or reputation.
+              Every brokerage faces the same six infrastructure failures. OrbitFX was built specifically to eliminate each one — before they cost you traders, capital, or reputation.
             </p>
 
             <div className="ph ph-4 flex flex-col sm:flex-row gap-3">
@@ -459,7 +459,7 @@ function ProblemCard({ p, index }: { p: Problem; index: number }) {
               <span className="w-5 h-5 bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
                 <Icon icon="solar:check-circle-bold" className="text-indigo-500" width={11} />
               </span>
-              <span className="text-indigo-500 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-[2px] font-mono">CubeX Solution: {p.solution}</span>
+              <span className="text-indigo-500 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-[2px] font-mono">OrbitFX Solution: {p.solution}</span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed ml-7 mb-5">{p.solutionDetail}</p>
             <ul className="space-y-2 ml-7">
@@ -503,7 +503,7 @@ function ProblemsList() {
               Every Problem. Every Fix.
             </h2>
             <p className="reveal text-gray-400 text-sm mt-2 max-w-md" data-dir="left" data-delay="120">
-              Expand any problem to see exactly how CubeX eliminates it.
+              Expand any problem to see exactly how OrbitFX eliminates it.
             </p>
           </div>
 
@@ -528,7 +528,7 @@ function ProblemsList() {
         <div className="hidden md:grid grid-cols-12 gap-6 px-10 mb-2 pb-3 border-b border-gray-200 dark:border-gray-700">
           <div className="col-span-1 text-[9px] font-bold uppercase tracking-[2px] text-gray-300 dark:text-gray-600 font-mono">#</div>
           <div className="col-span-6 text-[9px] font-bold uppercase tracking-[2px] text-gray-300 dark:text-gray-600 font-mono">Problem</div>
-          <div className="col-span-2 text-right text-[9px] font-bold uppercase tracking-[2px] text-gray-300 dark:text-gray-600 font-mono">CubeX Metric</div>
+          <div className="col-span-2 text-right text-[9px] font-bold uppercase tracking-[2px] text-gray-300 dark:text-gray-600 font-mono">OrbitFX Metric</div>
           <div className="col-span-1 text-right text-[9px] font-bold uppercase tracking-[2px] text-gray-300 dark:text-gray-600 font-mono" />
         </div>
 
@@ -547,14 +547,14 @@ function ProblemsList() {
 function ComparisonSection() {
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   const rows = [
-    { feature: "Order Execution Latency", legacy: "> 50ms", cubex: "< 1ms", better: true },
-    { feature: "Liquidity Sources", legacy: "1 LP", cubex: "10+ LPs aggregated", better: true },
-    { feature: "Mobile Trading App", legacy: "Web wrapper (slow)", cubex: "Native iOS & Android", better: true },
-    { feature: "Risk Monitoring", legacy: "Manual / delayed", cubex: "Real-time dashboard", better: true },
-    { feature: "Time to Market", legacy: "6–12 months", cubex: "14 days", better: true },
-    { feature: "Infrastructure Managed By", legacy: "Your team + cost", cubex: "CubeX (zero overhead)", better: true },
-    { feature: "Uptime SLA", legacy: "Best-effort", cubex: "99.9% guaranteed", better: true },
-    { feature: "White-Label Branding", legacy: "Partial / extra cost", cubex: "Fully included", better: true },
+    { feature: "Order Execution Latency", legacy: "> 50ms", OrbitFX: "< 1ms", better: true },
+    { feature: "Liquidity Sources", legacy: "1 LP", OrbitFX: "10+ LPs aggregated", better: true },
+    { feature: "Mobile Trading App", legacy: "Web wrapper (slow)", OrbitFX: "Native iOS & Android", better: true },
+    { feature: "Risk Monitoring", legacy: "Manual / delayed", OrbitFX: "Real-time dashboard", better: true },
+    { feature: "Time to Market", legacy: "6–12 months", OrbitFX: "14 days", better: true },
+    { feature: "Infrastructure Managed By", legacy: "Your team + cost", OrbitFX: "OrbitFX (zero overhead)", better: true },
+    { feature: "Uptime SLA", legacy: "Best-effort", OrbitFX: "99.9% guaranteed", better: true },
+    { feature: "White-Label Branding", legacy: "Partial / extra cost", OrbitFX: "Fully included", better: true },
   ];
 
   return (
@@ -565,7 +565,7 @@ function ComparisonSection() {
             <DiagBadge label="Side by Side" />
           </div>
           <h2 className="reveal text-3xl md:text-4xl font-black mt-4 tracking-tight text-gray-900 dark:text-white" data-dir="up" data-delay="80">
-            Legacy Platform vs. CubeX
+            Legacy Platform vs. OrbitFX
           </h2>
         </div>
 
@@ -574,7 +574,7 @@ function ComparisonSection() {
           <div className="grid grid-cols-3 bg-gray-900 dark:bg-black">
             <div className="px-5 py-3 text-[10px] font-bold uppercase tracking-[2px] text-gray-400 font-mono">Feature</div>
             <div className="px-5 py-3 text-[10px] font-bold uppercase tracking-[2px] text-red-400 font-mono border-l border-white/10">Legacy Platform</div>
-            <div className="px-5 py-3 text-[10px] font-bold uppercase tracking-[2px] text-indigo-400 font-mono border-l border-white/10">CubeX</div>
+            <div className="px-5 py-3 text-[10px] font-bold uppercase tracking-[2px] text-indigo-400 font-mono border-l border-white/10">OrbitFX</div>
           </div>
 
           {rows.map((r, i) => (
@@ -589,7 +589,7 @@ function ComparisonSection() {
               </div>
               <div className="px-5 py-4 border-l border-gray-200 dark:border-gray-700 flex items-center gap-2">
                 <Icon icon="solar:check-circle-bold" className="text-indigo-500 flex-shrink-0" width={14} />
-                <span className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{r.cubex}</span>
+                <span className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{r.OrbitFX}</span>
               </div>
             </div>
           ))}
@@ -605,7 +605,7 @@ function CostOfInaction() {
   const costs = [
     { icon: "solar:user-minus-bold-duotone", title: "Trader Churn", desc: "Slow execution and poor mobile experience drive traders to competitors. Each churned trader represents months of CAC and lost spread revenue — gone permanently.", val: "22%", unit: "avg annual churn on legacy platforms" },
     { icon: "solar:chart-2-bold-duotone", title: "Revenue Leakage", desc: "Wide spreads from single-LP setups reduce fill quality. Traders notice, reduce volume, and eventually leave. Better liquidity directly protects margin revenue.", val: "3–5×", unit: "wider spreads vs multi-LP setups" },
-    { icon: "solar:clock-circle-bold-duotone", title: "Build Time Cost", desc: "12 months of engineering costs, delayed go-live, and missed market windows add up fast. CubeX gets you live in 14 days — without the headcount.", val: "$500K+", unit: "typical custom platform build cost" },
+    { icon: "solar:clock-circle-bold-duotone", title: "Build Time Cost", desc: "12 months of engineering costs, delayed go-live, and missed market windows add up fast. OrbitFX gets you live in 14 days — without the headcount.", val: "$500K+", unit: "typical custom platform build cost" },
   ];
 
   return (
@@ -664,7 +664,7 @@ function TestimonialStrip() {
           data-dir="up"
           data-delay="80"
         >
-          "We were running on a platform that requoted during NFP every single month. CubeX eliminated that entirely. Our traders' retention numbers went up 30% in the first quarter."
+          "We were running on a platform that requoted during NFP every single month. OrbitFX eliminated that entirely. Our traders' retention numbers went up 30% in the first quarter."
         </blockquote>
         <div className="reveal flex items-center justify-center gap-3" data-dir="up" data-delay="140">
           <div className="w-10 h-10 border border-indigo-500/20 bg-indigo-500/10 flex items-center justify-center text-lg flex-shrink-0">🇬🇧</div>
@@ -704,7 +704,7 @@ function ProblemsCTA() {
           data-dir="up"
           data-delay="200"
         >
-          CubeX replaces your entire fragmented trading stack with one institutional-grade platform. Live in 14 days. No infrastructure team. No hidden costs.
+          OrbitFX replaces your entire fragmented trading stack with one institutional-grade platform. Live in 14 days. No infrastructure team. No hidden costs.
         </p>
 
         <div className="reveal flex flex-wrap gap-3 justify-center mb-7" data-dir="up" data-delay="260">

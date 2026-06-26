@@ -58,7 +58,7 @@ export function SupportChat() {
       setStep("chat");
       setMessages([{
         role: "assistant",
-        content: `Hi ${name.trim().split(" ")[0]} 👋 I'm Cubex Assistant. Ask me anything about trading strategies, platform features, or your docs!`,
+        content: `Hi ${name.trim().split(" ")[0]} 👋 I'm OrbitFX Assistant. Ask me anything about trading strategies, platform features, or your docs!`,
       }]);
     } catch (err: unknown) {
       setFormError(err instanceof Error ? err.message : "Something went wrong.");
@@ -128,7 +128,7 @@ export function SupportChat() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          aria-label="Open Cubex assistant"
+          aria-label="Open OrbitFX assistant"
           className="
             fab-btn
             fixed bottom-6 right-6 z-50
@@ -144,12 +144,12 @@ export function SupportChat() {
           <span className="btn-label text-xs font-medium pl-2">Ask</span>
           <img
             src="/icon.png"
-            alt="Cubex"
+            alt="OrbitFX"
             width={28}
             height={28}
             className="rounded-full object-contain mx-1 shrink-0"
           />
-          <span className="btn-label text-xs font-medium pr-2">Cubex</span>
+          <span className="btn-label text-xs font-medium pr-2">OrbitFX</span>
         </button>
       )}
 
@@ -174,11 +174,11 @@ export function SupportChat() {
               w-9 h-9 rounded-full overflow-hidden bg-white/20
               flex items-center justify-center shrink-0
             ">
-              <img src="/icon.png" alt="Cubex" width={36} height={36} className="object-contain" />
+              <img src="/icon.png" alt="OrbitFX" width={36} height={36} className="object-contain" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="m-0 text-white font-semibold text-sm leading-tight">
-                Cubex Assistant
+                OrbitFX Assistant
               </p>
               <p className="m-0 text-blue-200 text-[0.7rem] mt-0.5">
                 {error ? `Error: ${error}` : ready ? "Online · Powered by your docs" : "Warming up…"}

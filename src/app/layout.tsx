@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import { SupportChat } from "@/components/SupportChat";
 
 export const metadata = {
-  title: "CubeX Enterprises",
+  title: "Orbitfx Solution",
   description: "Enterprise-grade trading infrastructure for Forex brokers and prop firms — white-label platforms, risk management, and institutional-grade technology.",
   icons: {
     icon: "/favicon.ico",
