@@ -484,7 +484,7 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="border border-gray-200 dark:border-gray-700 overflow-hidden rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-bl-lg">
-              <iframe
+              {/* <iframe
                 src="https://www.google.com/maps?q=International+Business+Tower,+Al+A%27amal+Street,+Business+Bay,+Dubai,+United+Arab+Emirates&output=embed"
                 width="100%"
                 height="340"
@@ -492,6 +492,15 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 title="OrbitFX Head Office — Business Bay, Dubai"
+              /> */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.5!2d79.8950!3d6.8640!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bd4d8e2a1eb%3A0x0!2zNsKwNTEnNTMuNyJOIDc5wrA1Myc0Mi4xIkU!5e0!3m2!1sen!2slk!4v1"
+                width="100%"
+                height="340"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                title="CubeX Head Office"
               />
             </div>
             <div className="border border-gray-200 dark:border-gray-700 border-l-0 bg-white dark:bg-gray-800 p-9 rounded-tr-lg rounded-br-lg lg:rounded-tl-none">
