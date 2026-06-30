@@ -380,9 +380,8 @@ export default function ContactPage() {
             ].map((c) => (
               <div
                 key={c.label}
-                className={`text-center sm:text-left ${
-                  c.label === "ADDRESS" ? "max-w-[260px]" : "whitespace-nowrap"
-                }`}
+                className={`text-center sm:text-left ${c.label === "ADDRESS" ? "max-w-[260px]" : "whitespace-nowrap"
+                  }`}
               >
                 <div className="text-[9px] text-gray-400 dark:text-gray-500 font-bold tracking-[2px] mb-1 font-mono uppercase">
                   {c.label}
@@ -486,11 +485,12 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="border border-gray-200 dark:border-gray-700 overflow-hidden rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-bl-lg">
               <iframe
-                src="https://www.google.com/maps?q=International%20Business%20Tower%2C%20Al%20A'amal%20Street%2C%20Business%20Bay%2C%20Dubai%2C%20United%20Arab%20Emirates&output=embed"
+                src="https://maps.google.com/maps?q=International%20Business%20Tower%2C%20Al%20A%27amal%20Street%2C%20Business%20Bay%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="340"
                 style={{ border: 0, display: "block" }}
                 allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
                 loading="lazy"
                 title="OrbitFX Head Office — Business Bay, Dubai"
               />

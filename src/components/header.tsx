@@ -224,9 +224,9 @@ export default function Navbar() {
             <div ref={navRef} className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-                        <Image src="/icon.png" alt="OrbitFX Logo" width={32} height={32} className="object-cover" priority />
+                <div className="flex items-center">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex items-center justify-center">
+                        <Image src="/Orbit1.png" alt="OrbitFX Logo" width={100} height={100} className="object-cover" priority />
                     </div>
                     <div>
                         <div className="font-['Space_Grotesk',sans-serif] font-bold text-[17px] leading-none tracking-[-0.3px] text-indigo-950 dark:text-indigo-100">

@@ -237,10 +237,10 @@ export default function Footer() {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-500 to-gray-700 dark:from-gray-400 dark:to-gray-600 p-0.5 shadow-lg shadow-gray-500/20">
                   <div className="w-full h-full rounded-xl bg-white dark:bg-gray-900 flex items-center justify-center">
                     <Image
-                      src="/icon.png"
+                      src="/Orbit1.png"
                       alt="Orbitfx Solution"
-                      width={28}
-                      height={28}
+                      width={56}
+                      height={56}
                       className="object-contain"
                       priority
                     />

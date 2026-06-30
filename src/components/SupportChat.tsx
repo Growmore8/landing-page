@@ -132,22 +132,22 @@ export function SupportChat() {
           className="
             fab-btn
             fixed bottom-6 right-6 z-50
-            h-11 rounded-full px-2
-            bg-gradient-to-br from-blue-600 to-blue-700
+            h-10 rounded-full px-2
+            bg-gradient-to-br from-blue-600 to-emerald-500
             text-white border-0 cursor-pointer
             flex items-center justify-center gap-0
-            shadow-[0_8px_32px_rgba(37,99,235,.45)]
-            hover:shadow-[0_12px_40px_rgba(37,99,235,.55)]
+            shadow-[0_8px_32px_rgba(16,185,129,.4)]
+            hover:shadow-[0_12px_40px_rgba(16,185,129,.5)]
             transition-all duration-300
           "
         >
           <span className="btn-label text-xs font-medium pl-2">Ask</span>
           <img
-            src="/icon.png"
+            src="/Orbit1.png"
             alt="OrbitFX"
             width={28}
             height={28}
-            className="rounded-full object-contain mx-1 shrink-0"
+            className="rounded-full object-contain mx-1 shrink-0 bg-white/90"
           />
           <span className="btn-label text-xs font-medium pr-2">OrbitFX</span>
         </button>
@@ -167,27 +167,27 @@ export function SupportChat() {
         ">
           {/* Header with close button */}
           <div className="
-            bg-gradient-to-br from-blue-600 to-blue-800
+            bg-gradient-to-br from-blue-700 via-teal-600 to-emerald-500
             px-4 py-3.5 flex items-center gap-3 shrink-0
           ">
             <div className="
-              w-9 h-9 rounded-full overflow-hidden bg-white/20
+              w-9 h-9 rounded-full overflow-hidden bg-white/90
               flex items-center justify-center shrink-0
             ">
-              <img src="/icon.png" alt="OrbitFX" width={36} height={36} className="object-contain" />
+              <img src="/Orbit1.png" alt="OrbitFX" width={36} height={36} className="object-contain" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="m-0 text-white font-semibold text-sm leading-tight">
                 OrbitFX Assistant
               </p>
-              <p className="m-0 text-blue-200 text-[0.7rem] mt-0.5">
+              <p className="m-0 text-emerald-100 text-[0.7rem] mt-0.5">
                 {error ? `Error: ${error}` : ready ? "Online · Powered by your docs" : "Warming up…"}
               </p>
             </div>
             {ready && (
               <span className="
-                w-2 h-2 rounded-full bg-emerald-400 shrink-0
-                shadow-[0_0_0_3px_rgba(52,211,153,.3)]
+                w-2 h-2 rounded-full bg-emerald-300 shrink-0
+                shadow-[0_0_0_3px_rgba(110,231,183,.35)]
               "/>
             )}
             {/* Close button inside header */}
@@ -219,11 +219,11 @@ export function SupportChat() {
             ">
               <div className="text-center mb-1">
                 <div className="
-                  w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-950
+                  w-12 h-12 rounded-full bg-emerald-50 dark:bg-emerald-950
                   flex items-center justify-center mx-auto mb-3
                 ">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                    stroke="#2563eb" strokeWidth="1.8">
+                    stroke="#0d9488" strokeWidth="1.8">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
@@ -252,8 +252,8 @@ export function SupportChat() {
                     rounded-xl px-3 py-2.5 text-[.85rem]
                     text-slate-800 dark:text-slate-100
                     placeholder-slate-400
-                    focus:outline-none focus:border-blue-500
-                    focus:ring-2 focus:ring-blue-500/20
+                    focus:outline-none focus:border-teal-500
+                    focus:ring-2 focus:ring-teal-500/20
                     transition-all duration-150
                   "
                 />
@@ -275,8 +275,8 @@ export function SupportChat() {
                     rounded-xl px-3 py-2.5 text-[.85rem]
                     text-slate-800 dark:text-slate-100
                     placeholder-slate-400
-                    focus:outline-none focus:border-blue-500
-                    focus:ring-2 focus:ring-blue-500/20
+                    focus:outline-none focus:border-teal-500
+                    focus:ring-2 focus:ring-teal-500/20
                     transition-all duration-150
                   "
                 />
@@ -297,14 +297,14 @@ export function SupportChat() {
                 onClick={handleFormSubmit}
                 disabled={submitting}
                 className="
-                  bg-gradient-to-br from-blue-600 to-blue-700
-                  hover:from-blue-700 hover:to-blue-800
+                  bg-gradient-to-br from-blue-600 to-emerald-500
+                  hover:from-blue-700 hover:to-emerald-600
                   disabled:opacity-60 disabled:cursor-not-allowed
                   text-white font-semibold text-[.875rem]
                   rounded-xl py-2.5 mt-1
                   flex items-center justify-center gap-2
                   transition-all duration-150 cursor-pointer border-0
-                  shadow-[0_2px_12px_rgba(37,99,235,.3)]
+                  shadow-[0_2px_12px_rgba(16,185,129,.3)]
                 "
               >
                 {submitting ? (
@@ -334,7 +334,7 @@ export function SupportChat() {
                     <div className={`
                       max-w-[82%] px-3 py-2 text-[.84rem] leading-relaxed break-words
                       ${m.role === "user"
-                        ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl rounded-br-sm shadow-sm"
+                        ? "bg-gradient-to-br from-blue-600 to-emerald-500 text-white rounded-2xl rounded-br-sm shadow-sm"
                         : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-2xl rounded-bl-sm shadow-sm"
                       }
                     `}>
@@ -379,8 +379,8 @@ export function SupportChat() {
     rounded-xl px-3 py-2 text-[.84rem]
     text-slate-800 dark:text-slate-100
     placeholder-slate-400
-    focus:outline-none focus:border-blue-500
-    focus:ring-2 focus:ring-blue-500/20
+    focus:outline-none focus:border-teal-500
+    focus:ring-2 focus:ring-teal-500/20
     transition-all duration-150
   "
                 />
@@ -390,8 +390,8 @@ export function SupportChat() {
                   aria-label="Send"
                   className="
     w-9 h-9 rounded-xl shrink-0
-    bg-gradient-to-br from-blue-600 to-blue-700
-    hover:from-blue-700 hover:to-blue-800
+    bg-gradient-to-br from-blue-600 to-emerald-500
+    hover:from-blue-700 hover:to-emerald-600
     disabled:opacity-40 disabled:cursor-not-allowed
     text-white border-0 cursor-pointer
     flex items-center justify-center
