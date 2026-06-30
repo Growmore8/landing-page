@@ -485,7 +485,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="border border-gray-200 dark:border-gray-700 overflow-hidden rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-bl-lg">
               <iframe
-                src="https://maps.google.com/maps?q=International%20Business%20Tower%2C%20Al%20A%27amal%20Street%2C%20Business%20Bay%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.745923497022!2d55.26464727407908!3d25.178055577723285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69cb9d8e1863%3A0x976330e60c594f94!2sInternational%20Business%20Tower!5e0!3m2!1sen!2slk!4v1782813283926!5m2!1sen!2slk"
                 width="100%"
                 height="340"
                 style={{ border: 0, display: "block" }}
