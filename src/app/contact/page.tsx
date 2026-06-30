@@ -486,7 +486,7 @@ export default function ContactPage() {
             <div className="border border-gray-200 dark:border-gray-700 overflow-hidden rounded-tl-lg rounded-bl-lg lg:rounded-tr-none lg:rounded-bl-lg">
               <iframe
                 src="https://www.google.com/maps?q=International+Business+Tower,+Al+A%27amal+Street,+Business+Bay,+Dubai,+United+Arab+Emirates&output=embed"
-                width="100%"
+               width="100%"
                 height="340"
                 style={{ border: 0, display: "block" }}
                 allowFullScreen
