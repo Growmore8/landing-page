@@ -27,7 +27,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          <SupportChat /> 
+          {/* <SupportChat />  */}
           <Toaster position="bottom-center" />
         </ThemeProvider>
       </body>
