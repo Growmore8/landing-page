@@ -2,13 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocalChat } from "@/lib/useLocalChat";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
 
 type Message = { role: "user" | "assistant"; content: string };
 type Step = "form" | "chat";
+type Mode = "new" | "existing";
 
 export function SupportChat() {
   const { init, ask, loading, ready, error } = useLocalChat();
-
+  const [mode, setMode] = useState<Mode>("existing");
+  const [contactType, setContactType] = useState<"phone" | "email">("phone");
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<Step>("form");
   const [messages, setMessages] = useState<Message[]>([]);
@@ -26,7 +31,7 @@ export function SupportChat() {
 
   useEffect(() => {
     init();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -39,27 +44,40 @@ export function SupportChat() {
     }
   }, [step, open]);
 
+  function startChat(id: number, greetingName: string) {
+    setLeadId(id);
+    setStep("chat");
+    setMessages([{
+      role: "assistant",
+      content: `Hi ${greetingName.split(" ")[0]} 👋 I'm OrbitFX Assistant. Ask me anything about trading strategies, platform features, or your docs!`,
+    }]);
+  }
+
   async function handleFormSubmit() {
     setFormError("");
-    if (!name.trim()) return setFormError("Please enter your name.");
-    if (!contact.trim()) return setFormError("Please enter your phone or email.");
+
+    if (mode === "new" && !name.trim()) {
+      return setFormError("Please enter your name.");
+    }
+    if (!contact.trim()) {
+      return setFormError("Please enter your phone or email.");
+    }
 
     setSubmitting(true);
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "createLead", name: name.trim(), contact: contact.trim() }),
+        body: JSON.stringify(
+          mode === "new"
+            ? { action: "createLead", name: name.trim(), contact: contact.trim() }
+            : { action: "verifyAccount", contact: contact.trim() }
+        ),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Failed to save.");
+      if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
 
-      setLeadId(data.id);
-      setStep("chat");
-      setMessages([{
-        role: "assistant",
-        content: `Hi ${name.trim().split(" ")[0]} 👋 I'm OrbitFX Assistant. Ask me anything about trading strategies, platform features, or your docs!`,
-      }]);
+      startChat(data.id, data.name ?? name.trim());
     } catch (err: unknown) {
       setFormError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
@@ -92,49 +110,18 @@ export function SupportChat() {
 
   return (
     <>
-      <style>{`
-        @keyframes chatSlideUp {
-          from { opacity:0; transform:translateY(16px) scale(.97); }
-          to   { opacity:1; transform:translateY(0)    scale(1);   }
-        }
-        @keyframes chatDot {
-          0%,80%,100% { transform:translateY(0); }
-          40%         { transform:translateY(-5px); }
-        }
-        @keyframes spin { to { transform:rotate(360deg); } }
-        @keyframes expandWidth {
-          from { width: 44px; }
-          to   { width: 120px; }
-        }
-        .cdot { animation: chatDot 1.2s infinite ease-in-out; }
-        .cdot:nth-child(2) { animation-delay:.18s; }
-        .cdot:nth-child(3) { animation-delay:.36s; }
-        .chat-panel { animation: chatSlideUp .22s cubic-bezier(.22,1,.36,1); }
-        .spin-icon  { animation: spin .8s linear infinite; }
-        .btn-label {
-          overflow: hidden;
-          max-width: 0;
-          opacity: 0;
-          transition: max-width 0.3s ease, opacity 0.25s ease;
-          white-space: nowrap;
-        }
-        .fab-btn:hover .btn-label {
-          max-width: 80px;
-          opacity: 1;
-        }
-      `}</style>
-
       {/* ── Floating toggle ── */}
       {!open && (
-        <button
+        <Button
           onClick={() => setOpen(true)}
           aria-label="Open OrbitFX assistant"
           className="
             fab-btn
             fixed bottom-6 right-6 z-50
-            h-10 rounded-full px-2
-            bg-gradient-to-br from-blue-600 to-emerald-500
-            text-white border-0 cursor-pointer
+            h-10 rounded-full px-0
+            bg-gradient-to-br from-blue-200 to-emerald-400
+            dark:from-blue-100 dark:to-emerald-300
+            border-0 cursor-pointer
             flex items-center justify-center gap-0
             shadow-[0_8px_32px_rgba(16,185,129,.4)]
             hover:shadow-[0_12px_40px_rgba(16,185,129,.5)]
@@ -145,12 +132,12 @@ export function SupportChat() {
           <img
             src="/Orbit1.png"
             alt="OrbitFX"
-            width={28}
-            height={28}
-            className="rounded-full object-contain mx-1 shrink-0 bg-white/90"
+            width={48}
+            height={48}
+            className="rounded-full object-contain mx-1 shrink-0"
           />
           <span className="btn-label text-xs font-medium pr-2">OrbitFX</span>
-        </button>
+        </Button>
       )}
 
       {/* ── Chat panel ── */}
@@ -209,7 +196,7 @@ export function SupportChat() {
             </button>
           </div>
 
-          {/* ── STEP 1: Onboarding form ── */}
+          {/* ── STEP 1: New user / existing user form ── */}
           {step === "form" && (
             <div className="
               flex-1 overflow-y-auto
@@ -232,54 +219,123 @@ export function SupportChat() {
                   Before we start
                 </p>
                 <p className="m-0 mt-1 text-[.8rem] text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Share your details so we can personalise your experience.
+                  {mode === "new"
+                    ? "Share your details so we can personalise your experience."
+                    : "Enter your registered phone or email to continue."}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[.75rem] font-semibold text-slate-600 dark:text-slate-400 tracking-wide uppercase">
-                  Full name
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleFormSubmit()}
-                  placeholder="John Doe"
-                  className="
-                    bg-white dark:bg-slate-800
-                    border border-slate-200 dark:border-slate-700
-                    rounded-xl px-3 py-2.5 text-[.85rem]
-                    text-slate-800 dark:text-slate-100
-                    placeholder-slate-400
-                    focus:outline-none focus:border-teal-500
-                    focus:ring-2 focus:ring-teal-500/20
-                    transition-all duration-150
-                  "
-                />
+              {/* Mode toggle */}
+              <div className="
+                flex bg-slate-100 dark:bg-slate-800 rounded-xl p-1 gap-1
+              ">
+                <button
+                  type="button"
+                  onClick={() => { setMode("existing"); setFormError(""); }}
+                  className={`
+                    flex-1 text-xs font-semibold py-2 rounded-lg cursor-pointer
+                    transition-all duration-150 border-0
+                    ${mode === "existing"
+                      ? "bg-white dark:bg-slate-700 text-teal-700 dark:text-teal-300 shadow-sm"
+                      : "bg-transparent text-slate-500 dark:text-slate-400"
+                    }
+                  `}
+                >
+                  Already have an account
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMode("new"); setFormError(""); }}
+                  className={`
+                    flex-1 text-xs font-semibold py-2 rounded-lg cursor-pointer
+                    transition-all duration-150 border-0
+                    ${mode === "new"
+                      ? "bg-white dark:bg-slate-700 text-teal-700 dark:text-teal-300 shadow-sm"
+                      : "bg-transparent text-slate-500 dark:text-slate-400"
+                    }
+                  `}
+                >
+                  New user
+                </button>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[.75rem] font-semibold text-slate-600 dark:text-slate-400 tracking-wide uppercase">
-                  Phone or email
-                </label>
-                <input
-                  type="text"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleFormSubmit()}
-                  placeholder="+1 555 000 0000  ·  you@email.com"
-                  className="
-                    bg-white dark:bg-slate-800
-                    border border-slate-200 dark:border-slate-700
-                    rounded-xl px-3 py-2.5 text-[.85rem]
-                    text-slate-800 dark:text-slate-100
-                    placeholder-slate-400
-                    focus:outline-none focus:border-teal-500
-                    focus:ring-2 focus:ring-teal-500/20
-                    transition-all duration-150
-                  "
-                />
+              {mode === "new" && (
+                <div className="flex flex-col gap-1.5">
+                  <Label className="text-semibold text-xs text-slate-600 dark:text-slate-400 tracking-wide uppercase">Full Name</Label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleFormSubmit()}
+                    placeholder="John Doe"
+                    className="
+                      bg-white dark:bg-slate-800
+                      border border-slate-200 dark:border-slate-700
+                      rounded-xl px-3 py-2.5 text-[.85rem]
+                      text-slate-800 dark:text-slate-100
+                      placeholder-slate-400
+                      focus:outline-none focus:border-teal-500
+                      focus:ring-2 focus:ring-teal-500/20
+                      transition-all duration-150
+                    "
+                  />
+                </div>
+              )}
+
+              <div className="space-y-3">
+                <Label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase">
+                  Contact Method
+                </Label>
+
+                <div className="flex gap-6">
+                  <label htmlFor="phone" className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="phone"
+                      name="contactType"
+                      value="phone"
+                      checked={contactType === "phone"}
+                      onChange={() => setContactType("phone")}
+                      className="size-4 accent-teal-600 cursor-pointer"
+                    />
+                    <span className="text-sm text-slate-700 dark:text-slate-200">
+                      Phone Number
+                    </span>
+                  </label>
+
+                  <label htmlFor="email" className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      id="email"
+                      name="contactType"
+                      value="email"
+                      checked={contactType === "email"}
+                      onChange={() => setContactType("email")}
+                      className="size-4 accent-teal-600 cursor-pointer"
+                    />
+                    <span className="text-sm text-slate-700 dark:text-slate-200">
+                      Email
+                    </span>
+                  </label>
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase">
+                    {contactType === "phone" ? "Phone Number" : "Email Address"}
+                  </Label>
+
+                  <Input
+                    type={contactType === "phone" ? "tel" : "email"}
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleFormSubmit()}
+                    placeholder={
+                      contactType === "phone"
+                        ? "+1 555 000 0000"
+                        : "you@example.com"
+                    }
+                  />
+                </div>
               </div>
 
               {formError && (
@@ -313,7 +369,7 @@ export function SupportChat() {
                     <span className="cdot w-1.5 h-1.5 rounded-full bg-white/70 inline-block" />
                     <span className="cdot w-1.5 h-1.5 rounded-full bg-white/70 inline-block" />
                   </span>
-                ) : "Start chatting →"}
+                ) : mode === "new" ? "Start chatting →" : "Verify & continue →"}
               </button>
             </div>
           )}

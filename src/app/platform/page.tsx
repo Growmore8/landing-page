@@ -48,77 +48,85 @@ import {
   Banknote,
   ShieldCheck,
   ClipboardList,
+  Copy,
+  Newspaper,
+  CalendarClock,
+  KeyRound,
+  ToggleLeft,
+  Wifi,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────
-   DATA
+   DATA (aligned with OrbitFX Solution PDF)
 ───────────────────────────────────────────── */
 
 const platformModules = [
   {
-    icon: LayoutDashboard,
-    title: "Client Portal",
-    desc: "Branded web portal for end-clients — live balances, open positions, deposit & withdrawal requests, transaction history, and document upload.",
-    tags: ["Web", "Mobile", "White-Label"],
-  },
-  {
-    icon: Settings,
-    title: "Manager Admin Portal",
-    desc: "Full broker back-office management: client lifecycle, KYC/AML review, account approvals, role-based access controls.",
-    tags: ["Admin", "Role-Based", "Multi-User"],
+    icon: Monitor,
+    title: "Client Panel",
+    desc: "A professional trading environment for traders — live TradingView charts, copy trading, analytics, and account tools accessible from desktop and mobile.",
+    tags: ["Web", "PWA", "9 Features"],
   },
   {
     icon: Users,
-    title: "IB & Partner Portal",
-    desc: "Multi-tier introducing broker tree with real-time commission tracking, referral links, performance dashboards, and payout management.",
-    tags: ["IB", "Affiliate", "Multi-Tier"],
+    title: "Manager / IB Panel",
+    desc: "Desk managers and IBs get a dedicated panel to monitor and operate their assigned client accounts, all within admin-defined permission limits.",
+    tags: ["IB", "6 Tools", "Permission-Gated"],
+  },
+  {
+    icon: Settings,
+    title: "Admin Back Office",
+    desc: "Full brokerage control — manager configuration, 18+ granular permission keys, feature flags, and platform-wide oversight.",
+    tags: ["Admin", "18+ Keys", "Role-Based"],
   },
   {
     icon: BarChart3,
-    title: "Risk Management Console",
-    desc: "Real-time position monitoring, exposure limits, auto-hedging triggers, and drawdown alerts — all configurable per asset class.",
-    tags: ["Real-Time", "Auto-Hedge", "Alerts"],
+    title: "Risk Management & Spread Control",
+    desc: "Per-group spread markup, swap configuration, account leverage limits, and a live risk dashboard tracking total open exposure.",
+    tags: ["Real-Time", "Spread", "Exposure"],
   },
   {
     icon: ArrowLeftRight,
     title: "Deposits & Withdrawals",
-    desc: "Automated payment gateway integrations, manual approval workflows, multi-currency wallets, and full audit trails on every transaction.",
-    tags: ["PSP", "Multi-Currency", "Audit"],
+    desc: "Clients submit fund requests directly from the platform with live status tracking — Pending → Approved → Processed — and full transaction history.",
+    tags: ["Live Status", "Transparent", "Audit"],
   },
   {
-    icon: UserCheck,
-    title: "KYC / AML Engine",
-    desc: "Document verification, PEP & sanctions screening, automated compliance scoring, and regulatory reporting outputs.",
-    tags: ["Compliance", "Automated", "Reporting"],
+    icon: Copy,
+    title: "Copy Trading & Signals",
+    desc: "Clients subscribe to expert signal providers with adjustable copy lot ratios; managers create and oversee provider performance.",
+    tags: ["Auto-Copy", "Signals", "Real-Time"],
   },
   {
-    icon: CreditCard,
-    title: "Credit & Margin Engine",
-    desc: "Dynamic margin calculation, credit in/out allocation per client, margin-call automation, and stop-out logic configurable per account type.",
-    tags: ["Margin", "Credit", "Stop-Out"],
+    icon: ToggleLeft,
+    title: "Feature Flags & Access Control",
+    desc: "Enable or disable the 5 premium trading tools per manager — clients only see what their manager is permitted to show them.",
+    tags: ["5 Flags", "Granular", "Two-Gate"],
   },
   {
-    icon: ShieldCheck,
-    title: "Insurance & Indemnity",
-    desc: "Client fund protection modules, balance insurance configurations, and indemnity record tracking for regulated environments.",
-    tags: ["Protection", "Insurance", "Records"],
+    icon: FileText,
+    title: "Reports & PDF Statements",
+    desc: "Generate professional PDF account statements and trade history reports for any client, with date-range filtering and full audit access.",
+    tags: ["PDF Export", "Audit Log", "Compliance"],
   },
 ];
 
 const tradingTools = [
-  { icon: Network, label: "FIX API Connectivity", desc: "FIX 4.4/5.0 direct market access, REST and WebSocket APIs with full sandbox environments." },
-  { icon: Activity, label: "Live Trading Terminal", desc: "Real-time buy/sell execution, live symbol pricing, order book depth, and instant trade confirmations." },
-  { icon: FileText, label: "Trade Reporting", desc: "Automated MiFID II, ASIC, and EMIR trade reporting with exportable compliance logs." },
-  { icon: Cpu, label: "AI Signal Engine", desc: "Built-in machine-learning signals for volatility forecasting and anomaly detection." },
-  { icon: PieChart, label: "P&L Analytics", desc: "Real-time profit and loss dashboards, exposure heatmaps, and historical performance reports." },
-  { icon: AlertTriangle, label: "Real-Time Alerts", desc: "Configurable push, SMS, and email alerts for margin calls, large deposits, and compliance flags." },
+  { icon: TrendingUp, label: "TradingView Advanced Charts", desc: "Dual charting engine — TradingView Advanced Charts plus Lightweight Charts, with colored position lines and auto SL/TP display." },
+  { icon: Wifi, label: "Real-Time WebSockets", desc: "Live price ticks, P&L, balance, and position sync pushed instantly to every connected client and manager." },
+  { icon: Copy, label: "Copy Trading Engine", desc: "Signal providers, adjustable copy lot ratios, one-tap start/stop, and full provider performance tracking." },
+  { icon: PieChart, label: "Advanced Analytics", desc: "P&L breakdown by symbol, date and period, win/loss rate, equity curve, drawdown history, and downloadable reports." },
+  { icon: Newspaper, label: "Market News Feed", desc: "Real-time financial news streamed inside the trading panel — no browser tabs, no distractions." },
+  { icon: CalendarClock, label: "Economic Calendar", desc: "Full events calendar with high/medium/low impact colour coding, countdowns, and actual vs forecast values." },
 ];
 
 const integrations = [
-  { icon: Plug, label: "Payment Gateways", items: ["Stripe", "PayPal", "Fasapay", "Skrill", "Neteller", "Wire Transfer", "Crypto PSPs"] },
-  { icon: Globe, label: "Liquidity Providers", items: ["15+ Tier-1 Banks", "ECN Aggregation", "Prime-of-Prime", "Crypto Exchanges"] },
-  { icon: Code2, label: "Third-Party Tools", items: ["TradingView Charts", "Acuity News Feed", "AutoChartist", "Trading Central"] },
-  { icon: ClipboardList, label: "Audit & Reporting", items: ["Transaction Logs", "Deposit/Withdrawal History", "Credit Adjustments", "Compliance Exports"] },
+  { icon: TrendingUp, label: "Charting", items: ["TradingView Advanced Charts", "Lightweight Charts", "Dual-engine rendering"] },
+  { icon: Smartphone, label: "Mobile", items: ["Installable PWA", "iOS Safari & Android Chrome", "No app store required"] },
+  { icon: Lock, label: "Security", items: ["2FA / TOTP", "Google OAuth login", "IP-aware session management"] },
+  { icon: KeyRound, label: "Permissions", items: ["18+ Manager Permission Keys", "Two-Gate Feature Flags", "Role-Based Access"] },
+  { icon: FileText, label: "Reports", items: ["PDF Account Statements", "Trade History Export", "Full Audit Log"] },
+  { icon: Database, label: "Deployment", items: ["Docker — single command deploy", "Production-ready", "Multi-Account architecture"] },
 ];
 
 const outsourcedServices = [
@@ -130,53 +138,60 @@ const outsourcedServices = [
   { icon: Building2, title: "Regulatory Consulting", desc: "Guidance on licensing, jurisdiction selection, entity structuring, and ongoing compliance advisory." },
 ];
 
+/* Three roles, matching the PDF's Role Comparison table */
 const portals = [
   {
     id: "client",
     icon: Monitor,
-    label: "Client Web Portal",
+    label: "Client / Trader",
     color: "indigo",
     features: [
-      "Live account dashboard & balance overview",
-      "Real-time symbol prices with buy/sell execution",
-      "One-click fund deposits & withdrawals",
-      "Full transaction history & statement downloads",
-      "Document upload & KYC status tracker",
-      "Live in-app notifications & alerts",
-      "Referral & IB programme access",
-      "Light & dark theme toggle",
+      "Live & demo account trading",
+      "TradingView Advanced Charts",
+      "Copy signals & auto-copy trades",
+      "Advanced analytics & P&L reports",
+      "Live market news in-platform",
+      "Economic calendar with countdowns",
+      "Deposit & withdrawal requests",
+      "Mobile PWA app (iOS & Android)",
+      "Multi-account dashboard",
+      "Real-time notifications & alerts",
     ],
   },
   {
-    id: "mobile",
-    icon: Smartphone,
-    label: "Mobile App (iOS & Android)",
+    id: "manager",
+    icon: Users,
+    label: "Manager / IB",
     color: "blue",
     features: [
-      "Native iOS & Android, fully white-labelled",
-      "Biometric login (Face ID / Fingerprint)",
-      "Real-time portfolio & open positions",
-      "Instant deposit via Apple Pay / Google Pay",
-      "Push notifications for margin & market events",
-      "Live buy/sell trading terminal",
-      "Secure document camera for KYC",
-      "Dark mode & accessibility support",
+      "Manage all assigned client accounts",
+      "Process deposits & withdrawals",
+      "Credit bonus & transfer funds",
+      "Place manual trades for clients",
+      "Close & edit client trades",
+      "Manage copy trading & signals",
+      "Export PDF account statements",
+      "Send client notifications",
+      "View full audit log",
+      "All within admin-set permissions",
     ],
   },
   {
     id: "admin",
     icon: LayoutDashboard,
-    label: "Manager Admin Portal",
+    label: "Admin / Broker",
     color: "slate",
     features: [
-      "Full client lifecycle management",
-      "Multi-role access control (Admin / Manager / Support)",
-      "KYC / AML review & approval workflow",
-      "Deposit & withdrawal approval queue",
-      "Credit in/out & bonus allocation per client",
-      "IB commission calculation & payout",
-      "Risk desk exposure dashboard",
-      "Full audit log & history export",
+      "Full client & account management",
+      "Create & configure all managers",
+      "Assign 18+ permissions per manager",
+      "Enable/disable 5 feature flags per manager",
+      "Spread markup & swap configuration",
+      "Risk dashboard — live exposure view",
+      "Full audit log & PDF reports",
+      "Trade operations oversight",
+      "Platform announcements & comms",
+      "Complete brokerage back office",
     ],
   },
 ];
@@ -185,44 +200,44 @@ const audiences = [
   {
     icon: Globe,
     title: "Retail Brokers",
-    desc: "Launch a fully branded broker with client and admin portals, live trading, and back-office tools ready in days.",
+    desc: "Launch a fully branded broker with a client panel, manager tools, and admin back office — production-ready with a single Docker deploy.",
     color: "indigo",
   },
   {
     icon: Building2,
     title: "Institutions & White-Label Partners",
-    desc: "Use our infrastructure as a white-label core — plug in your brand, liquidity, and compliance framework seamlessly.",
+    desc: "Use our infrastructure as a white-label core — plug in your brand, permissions structure, and compliance framework seamlessly.",
     color: "blue",
   },
   {
-    icon: Activity,
-    title: "Algo Traders & Fintech Teams",
-    desc: "API-first architecture lets your developers build, test, and deploy automated strategies via FIX, REST, and WebSocket.",
+    icon: Copy,
+    title: "Signal Providers & Copy Trading Desks",
+    desc: "Run signal-provider programmes natively — adjustable copy ratios, subscriber tracking, and performance history built in.",
     color: "purple",
   },
   {
     icon: Briefcase,
-    title: "Introducing Broker Use Cases",
-    desc: "Manage your entire IB network from a single portal — track sub-IBs, client volumes, commissions, and performance.",
+    title: "IB & Manager Networks",
+    desc: "Give every manager exactly the access they need with 18+ granular permission keys and per-manager feature flags — nothing more, nothing less.",
     color: "slate",
   },
 ];
 
 const testimonials = [
   {
-    quote: "OrbitFX gave us a fully operational brokerage in under two weeks. The backoffice deposit, withdrawal, and credit tools are exactly what our team needed.",
+    quote: "OrbitFX gave us a fully operational brokerage in under two weeks. The back-office deposit, withdrawal, and permission controls are exactly what our team needed.",
     author: "Operations Director",
     company: "FX Brokerage, Singapore",
     rating: 5,
   },
   {
-    quote: "The risk management console and automated margin-call system saved us countless hours. The live trading terminal feels instant.",
+    quote: "The risk dashboard and per-manager feature flags saved us countless hours. Clients installing the PWA straight from the browser removed all our app-store friction.",
     author: "Head of Technology",
     company: "Prime Broker, Dubai",
     rating: 5,
   },
   {
-    quote: "Our IB network grew 40% in three months after switching to OrbitFX's partner portal. The commission tracking is transparent and real-time.",
+    quote: "Our IB network grew 40% in three months after switching to OrbitFX. The 18+ permission keys mean every manager only sees what they should.",
     author: "Partnership Manager",
     company: "Retail Broker, Colombo",
     rating: 5,
@@ -231,39 +246,39 @@ const testimonials = [
 
 const faqs = [
   {
-    q: "What is the OrbitFX Platform and who is it for?",
-    a: "OrbitFX is an end-to-end brokerage technology platform built for retail brokers, white-label operators, institutions, and prop trading firms. It covers client and admin portals, live trading, full back-office management, risk engines, and compliance tooling.",
+    q: "What is the OrbitFX Solution and who is it for?",
+    a: "OrbitFX Solution is a full-stack professional trading platform built for traders who demand precision, managers who need control, and brokers who run serious operations. It covers three roles — Client/Trader, Manager/IB, and Admin/Broker — with live trading, copy trading, analytics, and a complete back office.",
   },
   {
-    q: "How does the platform work without software installation?",
-    a: "The OrbitFX platform is fully cloud-hosted. Client portals, admin panels, and the mobile app are all accessible via browser or app download — no on-premise installation required. Your team can manage everything from anywhere with role-based access controls.",
+    q: "Do clients need to install an app from the App Store?",
+    a: "No. OrbitFX ships as a full Progressive Web App, installable directly from iOS Safari or Android Chrome — no app store required. It includes safe-area support for notched devices and bottom tab navigation optimised for mobile trading.",
   },
   {
-    q: "What tools and features does the Manager Admin Portal include?",
-    a: "The Manager Admin Portal is your full back-office command centre. It covers client lifecycle management, KYC/AML review, deposit and withdrawal approvals, credit in/out and bonus allocation, IB commission calculation, real-time risk desk monitoring, and full audit-log history exports.",
+    q: "How does copy trading work on the platform?",
+    a: "Clients browse and subscribe to active signal providers, with trades auto-copied to their account in real-time. Copy lot ratios are adjustable per provider, and managers can create, monitor, and pause copy relationships at any time.",
   },
   {
-    q: "Can I run OrbitFX on mobile and other devices?",
-    a: "Yes. OrbitFX includes a fully white-labelled native mobile app for iOS and Android. The client portal and admin panel are also fully responsive and accessible on tablets and desktops. All portals support light and dark themes.",
+    q: "How granular are manager permissions?",
+    a: "Very. Admins assign 18+ individual permission keys per manager, covering client operations, finance, trades, tools, and feature access, plus 5 separate feature flags (Copy Trading, Advanced Analytics, Market News, Economic Calendar, Referral Program) that control what clients see.",
   },
   {
     q: "How are deposits, withdrawals, and fund management handled?",
-    a: "The platform integrates with all major payment gateways (Stripe, PayPal, Fasapay, Skrill, Neteller, wire transfer, and crypto PSPs). Brokers can configure automated approval flows or manual override workflows. Every deposit, withdrawal, and credit adjustment is logged with full audit-trail history.",
+    a: "Clients submit deposit and withdrawal requests directly from the platform and track live status — Pending, Approved, Processed — through to completion. Managers review and approve requests, credit bonuses, and transfer funds, with every action auto-logged in the audit trail.",
   },
   {
-    q: "What outsourced services does OrbitFX offer alongside the platform?",
-    a: "Beyond the technology, OrbitFX offers fully managed outsourced services: 24/7 white-labelled client support, outsourced KYC operations, IB relationship management, trading education content, performance marketing, and regulatory consulting. These services let you run a lean internal team.",
+    q: "What charting and data technology powers the platform?",
+    a: "OrbitFX runs a dual charting engine — TradingView Advanced Charts alongside Lightweight Charts — with WebSockets delivering real-time price ticks, P&L, and position sync across every connected client and manager.",
   },
   {
-    q: "Is OrbitFX suitable for growing brokerages looking to scale?",
-    a: "Absolutely. The platform is built to scale from a single-jurisdiction startup to a multi-asset, multi-jurisdiction institutional operation. Features like multi-tier IB management, liquidity aggregation from 15+ banks, and jurisdiction-specific compliance reporting ensure you never outgrow the platform.",
+    q: "Is OrbitFX Solution ready for production deployment?",
+    a: "Yes. The platform is production-ready and deploys via Docker with a single command, and secures access with 2FA/TOTP and Google OAuth login across all roles.",
   },
 ];
 
 const deviceShowcaseItems = [
-  { label: "Desktop Trading Terminal", icon: Monitor, desc: "Live symbols, instant buy/sell execution, and full account overview" },
-  { label: "Web Client Portal", icon: Globe, desc: "Browser-based access to funds, history, and notifications" },
-  { label: "iOS & Android App", icon: Smartphone, desc: "Native mobile with biometrics, push alerts, and live trading" },
+  { label: "Desktop Trading Terminal", icon: Monitor, desc: "TradingView Advanced Charts, live P&L, and full account overview" },
+  { label: "Web Client Panel", icon: Globe, desc: "Browser-based access to funds, copy trading, and notifications" },
+  { label: "Installable PWA", icon: Smartphone, desc: "Native-like mobile app installed straight from the browser — no app store" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -329,7 +344,7 @@ export default function PlatformPage() {
     <div ref={revealRef as React.RefObject<HTMLDivElement>} className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen mt-5">
 
       {/* ── HERO ──────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/70 to-indigo-50/50 dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-950 pt-16 pb-0 px-[5%]">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/70 to-indigo-50/50 dark:from-gray-900 dark:via-blue-950/20 dark:to-gray-950 pt-12 sm:pt-16 pb-0 px-[5%]">
         <div
           className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-15"
           style={{
@@ -338,64 +353,80 @@ export default function PlatformPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+        <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center lg:items-end">
           {/* Left */}
-          <div className="pb-16 reveal" data-dir="left">
-            <DiagBadge label="OrbitFX Platform" color="indigo" />
-            <h1 className="mt-5 font-bold text-[clamp(32px,4.8vw,56px)] leading-[1.07] tracking-[-2px] text-gray-900 dark:text-white">
-              Real-Time Trading<br />
-              <span className="text-indigo-500">Platform</span> for Brokers<br />
-              Who Value Simplicity.
+          <div className="pb-10 lg:pb-16 reveal" data-dir="left">
+            <DiagBadge label="OrbitFX Solution" color="indigo" />
+            <h1 className="mt-5 font-bold text-[clamp(30px,4.8vw,56px)] leading-[1.1] tracking-[-1.5px] sm:tracking-[-2px] text-gray-900 dark:text-white">
+              The Complete<br />
+              <span className="text-indigo-500">Platform</span> for Modern<br />
+              Forex Brokerages.
             </h1>
-            <p className="mt-5 text-gray-500 dark:text-gray-400 text-[16px] leading-[1.8] max-w-[430px]">
-              One platform. Client portal, admin manager back-office, live trading terminal, deposits & withdrawals, credit management, KYC, insurance, audit history, and notifications — all white-labelled with light & dark themes.
+            <p className="mt-5 text-gray-500 dark:text-gray-400 text-[15px] sm:text-[16px] leading-[1.8] max-w-[430px]">
+              A full-stack professional trading platform — built for traders who demand precision, managers who need control, and brokers who run serious operations. Everything in one place, live and production-ready.
             </p>
             <div className="mt-8 flex gap-3 flex-wrap">
-              <Button className="rounded-none bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-xs px-7 py-3 shadow-lg shadow-blue-600/25">
+              <Button className="rounded-none bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-xs px-6 sm:px-7 py-3 shadow-lg shadow-blue-600/25 w-full sm:w-auto">
                 Request a Demo →
               </Button>
-              <Button variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold tracking-wide text-sm px-6 py-3">
+              <Button variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold tracking-wide text-sm px-6 py-3 w-full sm:w-auto">
                 See All Features
               </Button>
             </div>
             {/* Trust pills */}
             <div className="mt-8 flex gap-2 flex-wrap">
-              {["White-Label", "Multi-Asset", "Live Trading", "24/7 Support", "Light & Dark"].map((b) => (
+              {["TradingView Advanced Charts", "iOS & Android PWA", "Copy Trading", "18+ Manager Permissions", "Multi-Account"].map((b) => (
                 <span key={b} className="text-[11px] font-semibold px-3 py-1 border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-gray-900/60 tracking-wide">
                   {b}
                 </span>
               ))}
             </div>
+            {/* Stat strip, matches PDF header stats */}
+            <div className="mt-10 grid grid-cols-3 sm:grid-cols-6 gap-x-4 gap-y-5 max-w-full sm:max-w-[520px]">
+              {[
+                { v: "3", l: "User Roles" },
+                { v: "18+", l: "Permission Keys" },
+                { v: "9", l: "Client Features" },
+                { v: "6", l: "Manager Tools" },
+                { v: "5", l: "Feature Flags" },
+                { v: "PWA", l: "Mobile Ready" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="text-indigo-500 font-bold text-base sm:text-lg font-mono">{s.v}</div>
+                  <div className="text-[9px] uppercase tracking-wide text-gray-400 leading-snug">{s.l}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right — Mock terminal screenshot placeholder */}
-          <div className="relative flex justify-end items-end reveal" data-dir="right" data-delay="120">
-            <div className="relative w-full max-w-[520px] rounded-tl-lg rounded-tr-lg overflow-hidden border-t border-l border-r border-gray-200 dark:border-gray-700 shadow-2xl shadow-indigo-900/20">
+          <div className="relative flex justify-center lg:justify-end items-end reveal" data-dir="right" data-delay="120">
+            <div className="w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] lg:mb-0 rounded-t-lg overflow-hidden border-t border-l border-r border-gray-200 dark:border-gray-700 shadow-2xl shadow-indigo-900/20">
               {/* Fake browser chrome */}
-              <div className="bg-gray-100 dark:bg-gray-800 px-4 py-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700">
-                <span className="w-3 h-3 rounded-full bg-red-400" />
-                <span className="w-3 h-3 rounded-full bg-amber-400" />
-                <span className="w-3 h-3 rounded-full bg-green-400" />
-                <div className="ml-3 flex-1 bg-white dark:bg-gray-700 rounded px-3 py-1 text-[11px] text-gray-400 font-mono">
+              <div className="bg-gray-100 dark:bg-gray-800 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-400" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-400" />
+                <div className="ml-3 flex-1 bg-white dark:bg-gray-700 rounded px-3 py-1 text-[10px] sm:text-[11px] text-gray-400 font-mono truncate">
                   portal.OrbitFX.io
                 </div>
               </div>
               {/* Platform UI mockup */}
-              <div className="bg-gray-900 dark:bg-gray-950 p-4 min-h-[300px]">
+              <div className="bg-gray-900 dark:bg-gray-950 p-3 sm:p-4 min-h-[240px] sm:min-h-[300px]">
                 {/* Top bar */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-indigo-500 rounded-sm" />
-                    <span className="text-white text-[12px] font-bold font-mono">OrbitFX Terminal</span>
+                <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-6 h-6 bg-indigo-500 rounded-sm flex-shrink-0" />
+                    <span className="text-white text-[11px] sm:text-[12px] font-bold font-mono truncate">OrbitFX Terminal</span>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="hidden xs:flex sm:flex gap-1.5 sm:gap-2 flex-shrink-0">
                     {["EUR/USD", "GBP/USD", "BTC/USD"].map(p => (
-                      <span key={p} className="text-[9px] bg-gray-800 dark:bg-gray-900 text-gray-400 px-2 py-1 rounded font-mono">{p}</span>
+                      <span key={p} className="text-[8px] sm:text-[9px] bg-gray-800 dark:bg-gray-900 text-gray-400 px-1.5 sm:px-2 py-1 rounded font-mono whitespace-nowrap">{p}</span>
                     ))}
                   </div>
                 </div>
                 {/* Chart area */}
-                <div className="bg-gray-800 dark:bg-black rounded mb-3 p-3 relative overflow-hidden h-[140px]">
+                <div className="bg-gray-800 dark:bg-black rounded mb-3 p-3 relative overflow-hidden h-[110px] sm:h-[140px]">
                   <div className="absolute bottom-0 left-0 right-0 h-full flex items-end gap-0.5 px-2 pb-2">
                     {[40,55,45,65,50,70,60,80,65,75,55,85,70,90,75,80,95,70,85,100,80,95,75,88,92,78,96,82,100,88].map((h, i) => (
                       <div key={i} className="flex-1 bg-indigo-500/40 rounded-t-sm" style={{ height: `${h}%` }} />
@@ -407,18 +438,18 @@ export default function PlatformPage() {
                   </div>
                 </div>
                 {/* Order row */}
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-blue-600 rounded px-3 py-2 text-center">
-                    <div className="text-[9px] text-blue-200 font-mono">BUY</div>
-                    <div className="text-white text-xs font-bold font-mono">1.0845</div>
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+                  <div className="bg-blue-600 rounded px-2 sm:px-3 py-1.5 sm:py-2 text-center">
+                    <div className="text-[8px] sm:text-[9px] text-blue-200 font-mono">BUY</div>
+                    <div className="text-white text-[11px] sm:text-xs font-bold font-mono">1.0845</div>
                   </div>
-                  <div className="bg-gray-800 dark:bg-gray-900 rounded px-3 py-2 text-center">
-                    <div className="text-[9px] text-gray-500 font-mono">SPREAD</div>
-                    <div className="text-gray-300 text-xs font-bold font-mono">0.3</div>
+                  <div className="bg-gray-800 dark:bg-gray-900 rounded px-2 sm:px-3 py-1.5 sm:py-2 text-center">
+                    <div className="text-[8px] sm:text-[9px] text-gray-500 font-mono">SPREAD</div>
+                    <div className="text-gray-300 text-[11px] sm:text-xs font-bold font-mono">0.3</div>
                   </div>
-                  <div className="bg-red-600 rounded px-3 py-2 text-center">
-                    <div className="text-[9px] text-red-200 font-mono">SELL</div>
-                    <div className="text-white text-xs font-bold font-mono">1.0842</div>
+                  <div className="bg-red-600 rounded px-2 sm:px-3 py-1.5 sm:py-2 text-center">
+                    <div className="text-[8px] sm:text-[9px] text-red-200 font-mono">SELL</div>
+                    <div className="text-white text-[11px] sm:text-xs font-bold font-mono">1.0842</div>
                   </div>
                 </div>
               </div>
@@ -433,7 +464,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Modules & Features"
             title="Everything Your Brokerage Needs in One Place"
-            sub="Client and admin manager portals, live trading, and full back-office — every module is white-labelled, integrated, and ready to go."
+            sub="Client panel, manager/IB tools, and admin back office — every module is permission-gated, real-time, and production-ready."
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -467,13 +498,13 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ── PORTAL DEEP-DIVE ──────────────────── */}
+      {/* ── ROLE DEEP-DIVE ────────────────────── */}
       <section className="py-20 px-[5%] bg-slate-50/80 dark:bg-gray-900/60">
         <div className="max-w-[1280px] mx-auto">
           <SectionHead
-            badge="Client & Admin Portals"
-            title={<>Three Portals, One<br />Unified Ecosystem</>}
-            sub="Client portal, mobile app, and manager admin — all interconnected, sharing the same real-time data layer with full notification support."
+            badge="Role Comparison"
+            title={<>Three Roles, One<br />Unified Platform</>}
+            sub="Client/Trader, Manager/IB, and Admin/Broker — each with the right level of access for their responsibilities, sharing the same real-time data layer."
           />
           {/* Tab nav */}
           <div className="flex flex-wrap gap-2 mb-8 reveal" data-dir="up">
@@ -502,9 +533,9 @@ export default function PlatformPage() {
               <div key={p.id} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div className="reveal" data-dir="left">
                   <p className="text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed mb-6">
-                    {p.id === "client" && "The fully branded client portal is the primary touchpoint for your end-users. Available via web browser on any device, it combines live trading, account management, fund operations (deposit/withdrawal/credit), and real-time notifications in one clean interface with light and dark themes."}
-                    {p.id === "mobile" && "Your brand in your clients' pockets. The native iOS and Android app is fully white-labelled — your logo, your colours, your app store listing. Biometric login, live buy/sell trading, push notifications, and instant funding keep your clients engaged and active."}
-                    {p.id === "admin" && "The Manager Admin Portal is your brokerage command centre. From approving deposits, withdrawals, and credit adjustments to reviewing KYC and monitoring live risk exposure, every back-office function is available with role-based access controls and a full audit history log."}
+                    {p.id === "client" && "The Client Panel is a professional trading environment built for both new and experienced traders — accessible from desktop and mobile, with TradingView Advanced Charts, copy trading, analytics, and a full deposit/withdrawal flow."}
+                    {p.id === "manager" && "Desk managers and IBs get a dedicated panel to monitor, manage, and operate their assigned client accounts — processing deposits, placing trades, and managing copy trading — all within admin-defined permission limits."}
+                    {p.id === "admin" && "The Admin Back Office gives the broker complete control — from configuring managers and assigning 18+ granular permission keys, to risk management, feature flags, and full platform oversight."}
                   </p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {p.features.map((f) => (
@@ -528,7 +559,7 @@ export default function PlatformPage() {
                         <span className="text-white text-[10px] font-bold">CX</span>
                       </div>
                       <span className="text-sm font-bold text-gray-900 dark:text-white">
-                        {p.id === "client" ? "Client Dashboard" : p.id === "mobile" ? "Mobile App" : "Admin Console"}
+                        {p.id === "client" ? "Client Dashboard" : p.id === "manager" ? "Manager Console" : "Admin Console"}
                       </span>
                     </div>
                     <div className="flex items-center gap-3">
@@ -546,9 +577,9 @@ export default function PlatformPage() {
                   <div className="grid grid-cols-3 gap-3 mb-5">
                     {(p.id === "client"
                       ? [{ l: "Balance", v: "$24,810.00" }, { l: "Equity", v: "$25,442.50" }, { l: "P&L", v: "+$632.50" }]
-                      : p.id === "mobile"
-                      ? [{ l: "Open Trades", v: "7" }, { l: "Margin Used", v: "22%" }, { l: "Free Margin", v: "$18,200" }]
-                      : [{ l: "Pending Withdrawals", v: "6" }, { l: "Pending KYC", v: "14" }, { l: "Credit Requests", v: "3" }]
+                      : p.id === "manager"
+                      ? [{ l: "Assigned Clients", v: "42" }, { l: "Pending Requests", v: "6" }, { l: "Copy Subscribers", v: "18" }]
+                      : [{ l: "Managers", v: "9" }, { l: "Permission Keys", v: "18+" }, { l: "Open Exposure", v: "$1.2M" }]
                     ).map((s) => (
                       <div key={s.l} className="bg-gray-50 dark:bg-gray-800 p-3 border border-gray-100 dark:border-gray-700">
                         <div className="text-[10px] text-gray-400 font-mono tracking-wide mb-1">{s.l}</div>
@@ -561,28 +592,28 @@ export default function PlatformPage() {
                     <Bell className="h-3.5 w-3.5 text-indigo-500 flex-shrink-0" />
                     <span className="text-[11px] text-indigo-600 dark:text-indigo-300 font-medium">
                       {p.id === "client" ? "Your withdrawal of $1,200 was approved" :
-                       p.id === "mobile" ? "EUR/USD order filled at 1.0845" :
-                       "New deposit request from J. Perera — $5,000"}
+                       p.id === "manager" ? "New deposit request from J. Perera — $5,000" :
+                       "Manager 'Desk EU' updated: 3 permissions revoked"}
                     </span>
                   </div>
                   {/* Table mock */}
                   <div className="border border-gray-100 dark:border-gray-800 overflow-hidden">
                     <div className="grid grid-cols-3 bg-gray-50 dark:bg-gray-800 px-3 py-2">
-                      {(p.id === "client" ? ["Symbol", "P&L", "Status"] : p.id === "mobile" ? ["Pair", "Vol", "Side"] : ["Type", "Amount", "Status"]).map(h => (
+                      {(p.id === "client" ? ["Symbol", "P&L", "Status"] : p.id === "manager" ? ["Client", "Action", "Status"] : ["Manager", "Permissions", "Status"]).map(h => (
                         <span key={h} className="text-[9px] font-bold uppercase tracking-wider text-gray-400">{h}</span>
                       ))}
                     </div>
                     {(p.id === "client"
                       ? [["EUR/USD", "+$210", "Open"], ["XAU/USD", "+$390", "Open"], ["BTC/USD", "+$32.5", "Open"]]
-                      : p.id === "mobile"
-                      ? [["EUR/USD", "1.0 Lot", "BUY"], ["GBP/JPY", "0.5 Lot", "SELL"], ["BTC/USD", "0.1 Lot", "BUY"]]
-                      : [["Withdrawal", "$5,000", "Pending"], ["Deposit", "$2,200", "Approved"], ["Credit In", "$500", "Review"]]
+                      : p.id === "manager"
+                      ? [["J. Perera", "Deposit $5,000", "Pending"], ["A. Silva", "Withdrawal $1,200", "Approved"], ["M. Fonseka", "Credit +$500", "Review"]]
+                      : [["Desk EU", "14 / 18 Keys", "Active"], ["Desk MENA", "18 / 18 Keys", "Active"], ["Desk APAC", "9 / 18 Keys", "Restricted"]]
                     ).map((row, ri) => (
                       <div key={ri} className="grid grid-cols-3 px-3 py-2.5 border-t border-gray-100 dark:border-gray-800">
                         {row.map((cell, ci) => (
                           <span key={ci} className={`text-[12px] font-mono ${
                             ci === 1 && p.id === "client" ? "text-green-500 font-bold" :
-                            ci === 2 ? (cell === "Open" || cell === "BUY" || cell === "Approved" ? "text-green-500" : cell === "Pending" || cell === "Review" ? "text-amber-500" : "text-red-400") + " font-semibold" :
+                            ci === 2 ? (cell === "Open" || cell === "Approved" || cell === "Active" ? "text-green-500" : cell === "Pending" || cell === "Review" ? "text-amber-500" : "text-red-400") + " font-semibold" :
                             "text-gray-700 dark:text-gray-300"
                           }`}>
                             {cell}
@@ -606,7 +637,7 @@ export default function PlatformPage() {
             <SectionHead
               badge="Trading Tools & Technologies"
               title={<>Built for Speed,<br />Precision & Scale</>}
-              sub="Every tool your trading and technology teams need — from direct market access APIs to live execution and automated reporting."
+              sub="Everything a trader needs — TradingView charting, copy trading, live analytics, and real-time market context, all inside the platform."
             />
             <div className="flex flex-col gap-3">
               {tradingTools.map((t, idx) => {
@@ -630,26 +661,26 @@ export default function PlatformPage() {
               })}
             </div>
           </div>
-          {/* Right — broker features */}
+          {/* Right — manager/admin features */}
           <div>
             <div className="sticky top-8">
               <div className="mb-6 reveal" data-dir="right">
-                <DiagBadge label="Broker-Focused" color="blue" />
+                <DiagBadge label="Manager & Admin Focused" color="blue" />
                 <h3 className="mt-4 font-bold text-[22px] tracking-tight text-gray-900 dark:text-white">
-                  OrbitFX Brings a Range of<br />Broker-Focused Features
+                  OrbitFX Brings a Range of<br />Back-Office Controls
                 </h3>
                 <p className="mt-2 text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed">
-                  Every feature is designed with the broker operator in mind — not just the trader. We solve the compliance, operations, and revenue challenges that matter to your business.
+                  Every feature is designed with the manager and admin in mind — granular permissions, live risk visibility, and a fully auditable back office.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-3">
                 {[
-                  { icon: DollarSign, title: "Revenue Sharing & Markup", desc: "Configure spread markups, commission structures, and revenue splits per account group or IB tier." },
-                  { icon: Banknote, title: "Credit In/Out Management", desc: "Allocate, adjust, and revoke client credit with full traceability on every adjustment." },
-                  { icon: Bell, title: "Real-Time Notifications", desc: "Deposit, withdrawal, margin call, and KYC alerts delivered instantly via in-app, email, SMS, or push." },
-                  { icon: History, title: "Full Audit Log & History", desc: "Every deposit, withdrawal, credit change, and admin action is logged and searchable for compliance review." },
-                  { icon: Layers, title: "Multi-Account Management", desc: "Clients can hold multiple accounts in different currencies or strategies under one login." },
-                  { icon: Shield, title: "Two-Factor Authentication", desc: "Enforced 2FA for all admin access with IP whitelisting and session management." },
+                  { icon: KeyRound, title: "18+ Granular Permission Keys", desc: "Client ops, finance, trades, tools, and feature access — assign exactly the right access to each manager." },
+                  { icon: ToggleLeft, title: "5 Premium Feature Flags", desc: "Copy Trading, Advanced Analytics, Market News, Economic Calendar, and Referral Program — toggled per manager." },
+                  { icon: Bell, title: "Real-Time Notifications", desc: "Deposit, withdrawal, margin call, and KYC alerts delivered instantly via in-app notifications." },
+                  { icon: History, title: "Full Audit Log & History", desc: "Every deposit, withdrawal, credit change, and manager action is logged and searchable for compliance review." },
+                  { icon: Layers, title: "Multi-Account Management", desc: "Clients hold unlimited LIVE and DEMO accounts under one login, with instant switching and no re-login." },
+                  { icon: Shield, title: "2FA & Google OAuth", desc: "TOTP two-factor authentication plus Google login enforced across all roles." },
                 ].map((f, idx) => {
                   const Icon = f.icon;
                   return (
@@ -673,15 +704,15 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* ── INTEGRATIONS & COMPATIBILITY ──────── */}
+      {/* ── PLATFORM TECHNOLOGY ───────────────── */}
       <section className="py-20 px-[5%] bg-slate-50/80 dark:bg-gray-900/60">
         <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <SectionHead
-                badge="Integrations & Compatibility"
-                title={<>Connect Everything<br />You Already Use</>}
-                sub="OrbitFX plugs into your existing payment providers, liquidity, market data, and audit tooling — no rip-and-replace required."
+                badge="Platform Technology"
+                title={<>Built on Professional-<br />Grade Technology</>}
+                sub="Every component chosen for reliability, speed, and a professional user experience — production-ready with a single Docker deploy."
               />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {integrations.map((int, idx) => {
@@ -719,19 +750,19 @@ export default function PlatformPage() {
                   <span className="text-white text-xs font-bold">CX</span>
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-gray-900 dark:text-white">OrbitFX Integration Hub</div>
-                  <div className="text-[11px] text-gray-400">All connections active</div>
+                  <div className="text-sm font-bold text-gray-900 dark:text-white">OrbitFX System Status</div>
+                  <div className="text-[11px] text-gray-400">All components active</div>
                 </div>
               </div>
               {[
-                { label: "Payment Gateways", status: "7 Active", color: "green" },
-                { label: "Liquidity Providers", status: "15+ Connected", color: "green" },
-                { label: "Chart Providers", status: "2 Active", color: "green" },
-                { label: "News & Analysis", status: "3 Active", color: "green" },
-                { label: "Compliance APIs", status: "Configured", color: "amber" },
+                { label: "TradingView Charts", status: "Live", color: "green" },
+                { label: "WebSocket Price Feed", status: "Connected", color: "green" },
+                { label: "Copy Trading Engine", status: "Active", color: "green" },
+                { label: "PWA Install Service", status: "Available", color: "green" },
+                { label: "2FA / Google OAuth", status: "Enforced", color: "amber" },
                 { label: "Audit & History Engine", status: "Live", color: "green" },
                 { label: "Notification Gateway", status: "Active", color: "green" },
-                { label: "Insurance Module", status: "Configured", color: "amber" },
+                { label: "Docker Deployment", status: "Production", color: "amber" },
               ].map((row) => (
                 <div key={row.label} className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800 last:border-0">
                   <div className="flex items-center gap-3">
@@ -756,7 +787,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Target Audience & Use Cases"
             title="Built for Every Type of Brokerage"
-            sub="Whether you're launching your first broker or scaling an institutional desk — OrbitFX adapts to your operation."
+            sub="Whether you're launching your first broker or scaling a manager/IB network — OrbitFX adapts to your operation."
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -873,17 +904,17 @@ export default function PlatformPage() {
           <SectionHead
             badge="Security & Infrastructure"
             title="Enterprise-Grade Security You Can Trust"
-            sub="OrbitFX operates on ISO 27001-compliant cloud infrastructure with multi-region redundancy and 99.9%+ uptime SLA."
+            sub="OrbitFX secures every role with 2FA and OAuth, keeps a full audit trail, and deploys production-ready via Docker."
             center
           />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { icon: Shield, label: "256-bit TLS Encryption" },
-              { icon: Lock, label: "2FA & IP Whitelisting" },
-              { icon: Database, label: "Multi-Region Redundancy" },
-              { icon: RefreshCw, label: "Automated Backups" },
-              { icon: Activity, label: "99.9% Uptime SLA" },
-              { icon: FileText, label: "ISO 27001 Compliant" },
+              { icon: Lock, label: "2FA / TOTP" },
+              { icon: KeyRound, label: "Google OAuth Login" },
+              { icon: Wifi, label: "Real-Time WebSockets" },
+              { icon: ToggleLeft, label: "Two-Gate Feature Flags" },
+              { icon: FileText, label: "Full Audit Log" },
+              { icon: Database, label: "Docker Deployment" },
             ].map((s, idx) => {
               const Icon = s.icon;
               return (
@@ -910,7 +941,7 @@ export default function PlatformPage() {
           <SectionHead
             badge="Explore in Action"
             title="One Platform, Every Screen"
-            sub="OrbitFX works seamlessly across desktop, web browser, and native mobile. Your clients get a consistent experience wherever they trade."
+            sub="OrbitFX works seamlessly across desktop, web browser, and an installable PWA. Your clients get a consistent experience wherever they trade."
             center
           />
           {/* Device cards */}
@@ -992,7 +1023,7 @@ export default function PlatformPage() {
       {/* ── FAQs ──────────────────────────────── */}
       <section className="py-20 px-[5%] bg-slate-50/80 dark:bg-gray-900/60">
         <div className="max-w-[1280px] mx-auto">
-          <SectionHead badge="FAQs" title="Frequently Asked Questions" sub="Everything you need to know about the OrbitFX Platform." center />
+          <SectionHead badge="FAQs" title="Frequently Asked Questions" sub="Everything you need to know about the OrbitFX Solution." center />
           <div className="max-w-[860px] mx-auto flex flex-col gap-2">
             {faqs.map((f, i) => (
               <Card
