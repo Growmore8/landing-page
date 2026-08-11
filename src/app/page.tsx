@@ -7,6 +7,8 @@ import { Icon } from "@iconify/react";
 import Homes from "@/components/Home/home";
 import { useRouter } from "next/navigation";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Payment from "@/components/Home/payment-gateway-section"
+import Image from "next/image";
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface FAQItem { q: string; a: string; }
 interface NewsItem { category: string; title: string; img: string; }
@@ -176,9 +178,9 @@ function Home() {
               ))}
             </div>
             <div className="ha ha-5 flex flex-col sm:flex-row gap-3">
-              <Button onClick={()=>router.push("/contact-sale")} className="rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-gray-200 px-7 py-3 font-bold tracking-widest uppercase text-[10px] font-mono">Request a Demo →</Button>
-              <Button onClick={()=>router.push("/platform")}
-              variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 py-3 font-bold tracking-wide text-sm">Explore Platform</Button>
+              <Button onClick={() => router.push("/contact-sale")} className="rounded-none bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-gray-200 px-7 py-3 font-bold tracking-widest uppercase text-[10px] font-mono">Request a Demo →</Button>
+              <Button onClick={() => router.push("/platform")}
+                variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-6 py-3 font-bold tracking-wide text-sm">Explore Platform</Button>
             </div>
           </div>
 
@@ -309,7 +311,7 @@ function WhyChooseUs() {
           <div className="reveal border border-indigo-500/10 bg-indigo-500/5 dark:bg-indigo-950/20 p-8" data-dir="right" data-delay="120">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-14 h-14 border border-indigo-500/20 bg-indigo-500/10 mb-4">
-                <span className="font-black text-xl text-indigo-500 font-mono">CX</span>
+                <Image src="/Orbit1.png" alt="OrbitFX" width={32} height={32} className="object-contain" />
               </div>
               <h3 className="font-bold text-xl mb-2 text-gray-900 dark:text-white">OrbitFX Trading Suite</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">Web terminal, mobile app, and risk desk — all white-labelled under your brand.</p>
@@ -391,9 +393,9 @@ function InsideVertexTrader() {
                 {tabs.map((_, i) => (<button key={i} onClick={() => goTo(i)} className={`transition-all duration-300 ${i === activeTab ? "w-6 h-1.5 bg-indigo-500" : i < activeTab ? "w-1.5 h-1.5 bg-gray-400" : "w-1.5 h-1.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-400"}`} />))}
               </div>
               <div className="flex-1" />
-              <Button 
-              onClick={()=>router.push("/features")}
-              className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 px-5 py-2 font-bold tracking-widest uppercase text-xs">Learn More</Button>
+              <Button
+                onClick={() => router.push("/features")}
+                className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-200 px-5 py-2 font-bold tracking-widest uppercase text-xs">Learn More</Button>
             </div>
           </div>
           <div className="reveal overflow-hidden border border-gray-200 dark:border-gray-700 aspect-video" data-dir="right" data-delay="260">
@@ -603,9 +605,9 @@ function Onboarding() {
               <button onClick={() => goTo(active + 1)} disabled={active === steps.length - 1} className="w-10 h-10 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 hover:border-indigo-500/50 hover:text-indigo-500 disabled:opacity-25 disabled:cursor-not-allowed transition-all"><Icon icon="solar:arrow-right-bold" width={16} /></button>
               <span className="text-gray-400 text-xs font-mono ml-1">{active + 1} / {steps.length}</span>
               <div className="flex-1" />
-              <Button 
-              onClick={()=>router.push("/pricing")}
-              className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-5 py-2 font-bold tracking-widest uppercase text-xs">Get Started</Button>
+              <Button
+                onClick={() => router.push("/pricing")}
+                className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-5 py-2 font-bold tracking-widest uppercase text-xs">Get Started</Button>
             </div>
           </div>
           <div className="reveal transition-all duration-300" data-dir="right" data-delay="260"
@@ -651,7 +653,7 @@ function PainPoints() {
   const featured = POINTS[0];
 
   return (
-    <section ref={ref} className="relative py-24 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <section ref={ref} className="relative py-24 overflow-hidden">
       <div className="relative max-w-5xl mx-auto px-6">
 
         {/* Header */}
@@ -837,13 +839,22 @@ function FAQSection() {
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 function CTA() {
-  const router= useRouter();
+  const router = useRouter();
   const ref = useScrollReveal() as React.RefObject<HTMLDivElement>;
   return (
     <section ref={ref} className="py-28 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
-        <div className="reveal w-[88px] h-[88px] border border-indigo-500/20 bg-indigo-500/10 flex items-center justify-center mx-auto mb-7" data-dir="fade" data-delay="0">
-          <span className="font-black text-[22px] tracking-tight text-indigo-500 dark:text-indigo-400 font-mono">CX</span>
+        <div
+          className="reveal relative w-[88px] h-[88px] border border-indigo-500/20 bg-indigo-500/10 flex items-center justify-center mx-auto mb-7 p-4"
+          data-dir="fade" data-delay="0"
+        >
+          <Image
+            src="/Orbit1.png"
+            alt="OrbitFX"
+            fill
+            sizes="88px"
+            className="object-contain p-3"
+          />
         </div>
         <div className="reveal mb-5 inline-block" data-dir="up" data-delay="80"><DiagBadge label="Get Started Today" /></div>
         <h2 className="reveal max-w-4xl text-[clamp(2rem,5vw,3.8rem)] font-black leading-[1.08] tracking-tight mb-5 text-gray-900 dark:text-white" data-dir="up" data-delay="140">
@@ -854,9 +865,9 @@ function CTA() {
         </p>
 
         <div className="reveal flex flex-wrap gap-3 justify-center mb-7" data-dir="up" data-delay="260">
-          <Button 
-          onClick={() => router.push("/contact")}
-          className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-8 py-3 font-bold tracking-widest uppercase text-xs">Request a Demo →</Button>
+          <Button
+            onClick={() => router.push("/contact")}
+            className="rounded-none bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-700 px-8 py-3 font-bold tracking-widest uppercase text-xs">Request a Demo →</Button>
           <Button variant="outline" className="rounded-none border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-8 py-3 font-bold tracking-wide text-sm">Talk to Sales</Button>
         </div>
         <div className="reveal flex flex-wrap justify-center gap-x-5 gap-y-1" data-dir="up" data-delay="320">
@@ -870,12 +881,11 @@ function CTA() {
     </section>
   );
 }
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950">
-      
+
       <Home />
       <StatBar />
       <AboutUs />
@@ -885,8 +895,9 @@ export default function HomePage() {
       <Highlights />
       <Testimonials />
       <Onboarding />
-      <PainPoints />
       <NewsSection />
+      <PainPoints />
+      <Payment />
       <FAQSection />
       <CTA />
     </main>

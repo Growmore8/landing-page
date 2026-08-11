@@ -12,6 +12,8 @@ import {
     BarChart2,
     Zap,
     LifeBuoy,
+    Layers,
+    Coins,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -31,7 +33,14 @@ const resourcesNav = [
     { icon: BookOpen, label: "Documentation", sub: "Guides, API refs and platform docs", href: "/resources#documentation" },
     { icon: BarChart2, label: "Comparisons", sub: "See how OrbitFX stacks up", href: "/resources#comparisons" },
     { icon: Zap, label: "Quick Access", sub: "Tools and shortcuts at a glance", href: "/resources#quick" },
+];
 
+// Payment mega menu — sections on the /payment page (CipherBC-powered deposits)
+const paymentNav = [
+    { icon: ShieldCheck, label: "Why CipherBC", sub: "MPC custody, HSM security & compliance", href: "/payment#why-cipherbc" },
+    { icon: Zap, label: "How It Works", sub: "Deposit to balance in four steps", href: "/payment#how-it-works" },
+    { icon: Coins, label: "Supported Assets", sub: "90+ networks and 1,500+ tokens", href: "/payment#supported-assets" },
+    { icon: LifeBuoy, label: "Security & Compliance", sub: "Segregated custody & audit trail", href: "/payment#security-compliance" },
 ];
 
 const navItems = [
@@ -41,12 +50,15 @@ const navItems = [
     { name: "Pricing", href: "/pricing" },
     { name: "Company", href: "/company", hasMega: "company" },
     { name: "Resources", href: "/resources", hasMega: "resources" },
+    { name: "Payment", href: "/payment", hasMega: "payment" },
     { name: "Get In Touch", href: "/contact" },
 ];
 
+type MegaType = "company" | "resources" | "payment";
+
 function AnimatedLink({ name, href, className = "" }: { name: string; href: string; className?: string }) {
     return (
-        <Link href={href} className={`group text-gray-800 dark:text-gray-200 text-md font-medium flex overflow-hidden ${className}`}>
+        <Link href={href} className={`group text-gray-800 dark:text-gray-200 text-md text-sm flex overflow-hidden ${className}`}>
             {name.split("").map((c, i) => (
                 <span
                     key={i}
@@ -185,13 +197,73 @@ function ResourcesMegaMenu({ visible }: { visible: boolean }) {
     );
 }
 
+function PaymentMegaMenu({ visible }: { visible: boolean }) {
+    return (
+        <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] z-50
+            border border-gray-200 dark:border-gray-800
+            bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-xl shadow-black/10
+            transition-all duration-200 origin-top
+            ${visible ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"}`}
+        >
+            <div className="px-5 py-3 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                <span className="text-[10px] font-extrabold tracking-[2px] uppercase text-indigo-500">Payment</span>
+                <Link href="/payment" className="text-[11px] font-bold text-gray-400 hover:text-indigo-500 transition-colors tracking-wide">
+                    View all →
+                </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-px bg-gray-100 dark:bg-gray-800 p-px">
+                {paymentNav.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <Link
+                            key={item.label}
+                            href={item.href}
+                            className="group flex items-start gap-3 p-4
+                                bg-white dark:bg-gray-950
+                                hover:bg-indigo-50 dark:hover:bg-indigo-950/40
+                                transition-colors duration-150 no-underline"
+                        >
+                            <div className="flex-shrink-0 mt-0.5 flex h-8 w-8 items-center justify-center
+                                border border-indigo-100 dark:border-indigo-900
+                                bg-indigo-50 dark:bg-indigo-950/40
+                                group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/60
+                                group-hover:border-indigo-300 dark:group-hover:border-indigo-700
+                                transition-colors"
+                            >
+                                <Icon className="h-3.5 w-3.5 text-indigo-500" />
+                            </div>
+                            <div className="min-w-0">
+                                <div className="text-[12px] font-bold text-gray-900 dark:text-white leading-snug
+                                    group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                    {item.label}
+                                </div>
+                                <div className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 leading-snug truncate">
+                                    {item.sub}
+                                </div>
+                            </div>
+                        </Link>
+                    );
+                })}
+            </div>
+
+            <div className="px-5 py-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span className="text-[11px] text-gray-400 dark:text-gray-500">
+                    Secure deposits powered by CipherBC
+                </span>
+            </div>
+        </div>
+    );
+}
+
 export default function Navbar() {
     const router = useRouter();
     const [mobileOpen, setMobileOpen] = useState(false);
-    // ✅ Separate desktop open state per mega type
-    const [desktopOpen, setDesktopOpen] = useState<"company" | "resources" | null>(null);
-    // ✅ Separate mobile accordion state per mega type
-    const [mobileAccordion, setMobileAccordion] = useState<"company" | "resources" | null>(null);
+    // ✅ Desktop open state covers all three mega types
+    const [desktopOpen, setDesktopOpen] = useState<MegaType | null>(null);
+    // ✅ Mobile accordion state covers all three mega types
+    const [mobileAccordion, setMobileAccordion] = useState<MegaType | null>(null);
 
     const navRef = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -206,7 +278,7 @@ export default function Navbar() {
         return () => document.removeEventListener("mousedown", handleClick);
     }, []);
 
-    function handleMouseEnter(type: "company" | "resources") {
+    function handleMouseEnter(type: MegaType) {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         setDesktopOpen(type);
     }
@@ -215,8 +287,14 @@ export default function Navbar() {
         timeoutRef.current = setTimeout(() => setDesktopOpen(null), 120);
     }
 
-    function toggleMobileAccordion(type: "company" | "resources") {
+    function toggleMobileAccordion(type: MegaType) {
         setMobileAccordion((prev) => (prev === type ? null : type));
+    }
+
+    function navForType(type: MegaType) {
+        if (type === "company") return companyNav;
+        if (type === "resources") return resourcesNav;
+        return paymentNav;
     }
 
     return (
@@ -245,11 +323,11 @@ export default function Navbar() {
                             <div
                                 key={item.name}
                                 className="relative"
-                                onMouseEnter={() => handleMouseEnter(item.hasMega as "company" | "resources")}
+                                onMouseEnter={() => handleMouseEnter(item.hasMega as MegaType)}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <button
-                                    className="group text-gray-800 dark:text-gray-200 text-md font-medium flex items-center gap-0 cursor-pointer bg-transparent border-none p-0 m-0 font-[inherit] leading-none"
+                                    className="group text-gray-800 dark:text-gray-200 text-sm font-medium flex items-center gap-0 cursor-pointer bg-transparent border-none p-0 m-0 font-[inherit] leading-none"
                                 >
                                     {item.name.split("").map((c, i) => (
                                         <span
@@ -274,6 +352,7 @@ export default function Navbar() {
 
                                 {item.hasMega === "company" && <CompanyMegaMenu visible={desktopOpen === "company"} />}
                                 {item.hasMega === "resources" && <ResourcesMegaMenu visible={desktopOpen === "resources"} />}
+                                {item.hasMega === "payment" && <PaymentMegaMenu visible={desktopOpen === "payment"} />}
                             </div>
                         ) : (
                             <AnimatedLink key={item.name} name={item.name} href={item.href} />
@@ -311,7 +390,7 @@ export default function Navbar() {
                                     item.hasMega ? (
                                         <div key={item.name} className="border-b border-gray-100 dark:border-gray-800">
                                             <button
-                                                onClick={() => toggleMobileAccordion(item.hasMega as "company" | "resources")}
+                                                onClick={() => toggleMobileAccordion(item.hasMega as MegaType)}
                                                 className="w-full flex items-center justify-between py-4 text-left font-medium text-gray-900 dark:text-white"
                                             >
                                                 <span>{item.name}</span>
@@ -320,7 +399,7 @@ export default function Navbar() {
 
                                             <div className={`overflow-hidden transition-all duration-300 ${mobileAccordion === item.hasMega ? "max-h-[800px] opacity-100 pb-4" : "max-h-0 opacity-0"}`}>
                                                 <div className="space-y-1">
-                                                    {(item.hasMega === "company" ? companyNav : resourcesNav).map((c) => {
+                                                    {navForType(item.hasMega as MegaType).map((c) => {
                                                         const Icon = c.icon;
                                                         return (
                                                             <Link
